@@ -1,6 +1,6 @@
 /** Primera guía de ejercicios del Labo de programación de 
 Algoritmos y Estructura de Datos 1*/
-# include <iostream>
+#include <iostream>
 
 /** f: Recibe dos enteros (x e y) y retorna un entero igual la suma,
 en caso de que x > y. En caso contrario retorna un entero igual a la 
@@ -35,18 +35,8 @@ bool esPrimo(int n){
     return (count==0);
 }
 
-/** fibonacciRecursiva: calcula el n-esimo termino de la serie de Fibonacci
- * de modo recursivo.
- * recibe:
- * -------
- * n : int
- *    Termino de la serie hasta el cual se requiere calcular.
- * 
- * retorna:
- * ------- 
- * int
- *    n-ésimo término de la serie de Fibonacci.   
-*/
+/** fibonacciRecursiva: Recibe un entero (n) y devuelve otro entero correspondiente
+ al n-esimo término de la serie de Fibonacci, de modo recursivo.*/
 int fibonacciRecursiva(int n){
     if (n==0){
 
