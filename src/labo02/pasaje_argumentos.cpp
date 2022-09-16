@@ -13,6 +13,7 @@ void swap(int &a, int &b);
 
 void collatz_iterativo(int n, int &cantPasos);
 
+void division(int dividendo, int divisor, int &cociente, int &resto);
 
 int main(){
     // - Ejercicio 5
