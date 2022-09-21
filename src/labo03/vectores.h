@@ -21,7 +21,7 @@ vector<int> reverso(vector<int> v);
 // Dado un vector v, devuelve el reverso.
 
 //Ejercicio
-vector<int> rotar(vector<int> v, int k);
+vector<int> rotar(const vector<int> &v, int k);
 // Dado un vector v y un entero k, rotar k posiciones los elementos de v.
 // [1,2,3,4,5,6] rotado 2, deberia dar [3,4,5,6,1,2].
 

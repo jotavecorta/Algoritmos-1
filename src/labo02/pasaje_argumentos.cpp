@@ -145,3 +145,18 @@ void collatz_iterativo(int n, int &cantPasos){
     // Printeo una nueva linea para finalizar
     std::cout << "\n";
 }
+
+/*division: recibe dos enteros, dividendo y divisor -el último mayor a cero-, y modifica
+los enteros, cociente y resto, con el resultado de la division entera entre dividendo y
+divisor y el resto, respectivamente.*/
+void division(int dividendo, int divisor, int &cociente, int &resto){
+    // Inicializo los valores a modificar
+    cociente = 0;
+    resto = dividendo;
+
+    // Me fijo cuantas veces entra el divisor en el dividendo
+    while(resto >= divisor){
+        resto -= divisor;
+        cociente++;
+    }       
+}
