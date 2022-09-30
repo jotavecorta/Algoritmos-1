@@ -1,5 +1,6 @@
 #include "vectores.h"
 
+
 // Función para probar en main.cpp si este módulo fue cargado correctamente
 void holaModuloVectores(){
     cout << "El módulo vectores fue cargado correctamente" << endl;
@@ -32,9 +33,9 @@ int mayor(vector<int> v){
 	return maximo;
 }
 
-// //Ejercicio
+/*reverso: Dado un vector v, devuelve el reverso.*/
 vector<int> reverso(vector<int> v){
-// 	// Dado un vector v, devuelve el reverso.
+
     vector<int> vector_reverso = v;
 	int size = vector_reverso.size();
     
@@ -96,10 +97,10 @@ vector<int> factoresPrimos(int n){
 	return factores;
 }
 
-// //Ejercicio
+/*mostrarVector: dado un vector V de enteros muestra por la salida estándar, el vector. 
+Ejemplo: si el vector es <1, 2, 5, 65> se debe mostrar en pantalla [1, 2, 5, 65]*/
 void mostrarVector(vector<int> v){
-	//que dado un vector de enteros muestra por la salida estándar, el vector
-	// Ejemplo: si el vector es <1, 2, 5, 65> se debe mostrar en pantalla [1, 2, 5, 65]
+
 	int i = 0;
 	
 	cout << "[";
@@ -116,3 +117,162 @@ void mostrarVector(vector<int> v){
 	
 	cout << "]";
 }
+
+// Ejercicios de lectura y escritura de archivos
+
+/*leerVector: toma un string conteniendo el nombre de un archivo*/
+vector<int> leerVector(string nombreArchivo){
+	// Inicializamos el vector de salida y el archivo de entrada
+	vector<int> vector_salida;
+	ifstream file_in;
+
+	// Inicializo el directorio de los datos (relativo)
+	string data_dir = "../../data/";
+
+	// abrimos el archivo y leemos los datos
+	file_in.open(data_dir + nombreArchivo, ios::in); 
+
+	if (!file_in.fail()){
+		// Si el archivo existe y tenemos permisos de lectura
+		int v = 0;
+
+		while (file_in >> v){
+			vector_salida.push_back(v);	
+		}
+
+	}else{
+		// Caso contrario mostramos un mensaje de error
+		cout << "Error: El archivo solicitado no existe "; 
+		cout << "o no se tienen permisos de lectura sobre el mismo." << "\n";
+
+		vector_salida.push_back(-999);
+	}
+
+
+	file_in.close();
+		
+	return vector_salida;
+}	
+
+/*guardarVector: toma un vector v y el nombre de un archivo -junto con su extensión- y
+se escribe el vector en la última línea del archivo.*/
+void guardarVector(const vector<int> &v, string nombreArchivo){
+	// Inicializo el archivo de salida y el directorio con los datos
+	ofstream out_file;
+	string data_dir = "../../data/";
+
+	// Abrimos el archivo y escribimos
+	out_file.open(data_dir + nombreArchivo, ios_base::app);
+	if (!out_file.fail()){
+		// Si tenemos permiso de escritura
+		int i = 0;
+		
+		out_file << "[";
+
+		// Escribimos el vector 
+		while (i < v.size()){
+			if (i == v.size() - 1){
+				out_file << v[i];
+			}else{
+				out_file << v[i] << ", ";			
+			}
+			i++;
+		}
+		
+		out_file << "]";
+		cout << "Guardado exitoso en: " << data_dir + nombreArchivo << "\n";
+
+	}else{
+		// Caso contrario mostramos un mensaje de error
+		cout << "Error: No se poseen permisos de escritura sobre "; 
+		cout << "el archivo o directorio solicitado." << "\n";		
+	}
+
+	// Cerramos el archivo
+	out_file.close();
+}	
+
+int sumaVector(const vector<int> &v){
+	int suma = 0;
+	for (int i = 0; i < v.size(); i++){
+		suma += v[i];
+	}
+	return suma;
+}
+
+/*elementoMedio: Dado un vector V de enteros encuentra el primer elemento de 
+izquierda a derecha tal que los elementos a su izquierda suman más que los que
+están a su derecha. 
+Ejemplo: <1, 2, 3, 4> el resultado es 3 porque (1+2) < 3 + 4 y (1 + 2 +
+3) > 4. */
+int elementoMedio(const vector<int> &v){
+	int idx = 0;
+	int sum_izquierda = 0;
+	int sum_derecha = sumaVector(v);
+
+	while (sum_izquierda <= sum_derecha){		
+		sum_izquierda += v[idx];
+		sum_derecha -= v[idx];
+		idx++;
+	}
+
+	return v[idx-1];
+}
+
+/*cantApariciones: Dado un archivo que contiene una lista de números, 
+cuenta la cantidad de apariciones de cada uno y crea en un archivo
+en el directorio con el mismo nombre del archivo de entrada -y extensión .out-, 
+de manera de tener una línea por cada número encontrado, un espacio y su 
+cantidad de apariciones.*/
+void cantApariciones(string file_name){
+	// Inicializo vectores para guardar elementos del archivo
+	vector<int> elem_distintos;
+	vector<int> v = leerVector(file_name + ".in");
+
+	int apariciones = 0;
+
+	// Directorio de salida
+	string out_dir = "../../data/out/";
+
+	// Abro el archivo de salida
+	ofstream out_file;
+	out_file.open(out_dir + file_name + ".out", ios_base::app);
+
+	for (int i = 0; i < v.size(); i++){
+		
+		if (count(elem_distintos.begin(), elem_distintos.end(), v[i]) == 0){
+			// Si es la primera vez que aparece ese elemento
+			// Guardo en elementos distintos y cuento apariciones
+			elem_distintos.push_back(v[i]);
+			apariciones = count(v.begin(), v.end(), v[i]);
+			
+			// Escribo en el archivo de salida
+			out_file << v[i] << " " << apariciones << "\n";
+		}
+	}
+
+	out_file.close();
+}
+
+
+int cantidadAparicionesDePalabra(string nombreArchivo, string palabra){
+	int cantidad_apariciones = 0;
+	string data_dir = "../../data/";
+	string word;
+	
+	// Inicializo un stream de entrada y abro el archivo
+	ifstream in_file;
+	in_file.open(data_dir + nombreArchivo, ios::in);
+
+	// Chequeo que exista el archivo y leo palabra a palabra
+	if (!in_file.fail()){
+		while(in_file >> word){
+			if (word == palabra){
+				cantidad_apariciones++;
+			}
+		}	
+	}
+	return cantidad_apariciones;
+}
+
+

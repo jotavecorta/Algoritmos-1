@@ -2,7 +2,9 @@
 #define EJERCICIOS_H
 
 #include <iostream>
+#include <fstream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -35,5 +37,16 @@ void mostrarVector(vector<int> v);
 // Ejemplo: si el vector es <1, 2, 5, 65> se debe mostrar en pantalla [1, 2, 5, 65]
 
 // Y aca van todos los otros headers de los ejercicios del laboratorio
+vector<int> leerVector(string nombreArchivo);
+
+void guardarVector(const vector<int> &v, string nombreArchivo);
+
+int sumaVector(const vector<int> &v);
+
+int elementoMedio(const vector<int> &v);
+
+void cantApariciones(string file_name);
+
+int cantidadAparicionesDePalabra(string nombreArchivo, string palabra);
 
 #endif
