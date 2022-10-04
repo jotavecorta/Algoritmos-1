@@ -10,24 +10,26 @@ using namespace std;
 bool estaOrdenadoAsc(vector<int> v){
   int i=0;
   int longitud = v.size();
-  bool esMenor;
-  while(i<=longitud-2 && esMenor){
-    esMenor = v[i]<=v[i+1];
+  bool esMenor = true;
+
+  while( i <= longitud-2 && esMenor){
+    esMenor = v[i] <= v[i+1];
     i++;
   }
-  return i==longitud-1;
+
+  return esMenor;
 }
 
 bool estaOrdenadoDesc(vector<int> v){
   int longitud = v.size();
   int i=0;
-  bool esMayor;
+  bool esMayor = true;
   while(i<=longitud-2 && esMayor){
-    esMayor = v[i]>=v[i+1];
+    esMayor = v[i] >= v[i+1];
     i++;
   }
 
-  return i==longitud-1;
+  return esMayor;
 }
 
 bool estaOrdenado(vector<int> v){
@@ -44,17 +46,30 @@ bool estaOrdenado(vector<int> v){
 // Decidir si un numero es primo.
 bool esPrimo(int numero){
   if(numero>2) {
+    
     int i=2;
+    
     bool divide = false;
-    while(i<=numero && !divide)
-      divide = numero%i != 0;
+    
+    while(i <= numero && !divide){
+      
+      divide = numero % i == 0;
+      
       i++;
-    return i==numero;
-  }
-  else if(numero==2)
+    }
+
+    return i==numero + 1;
+
+  }else if(numero==2){
+
     return true;
-  else
+
+  }else{
+
     return false;
+
+  }
+
 }
 
 /************* Ejercicio 3 *************/
@@ -62,16 +77,20 @@ bool esPrimo(int numero){
 // Decidir si un elemento dado pertenece al vector.
 bool pertenece(int elemento, vector<int> v){
   int longitud = v.size();
+  
   if(longitud==0)
    return false;
   else {
-   int i=0;
+   
+   int i = 0;
    bool sigo = true;
-   while((i<longitud) && sigo){
-    sigo = v[i]!=elemento;
+   
+   while((i < longitud) && sigo){
+    sigo = v[i]!=elemento; 
     i++;
-  }
-   return i<longitud;
+   }
+   
+   return i < longitud || !sigo;
   }
 }
 
@@ -79,8 +98,10 @@ bool pertenece(int elemento, vector<int> v){
 
 // Encontrar el desvio estandar de un vector de floats.
 float promedio(vector<float> v){
+  
   int longitud = v.size();
   int suma=0;
+  
   for(int i=0; i<=longitud-1; i++)
     suma+=v[i];
   return suma/longitud;
@@ -88,14 +109,20 @@ float promedio(vector<float> v){
 
 float sumaDeCuadrados(vector<float> v){
   float sumadecuadrados=0;
-  unsigned int i;
-  for(i=0; i<=v.size()-1; i++);
+  for(int i=0; i<=v.size()-1; i++){
     sumadecuadrados+=pow((v[i]-promedio(v)),2);
+  }
   return sumadecuadrados;
 }
 
 float desvioEstandar(vector<float> v){
-  return sqrt(sumaDeCuadrados(v)/v.size());
+  int n = v.size();
+  if (n == 1){
+    return 0;
+  }else{
+    return sqrt(sumaDeCuadrados(v) / (v.size() - 1));
+  }
+  
 }
 
 
@@ -150,15 +177,15 @@ int maximoComunDivisor(int x, int y){
   int a = maximo(x,y);
   int b = minimo(x,y);
   int resto;
-  while((b!=0) || (b!=1)){
+  while((b!=0) && (b!=1)){
     resto = a%b;
-    b = a;
-    a = resto;
+    a = b;
+    b = resto;
   }
-  if(a==0)
+  if(b==0)
     return a;
   else
-    return 1;
+    return b;
  }
 
 /************* Ejercicio 7 *************/
@@ -206,7 +233,7 @@ float valorMedio() {
   float acum = 0;
   int cont = 0;
 
-  miArchivo.open("datos/SensadoRemoto.txt",ifstream::in);
+  miArchivo.open("../../data/SensadoRemoto.txt", ifstream::in);
   if(miArchivo.is_open()) {
     while(!miArchivo.eof()) {
       miArchivo >> val;
