@@ -327,10 +327,46 @@
 		<Unit filename="/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej1/Test/esPrimoTest.cpp">
 			<Option target="LaboTesting"/>
 		</Unit>
+		<Unit filename="/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej1/Test/puntajeTEST.cpp">
+			<Option target="LaboTesting"/>
+		</Unit>
 		<Unit filename="/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej1/esPrimo.cpp">
 			<Option target="LaboTesting"/>
 		</Unit>
 		<Unit filename="/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej1/esPrimo.h">
+			<Option target="LaboTesting"/>
+		</Unit>
+		<Unit filename="/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej1/puntaje.cpp">
+			<Option target="LaboTesting"/>
+		</Unit>
+		<Unit filename="/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej1/puntaje.h">
+			<Option target="LaboTesting"/>
+		</Unit>
+		<Unit filename="/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej2/Test/llenarTaxisTEST.cpp">
+			<Option target="LaboTesting"/>
+		</Unit>
+		<Unit filename="/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej2/llenarTaxis.cpp">
+			<Option target="LaboTesting"/>
+		</Unit>
+		<Unit filename="/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej2/llenarTaxis.h">
+			<Option target="LaboTesting"/>
+		</Unit>
+		<Unit filename="/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej3/Test/baldosasDelPisoTEST.cpp">
+			<Option target="LaboTesting"/>
+		</Unit>
+		<Unit filename="/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej3/Test/electoresTEST.cpp">
+			<Option target="LaboTesting"/>
+		</Unit>
+		<Unit filename="/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej3/baldosasDelPiso.cpp">
+			<Option target="LaboTesting"/>
+		</Unit>
+		<Unit filename="/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej3/baldosasDelPiso.h">
+			<Option target="LaboTesting"/>
+		</Unit>
+		<Unit filename="/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej3/electores.cpp">
+			<Option target="LaboTesting"/>
+		</Unit>
+		<Unit filename="/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej3/electores.h">
 			<Option target="LaboTesting"/>
 		</Unit>
 		<Unit filename="/home/jotavecorta/proyectos/algoritmos_1/src/labo06/lib/googletest-master/googlemock/src/gmock-all.cc">

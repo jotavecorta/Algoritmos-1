@@ -248,6 +248,33 @@ ej1/Test/esPrimoTest.cpp.s:
 	$(MAKE) -f CMakeFiles/LaboTesting.dir/build.make CMakeFiles/LaboTesting.dir/ej1/Test/esPrimoTest.cpp.s
 .PHONY : ej1/Test/esPrimoTest.cpp.s
 
+ej1/Test/puntajeTEST.o: ej1/Test/puntajeTEST.cpp.o
+
+.PHONY : ej1/Test/puntajeTEST.o
+
+# target to build an object file
+ej1/Test/puntajeTEST.cpp.o:
+	$(MAKE) -f CMakeFiles/LaboTesting.dir/build.make CMakeFiles/LaboTesting.dir/ej1/Test/puntajeTEST.cpp.o
+.PHONY : ej1/Test/puntajeTEST.cpp.o
+
+ej1/Test/puntajeTEST.i: ej1/Test/puntajeTEST.cpp.i
+
+.PHONY : ej1/Test/puntajeTEST.i
+
+# target to preprocess a source file
+ej1/Test/puntajeTEST.cpp.i:
+	$(MAKE) -f CMakeFiles/LaboTesting.dir/build.make CMakeFiles/LaboTesting.dir/ej1/Test/puntajeTEST.cpp.i
+.PHONY : ej1/Test/puntajeTEST.cpp.i
+
+ej1/Test/puntajeTEST.s: ej1/Test/puntajeTEST.cpp.s
+
+.PHONY : ej1/Test/puntajeTEST.s
+
+# target to generate assembly for a file
+ej1/Test/puntajeTEST.cpp.s:
+	$(MAKE) -f CMakeFiles/LaboTesting.dir/build.make CMakeFiles/LaboTesting.dir/ej1/Test/puntajeTEST.cpp.s
+.PHONY : ej1/Test/puntajeTEST.cpp.s
+
 ej1/esPrimo.o: ej1/esPrimo.cpp.o
 
 .PHONY : ej1/esPrimo.o
@@ -274,6 +301,195 @@ ej1/esPrimo.s: ej1/esPrimo.cpp.s
 ej1/esPrimo.cpp.s:
 	$(MAKE) -f CMakeFiles/LaboTesting.dir/build.make CMakeFiles/LaboTesting.dir/ej1/esPrimo.cpp.s
 .PHONY : ej1/esPrimo.cpp.s
+
+ej1/puntaje.o: ej1/puntaje.cpp.o
+
+.PHONY : ej1/puntaje.o
+
+# target to build an object file
+ej1/puntaje.cpp.o:
+	$(MAKE) -f CMakeFiles/LaboTesting.dir/build.make CMakeFiles/LaboTesting.dir/ej1/puntaje.cpp.o
+.PHONY : ej1/puntaje.cpp.o
+
+ej1/puntaje.i: ej1/puntaje.cpp.i
+
+.PHONY : ej1/puntaje.i
+
+# target to preprocess a source file
+ej1/puntaje.cpp.i:
+	$(MAKE) -f CMakeFiles/LaboTesting.dir/build.make CMakeFiles/LaboTesting.dir/ej1/puntaje.cpp.i
+.PHONY : ej1/puntaje.cpp.i
+
+ej1/puntaje.s: ej1/puntaje.cpp.s
+
+.PHONY : ej1/puntaje.s
+
+# target to generate assembly for a file
+ej1/puntaje.cpp.s:
+	$(MAKE) -f CMakeFiles/LaboTesting.dir/build.make CMakeFiles/LaboTesting.dir/ej1/puntaje.cpp.s
+.PHONY : ej1/puntaje.cpp.s
+
+ej2/Test/llenarTaxisTEST.o: ej2/Test/llenarTaxisTEST.cpp.o
+
+.PHONY : ej2/Test/llenarTaxisTEST.o
+
+# target to build an object file
+ej2/Test/llenarTaxisTEST.cpp.o:
+	$(MAKE) -f CMakeFiles/LaboTesting.dir/build.make CMakeFiles/LaboTesting.dir/ej2/Test/llenarTaxisTEST.cpp.o
+.PHONY : ej2/Test/llenarTaxisTEST.cpp.o
+
+ej2/Test/llenarTaxisTEST.i: ej2/Test/llenarTaxisTEST.cpp.i
+
+.PHONY : ej2/Test/llenarTaxisTEST.i
+
+# target to preprocess a source file
+ej2/Test/llenarTaxisTEST.cpp.i:
+	$(MAKE) -f CMakeFiles/LaboTesting.dir/build.make CMakeFiles/LaboTesting.dir/ej2/Test/llenarTaxisTEST.cpp.i
+.PHONY : ej2/Test/llenarTaxisTEST.cpp.i
+
+ej2/Test/llenarTaxisTEST.s: ej2/Test/llenarTaxisTEST.cpp.s
+
+.PHONY : ej2/Test/llenarTaxisTEST.s
+
+# target to generate assembly for a file
+ej2/Test/llenarTaxisTEST.cpp.s:
+	$(MAKE) -f CMakeFiles/LaboTesting.dir/build.make CMakeFiles/LaboTesting.dir/ej2/Test/llenarTaxisTEST.cpp.s
+.PHONY : ej2/Test/llenarTaxisTEST.cpp.s
+
+ej2/llenarTaxis.o: ej2/llenarTaxis.cpp.o
+
+.PHONY : ej2/llenarTaxis.o
+
+# target to build an object file
+ej2/llenarTaxis.cpp.o:
+	$(MAKE) -f CMakeFiles/LaboTesting.dir/build.make CMakeFiles/LaboTesting.dir/ej2/llenarTaxis.cpp.o
+.PHONY : ej2/llenarTaxis.cpp.o
+
+ej2/llenarTaxis.i: ej2/llenarTaxis.cpp.i
+
+.PHONY : ej2/llenarTaxis.i
+
+# target to preprocess a source file
+ej2/llenarTaxis.cpp.i:
+	$(MAKE) -f CMakeFiles/LaboTesting.dir/build.make CMakeFiles/LaboTesting.dir/ej2/llenarTaxis.cpp.i
+.PHONY : ej2/llenarTaxis.cpp.i
+
+ej2/llenarTaxis.s: ej2/llenarTaxis.cpp.s
+
+.PHONY : ej2/llenarTaxis.s
+
+# target to generate assembly for a file
+ej2/llenarTaxis.cpp.s:
+	$(MAKE) -f CMakeFiles/LaboTesting.dir/build.make CMakeFiles/LaboTesting.dir/ej2/llenarTaxis.cpp.s
+.PHONY : ej2/llenarTaxis.cpp.s
+
+ej3/Test/baldosasDelPisoTEST.o: ej3/Test/baldosasDelPisoTEST.cpp.o
+
+.PHONY : ej3/Test/baldosasDelPisoTEST.o
+
+# target to build an object file
+ej3/Test/baldosasDelPisoTEST.cpp.o:
+	$(MAKE) -f CMakeFiles/LaboTesting.dir/build.make CMakeFiles/LaboTesting.dir/ej3/Test/baldosasDelPisoTEST.cpp.o
+.PHONY : ej3/Test/baldosasDelPisoTEST.cpp.o
+
+ej3/Test/baldosasDelPisoTEST.i: ej3/Test/baldosasDelPisoTEST.cpp.i
+
+.PHONY : ej3/Test/baldosasDelPisoTEST.i
+
+# target to preprocess a source file
+ej3/Test/baldosasDelPisoTEST.cpp.i:
+	$(MAKE) -f CMakeFiles/LaboTesting.dir/build.make CMakeFiles/LaboTesting.dir/ej3/Test/baldosasDelPisoTEST.cpp.i
+.PHONY : ej3/Test/baldosasDelPisoTEST.cpp.i
+
+ej3/Test/baldosasDelPisoTEST.s: ej3/Test/baldosasDelPisoTEST.cpp.s
+
+.PHONY : ej3/Test/baldosasDelPisoTEST.s
+
+# target to generate assembly for a file
+ej3/Test/baldosasDelPisoTEST.cpp.s:
+	$(MAKE) -f CMakeFiles/LaboTesting.dir/build.make CMakeFiles/LaboTesting.dir/ej3/Test/baldosasDelPisoTEST.cpp.s
+.PHONY : ej3/Test/baldosasDelPisoTEST.cpp.s
+
+ej3/Test/electoresTEST.o: ej3/Test/electoresTEST.cpp.o
+
+.PHONY : ej3/Test/electoresTEST.o
+
+# target to build an object file
+ej3/Test/electoresTEST.cpp.o:
+	$(MAKE) -f CMakeFiles/LaboTesting.dir/build.make CMakeFiles/LaboTesting.dir/ej3/Test/electoresTEST.cpp.o
+.PHONY : ej3/Test/electoresTEST.cpp.o
+
+ej3/Test/electoresTEST.i: ej3/Test/electoresTEST.cpp.i
+
+.PHONY : ej3/Test/electoresTEST.i
+
+# target to preprocess a source file
+ej3/Test/electoresTEST.cpp.i:
+	$(MAKE) -f CMakeFiles/LaboTesting.dir/build.make CMakeFiles/LaboTesting.dir/ej3/Test/electoresTEST.cpp.i
+.PHONY : ej3/Test/electoresTEST.cpp.i
+
+ej3/Test/electoresTEST.s: ej3/Test/electoresTEST.cpp.s
+
+.PHONY : ej3/Test/electoresTEST.s
+
+# target to generate assembly for a file
+ej3/Test/electoresTEST.cpp.s:
+	$(MAKE) -f CMakeFiles/LaboTesting.dir/build.make CMakeFiles/LaboTesting.dir/ej3/Test/electoresTEST.cpp.s
+.PHONY : ej3/Test/electoresTEST.cpp.s
+
+ej3/baldosasDelPiso.o: ej3/baldosasDelPiso.cpp.o
+
+.PHONY : ej3/baldosasDelPiso.o
+
+# target to build an object file
+ej3/baldosasDelPiso.cpp.o:
+	$(MAKE) -f CMakeFiles/LaboTesting.dir/build.make CMakeFiles/LaboTesting.dir/ej3/baldosasDelPiso.cpp.o
+.PHONY : ej3/baldosasDelPiso.cpp.o
+
+ej3/baldosasDelPiso.i: ej3/baldosasDelPiso.cpp.i
+
+.PHONY : ej3/baldosasDelPiso.i
+
+# target to preprocess a source file
+ej3/baldosasDelPiso.cpp.i:
+	$(MAKE) -f CMakeFiles/LaboTesting.dir/build.make CMakeFiles/LaboTesting.dir/ej3/baldosasDelPiso.cpp.i
+.PHONY : ej3/baldosasDelPiso.cpp.i
+
+ej3/baldosasDelPiso.s: ej3/baldosasDelPiso.cpp.s
+
+.PHONY : ej3/baldosasDelPiso.s
+
+# target to generate assembly for a file
+ej3/baldosasDelPiso.cpp.s:
+	$(MAKE) -f CMakeFiles/LaboTesting.dir/build.make CMakeFiles/LaboTesting.dir/ej3/baldosasDelPiso.cpp.s
+.PHONY : ej3/baldosasDelPiso.cpp.s
+
+ej3/electores.o: ej3/electores.cpp.o
+
+.PHONY : ej3/electores.o
+
+# target to build an object file
+ej3/electores.cpp.o:
+	$(MAKE) -f CMakeFiles/LaboTesting.dir/build.make CMakeFiles/LaboTesting.dir/ej3/electores.cpp.o
+.PHONY : ej3/electores.cpp.o
+
+ej3/electores.i: ej3/electores.cpp.i
+
+.PHONY : ej3/electores.i
+
+# target to preprocess a source file
+ej3/electores.cpp.i:
+	$(MAKE) -f CMakeFiles/LaboTesting.dir/build.make CMakeFiles/LaboTesting.dir/ej3/electores.cpp.i
+.PHONY : ej3/electores.cpp.i
+
+ej3/electores.s: ej3/electores.cpp.s
+
+.PHONY : ej3/electores.s
+
+# target to generate assembly for a file
+ej3/electores.cpp.s:
+	$(MAKE) -f CMakeFiles/LaboTesting.dir/build.make CMakeFiles/LaboTesting.dir/ej3/electores.cpp.s
+.PHONY : ej3/electores.cpp.s
 
 main.o: main.cpp.o
 
@@ -322,9 +538,33 @@ help:
 	@echo "... ej1/Test/esPrimoTest.o"
 	@echo "... ej1/Test/esPrimoTest.i"
 	@echo "... ej1/Test/esPrimoTest.s"
+	@echo "... ej1/Test/puntajeTEST.o"
+	@echo "... ej1/Test/puntajeTEST.i"
+	@echo "... ej1/Test/puntajeTEST.s"
 	@echo "... ej1/esPrimo.o"
 	@echo "... ej1/esPrimo.i"
 	@echo "... ej1/esPrimo.s"
+	@echo "... ej1/puntaje.o"
+	@echo "... ej1/puntaje.i"
+	@echo "... ej1/puntaje.s"
+	@echo "... ej2/Test/llenarTaxisTEST.o"
+	@echo "... ej2/Test/llenarTaxisTEST.i"
+	@echo "... ej2/Test/llenarTaxisTEST.s"
+	@echo "... ej2/llenarTaxis.o"
+	@echo "... ej2/llenarTaxis.i"
+	@echo "... ej2/llenarTaxis.s"
+	@echo "... ej3/Test/baldosasDelPisoTEST.o"
+	@echo "... ej3/Test/baldosasDelPisoTEST.i"
+	@echo "... ej3/Test/baldosasDelPisoTEST.s"
+	@echo "... ej3/Test/electoresTEST.o"
+	@echo "... ej3/Test/electoresTEST.i"
+	@echo "... ej3/Test/electoresTEST.s"
+	@echo "... ej3/baldosasDelPiso.o"
+	@echo "... ej3/baldosasDelPiso.i"
+	@echo "... ej3/baldosasDelPiso.s"
+	@echo "... ej3/electores.o"
+	@echo "... ej3/electores.i"
+	@echo "... ej3/electores.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
