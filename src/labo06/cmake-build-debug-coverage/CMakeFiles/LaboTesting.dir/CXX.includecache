@@ -284,11 +284,35 @@ cxxabi.h
 acxx_demangle.h
 -
 
-/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej3/Test/electoresTEST.cpp
-../electores.h
-/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej3/electores.h
+/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej1/Test/esPrimoTest.cpp
 gtest/gtest.h
-/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej3/Test/gtest/gtest.h
+/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej1/Test/gtest/gtest.h
+../esPrimo.h
+/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej1/esPrimo.h
 
-/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej3/electores.h
+/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej1/Test/puntajeTEST.cpp
+../puntaje.h
+/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej1/puntaje.h
+gtest/gtest.h
+/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej1/Test/gtest/gtest.h
+
+/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej1/esPrimo.cpp
+esPrimo.h
+/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej1/esPrimo.h
+
+/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej1/esPrimo.h
+
+/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej1/puntaje.cpp
+
+/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej1/puntaje.h
+
+/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej2/Test/llenarTaxisTEST.cpp
+../llenarTaxis.h
+/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej2/llenarTaxis.h
+gtest/gtest.h
+/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej2/Test/gtest/gtest.h
+
+/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej2/llenarTaxis.cpp
+
+/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej2/llenarTaxis.h
 

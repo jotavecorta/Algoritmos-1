@@ -87,11 +87,13 @@ bool trasponerTest_test2(){
 			vec[i][j] = i+j;
 		}
 	}
+
 	vector<vector<int> > res = vec;
 	trasponer(vec);
 
     bool out = asegurar(vec == res, true);
     cout << "Test Simetrica: " << out << endl;
+
     return out;
 }
 
