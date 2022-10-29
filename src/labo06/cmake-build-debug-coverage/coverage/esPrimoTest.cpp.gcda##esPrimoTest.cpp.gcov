@@ -1,0 +1,221 @@
+        -:    0:Source:/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej1/Test/esPrimoTest.cpp
+        -:    0:Graph:/home/jotavecorta/proyectos/algoritmos_1/src/labo06/cmake-build-debug-coverage/CMakeFiles/LaboTesting.dir/ej1/Test/esPrimoTest.cpp.gcno
+        -:    0:Data:/home/jotavecorta/proyectos/algoritmos_1/src/labo06/cmake-build-debug-coverage/CMakeFiles/LaboTesting.dir/ej1/Test/esPrimoTest.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "gtest/gtest.h"
+        -:    2:#include "../esPrimo.h"
+        -:    3:
+        2:    4:TEST(EsPrimoTest, NumeroPrimo) {
+        -:    5:    // setup
+        1:    6:    int n = 7;
+        -:    7:    //exercise
+        1:    8:    bool result = esPrimo(n);
+        -:    9:    // check
+       1*:   10:    EXPECT_TRUE(result);
+        1:   11:}
+------------------
+_ZN28EsPrimoTest_NumeroPrimo_Test8TestBodyEv:
+function _ZN28EsPrimoTest_NumeroPrimo_Test8TestBodyEv called 1 returned 100% blocks executed 25%
+        1:    4:TEST(EsPrimoTest, NumeroPrimo) {
+        -:    5:    // setup
+        1:    6:    int n = 7;
+        -:    7:    //exercise
+        1:    8:    bool result = esPrimo(n);
+        1:    8-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:    9:    // check
+       1*:   10:    EXPECT_TRUE(result);
+        1:   10-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   10-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:   10-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   10-block  3
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    %%%%%:   10-block  4
+call   12 never executed
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:   10-block  5
+call   16 never executed
+branch 17 never executed
+branch 18 never executed
+    %%%%%:   10-block  6
+call   19 never executed
+call   20 never executed
+call   21 never executed
+        1:   10-block  7
+call   22 returned 1
+    $$$$$:   10-block  8
+call   23 never executed
+    $$$$$:   10-block  9
+    $$$$$:   10-block 10
+call   24 never executed
+    $$$$$:   10-block 11
+    $$$$$:   10-block 12
+call   25 never executed
+    $$$$$:   10-block 13
+    $$$$$:   10-block 14
+call   26 never executed
+        1:   11:}
+------------------
+_ZN28EsPrimoTest_NumeroPrimo_TestC2Ev:
+function _ZN28EsPrimoTest_NumeroPrimo_TestC2Ev called 1 returned 100% blocks executed 100%
+        1:    4:TEST(EsPrimoTest, NumeroPrimo) {
+        1:    4-block  0
+call    0 returned 1
+------------------
+        -:   12:
+        2:   13:TEST(EsPrimoTest, NumeroCompuesto) {
+        -:   14:    // setup
+        1:   15:    int n = 6;
+        -:   16:    //exercise
+        1:   17:    bool result = esPrimo(n);
+        -:   18:    // check
+       1*:   19:    EXPECT_FALSE(result);
+        1:   20:}
+------------------
+_ZN32EsPrimoTest_NumeroCompuesto_Test8TestBodyEv:
+function _ZN32EsPrimoTest_NumeroCompuesto_Test8TestBodyEv called 1 returned 100% blocks executed 24%
+        1:   13:TEST(EsPrimoTest, NumeroCompuesto) {
+        -:   14:    // setup
+        1:   15:    int n = 6;
+        -:   16:    //exercise
+        1:   17:    bool result = esPrimo(n);
+        1:   17-block  0
+call    0 returned 1
+        -:   18:    // check
+       1*:   19:    EXPECT_FALSE(result);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   19-block  0
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:   19-block  1
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   19-block  2
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    %%%%%:   19-block  3
+call   12 never executed
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:   19-block  4
+call   16 never executed
+branch 17 never executed
+branch 18 never executed
+    %%%%%:   19-block  5
+call   19 never executed
+call   20 never executed
+call   21 never executed
+        1:   19-block  6
+call   22 returned 1
+    $$$$$:   19-block  7
+    $$$$$:   19-block  8
+call   23 never executed
+    $$$$$:   19-block  9
+    $$$$$:   19-block 10
+call   24 never executed
+    $$$$$:   19-block 11
+    $$$$$:   19-block 12
+call   25 never executed
+    $$$$$:   19-block 13
+    $$$$$:   19-block 14
+call   26 never executed
+        1:   20:}
+------------------
+_ZN32EsPrimoTest_NumeroCompuesto_TestC2Ev:
+function _ZN32EsPrimoTest_NumeroCompuesto_TestC2Ev called 1 returned 100% blocks executed 100%
+        1:   13:TEST(EsPrimoTest, NumeroCompuesto) {
+        1:   13-block  0
+call    0 returned 1
+------------------
+        -:   21:
+        2:   22:TEST(EsPrimoTest, CasoBorde) {
+        -:   23:    // setup
+        1:   24:    int n = 0;
+        -:   25:    //exercise
+        1:   26:    bool result = esPrimo(n);
+        -:   27:    // check
+       1*:   28:    EXPECT_FALSE(result);
+        1:   29:}
+------------------
+_ZN26EsPrimoTest_CasoBorde_Test8TestBodyEv:
+function _ZN26EsPrimoTest_CasoBorde_Test8TestBodyEv called 1 returned 100% blocks executed 24%
+        1:   22:TEST(EsPrimoTest, CasoBorde) {
+        -:   23:    // setup
+        1:   24:    int n = 0;
+        -:   25:    //exercise
+        1:   26:    bool result = esPrimo(n);
+        1:   26-block  0
+call    0 returned 1
+        -:   27:    // check
+       1*:   28:    EXPECT_FALSE(result);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   28-block  0
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:   28-block  1
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   28-block  2
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    %%%%%:   28-block  3
+call   12 never executed
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:   28-block  4
+call   16 never executed
+branch 17 never executed
+branch 18 never executed
+    %%%%%:   28-block  5
+call   19 never executed
+call   20 never executed
+call   21 never executed
+        1:   28-block  6
+call   22 returned 1
+    $$$$$:   28-block  7
+    $$$$$:   28-block  8
+call   23 never executed
+    $$$$$:   28-block  9
+    $$$$$:   28-block 10
+call   24 never executed
+    $$$$$:   28-block 11
+    $$$$$:   28-block 12
+call   25 never executed
+    $$$$$:   28-block 13
+    $$$$$:   28-block 14
+call   26 never executed
+        1:   29:}
+------------------
+_ZN26EsPrimoTest_CasoBorde_TestC2Ev:
+function _ZN26EsPrimoTest_CasoBorde_TestC2Ev called 1 returned 100% blocks executed 100%
+        1:   22:TEST(EsPrimoTest, CasoBorde) {
+        1:   22-block  0
+call    0 returned 1
+------------------

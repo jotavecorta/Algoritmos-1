@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/jotavecorta/proyectos/algoritmos_1/src/labo07/ejercicios.cpp
+ejercicios.h
+/home/jotavecorta/proyectos/algoritmos_1/src/labo07/ejercicios.h
+
+/home/jotavecorta/proyectos/algoritmos_1/src/labo07/ejercicios.h
+iostream
+-
+string
+-
+fstream
+-
+vector
+-
+stdlib.h
+-
+sstream
+-
+

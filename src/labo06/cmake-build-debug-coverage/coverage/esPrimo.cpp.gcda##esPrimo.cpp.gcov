@@ -1,0 +1,33 @@
+        -:    0:Source:/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej1/esPrimo.cpp
+        -:    0:Graph:/home/jotavecorta/proyectos/algoritmos_1/src/labo06/cmake-build-debug-coverage/CMakeFiles/LaboTesting.dir/ej1/esPrimo.cpp.gcno
+        -:    0:Data:/home/jotavecorta/proyectos/algoritmos_1/src/labo06/cmake-build-debug-coverage/CMakeFiles/LaboTesting.dir/ej1/esPrimo.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "esPrimo.h"
+        -:    2:
+function _Z7esPrimoi called 3 returned 100% blocks executed 100%
+        3:    3:bool esPrimo(int n) {
+        3:    4:	if (n < 2) {
+        3:    4-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 2
+        1:    5:		return false;
+        1:    5-block  0
+        -:    6:	} else {
+        7:    7:		for (int i = 2; i < n; i++) {
+        2:    7-block  0
+        7:    7-block  1
+branch  0 taken 6 (fallthrough)
+branch  1 taken 1
+        5:    7-block  2
+        6:    8:			if (n % i == 0) {
+        6:    8-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 5
+        1:    9:				return false;
+        1:    9-block  0
+        -:   10:			}
+        -:   11:		}
+        1:   12:		return true;
+        1:   12-block  0
+        -:   13:	}
+        -:   14:}

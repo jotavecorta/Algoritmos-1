@@ -1,0 +1,65 @@
+        -:    0:Source:/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej2/llenarTaxis.cpp
+        -:    0:Graph:/home/jotavecorta/proyectos/algoritmos_1/src/labo06/cmake-build-debug-coverage/CMakeFiles/LaboTesting.dir/ej2/llenarTaxis.cpp.gcno
+        -:    0:Data:/home/jotavecorta/proyectos/algoritmos_1/src/labo06/cmake-build-debug-coverage/CMakeFiles/LaboTesting.dir/ej2/llenarTaxis.cpp.gcda
+        -:    0:Runs:1
+function _Z12llenarTaxis1iii called 3 returned 100% blocks executed 100%
+        3:    1:int llenarTaxis1(int g1, int g2, int g3) {
+        3:    2:	int res = g3 + (g2 + 1) / 2 + (g1 + 3) / 4;
+        3:    3:	return res;
+        3:    3-block  0
+        -:    4:}
+        -:    5:
+function _Z12llenarTaxis2iii called 3 returned 100% blocks executed 100%
+        3:    6:int llenarTaxis2(int g1, int g2, int g3) {
+        3:    7:	int res = g3;
+        -:    8:
+        3:    9:	if (g1 <= g3) {
+        3:    9-block  0
+branch  0 taken 2 (fallthrough)
+branch  1 taken 1
+        2:   10:		g1 = 0;
+        2:   10-block  0
+        -:   11:	} else {
+        1:   12:		g1 = g1 - g3;
+        1:   12-block  0
+        -:   13:	}
+        -:   14:
+        3:   15:	return res + (g2 + 1) / 2 + (g1 + 3) / 4;
+        3:   15-block  0
+        -:   16:}
+        -:   17:
+function _Z12llenarTaxis3iii called 3 returned 100% blocks executed 89%
+        3:   18:int llenarTaxis3(int g1, int g2, int g3) {
+        3:   19:	int res = g3;
+        -:   20:
+        3:   21:	if (g1 <= g3) {
+        3:   21-block  0
+branch  0 taken 2 (fallthrough)
+branch  1 taken 1
+        2:   22:		g1 = 0;
+        2:   22-block  0
+        -:   23:	} else {
+        1:   24:		g1 = g1 - g3;
+        1:   24-block  0
+        -:   25:	}
+        -:   26:
+        3:   27:	res = res + g2 / 2;
+        3:   28:	if (g2 % 2 == 0) {
+        3:   28-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 2
+        1:   29:		if (g1 >= 2) {
+        1:   29-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    #####:   30:			g1 = g1 - 2;
+    %%%%%:   30-block  0
+        -:   31:		} else {
+        1:   32:			g1 = 0;
+        1:   32-block  0
+        -:   33:		}
+        -:   34:	}
+        -:   35:
+        3:   36:	return res + (g1 + 3) / 4;
+        3:   36-block  0
+        -:   37:}

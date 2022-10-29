@@ -1,0 +1,1 @@
+/usr/bin/c++  --coverage -g   CMakeFiles/Labo07.dir/main.cpp.o CMakeFiles/Labo07.dir/ejercicios.cpp.o CMakeFiles/Labo07.dir/cases.cpp.o  -o Labo07  lib/googletest-master/googlemock/gtest/libgtestd.a lib/googletest-master/googlemock/gtest/libgtest_maind.a lib/googletest-master/googlemock/gtest/libgtestd.a -pthread 

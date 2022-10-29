@@ -1,0 +1,282 @@
+        -:    0:Source:/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej1/Test/puntajeTEST.cpp
+        -:    0:Graph:/home/jotavecorta/proyectos/algoritmos_1/src/labo06/cmake-build-debug-coverage/CMakeFiles/LaboTesting.dir/ej1/Test/puntajeTEST.cpp.gcno
+        -:    0:Data:/home/jotavecorta/proyectos/algoritmos_1/src/labo06/cmake-build-debug-coverage/CMakeFiles/LaboTesting.dir/ej1/Test/puntajeTEST.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "../puntaje.h"
+        -:    2:#include "gtest/gtest.h"
+        -:    3:
+        2:    4:TEST(PuntajeTest, MenorQueDiezYDivisiblePorTres){
+        -:    5:    // Setup
+        1:    6:    int b = 3;
+        -:    7:    // Exercise
+        1:    8:    int result = puntaje(b);
+        -:    9:    // Check
+       1*:   10:    EXPECT_EQ(result, 16);
+        1:   11:}
+------------------
+_ZN46PuntajeTest_MenorQueDiezYDivisiblePorTres_Test8TestBodyEv:
+function _ZN46PuntajeTest_MenorQueDiezYDivisiblePorTres_Test8TestBodyEv called 1 returned 100% blocks executed 28%
+        1:    4:TEST(PuntajeTest, MenorQueDiezYDivisiblePorTres){
+        -:    5:    // Setup
+        1:    6:    int b = 3;
+        -:    7:    // Exercise
+        1:    8:    int result = puntaje(b);
+        1:    8-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:    9:    // Check
+       1*:   10:    EXPECT_EQ(result, 16);
+        1:   10-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   10-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:   10-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   10-block  3
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    %%%%%:   10-block  4
+call   12 never executed
+branch 13 never executed
+branch 14 never executed
+    %%%%%:   10-block  5
+call   15 never executed
+branch 16 never executed
+branch 17 never executed
+    %%%%%:   10-block  6
+call   18 never executed
+call   19 never executed
+        1:   10-block  7
+call   20 returned 1
+    $$$$$:   10-block  8
+    $$$$$:   10-block  9
+call   21 never executed
+    $$$$$:   10-block 10
+    $$$$$:   10-block 11
+call   22 never executed
+    $$$$$:   10-block 12
+    $$$$$:   10-block 13
+call   23 never executed
+        1:   11:}
+------------------
+_ZN46PuntajeTest_MenorQueDiezYDivisiblePorTres_TestC2Ev:
+function _ZN46PuntajeTest_MenorQueDiezYDivisiblePorTres_TestC2Ev called 1 returned 100% blocks executed 100%
+        1:    4:TEST(PuntajeTest, MenorQueDiezYDivisiblePorTres){
+        1:    4-block  0
+call    0 returned 1
+------------------
+        -:   12:
+        2:   13:TEST(PuntajeTest, MenorQueDiezYNoDivisiblePorTres){
+        -:   14:    // Setup
+        1:   15:    int b = 2;
+        -:   16:    // Exercise
+        1:   17:    int result = puntaje(b);
+        -:   18:    // Check
+       1*:   19:    EXPECT_EQ(result, -6);
+        1:   20:}
+------------------
+_ZN48PuntajeTest_MenorQueDiezYNoDivisiblePorTres_Test8TestBodyEv:
+function _ZN48PuntajeTest_MenorQueDiezYNoDivisiblePorTres_Test8TestBodyEv called 1 returned 100% blocks executed 28%
+        1:   13:TEST(PuntajeTest, MenorQueDiezYNoDivisiblePorTres){
+        -:   14:    // Setup
+        1:   15:    int b = 2;
+        -:   16:    // Exercise
+        1:   17:    int result = puntaje(b);
+        1:   17-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   18:    // Check
+       1*:   19:    EXPECT_EQ(result, -6);
+        1:   19-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   19-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:   19-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   19-block  3
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    %%%%%:   19-block  4
+call   12 never executed
+branch 13 never executed
+branch 14 never executed
+    %%%%%:   19-block  5
+call   15 never executed
+branch 16 never executed
+branch 17 never executed
+    %%%%%:   19-block  6
+call   18 never executed
+call   19 never executed
+        1:   19-block  7
+call   20 returned 1
+    $$$$$:   19-block  8
+    $$$$$:   19-block  9
+call   21 never executed
+    $$$$$:   19-block 10
+    $$$$$:   19-block 11
+call   22 never executed
+    $$$$$:   19-block 12
+    $$$$$:   19-block 13
+call   23 never executed
+        1:   20:}
+------------------
+_ZN48PuntajeTest_MenorQueDiezYNoDivisiblePorTres_TestC2Ev:
+function _ZN48PuntajeTest_MenorQueDiezYNoDivisiblePorTres_TestC2Ev called 1 returned 100% blocks executed 100%
+        1:   13:TEST(PuntajeTest, MenorQueDiezYNoDivisiblePorTres){
+        1:   13-block  0
+call    0 returned 1
+------------------
+        -:   21:
+        2:   22:TEST(PuntajeTest, MayorQueDiezYDivisiblePorTres){
+        -:   23:    // Setup
+        1:   24:    int b = 12;
+        -:   25:    // Exercise
+        1:   26:    int result = puntaje(b);
+        -:   27:    // Check
+       1*:   28:    EXPECT_EQ(result, 22);
+        1:   29:}
+------------------
+_ZN46PuntajeTest_MayorQueDiezYDivisiblePorTres_Test8TestBodyEv:
+function _ZN46PuntajeTest_MayorQueDiezYDivisiblePorTres_Test8TestBodyEv called 1 returned 100% blocks executed 28%
+        1:   22:TEST(PuntajeTest, MayorQueDiezYDivisiblePorTres){
+        -:   23:    // Setup
+        1:   24:    int b = 12;
+        -:   25:    // Exercise
+        1:   26:    int result = puntaje(b);
+        1:   26-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   27:    // Check
+       1*:   28:    EXPECT_EQ(result, 22);
+        1:   28-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   28-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:   28-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   28-block  3
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    %%%%%:   28-block  4
+call   12 never executed
+branch 13 never executed
+branch 14 never executed
+    %%%%%:   28-block  5
+call   15 never executed
+branch 16 never executed
+branch 17 never executed
+    %%%%%:   28-block  6
+call   18 never executed
+call   19 never executed
+        1:   28-block  7
+call   20 returned 1
+    $$$$$:   28-block  8
+    $$$$$:   28-block  9
+call   21 never executed
+    $$$$$:   28-block 10
+    $$$$$:   28-block 11
+call   22 never executed
+    $$$$$:   28-block 12
+    $$$$$:   28-block 13
+call   23 never executed
+        1:   29:}
+------------------
+_ZN46PuntajeTest_MayorQueDiezYDivisiblePorTres_TestC2Ev:
+function _ZN46PuntajeTest_MayorQueDiezYDivisiblePorTres_TestC2Ev called 1 returned 100% blocks executed 100%
+        1:   22:TEST(PuntajeTest, MayorQueDiezYDivisiblePorTres){
+        1:   22-block  0
+call    0 returned 1
+------------------
+        -:   30:
+        2:   31:TEST(PuntajeTest, MayorQueDiezYNoDivisiblePorTres){
+        -:   32:    // Setup
+        1:   33:    int b = 25;
+        -:   34:    // Exercise
+        1:   35:    int result = puntaje(b);
+        -:   36:    // Check
+       1*:   37:    EXPECT_EQ(result, 15);
+        1:   38:}
+------------------
+_ZN48PuntajeTest_MayorQueDiezYNoDivisiblePorTres_Test8TestBodyEv:
+function _ZN48PuntajeTest_MayorQueDiezYNoDivisiblePorTres_Test8TestBodyEv called 1 returned 100% blocks executed 28%
+        1:   31:TEST(PuntajeTest, MayorQueDiezYNoDivisiblePorTres){
+        -:   32:    // Setup
+        1:   33:    int b = 25;
+        -:   34:    // Exercise
+        1:   35:    int result = puntaje(b);
+        1:   35-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   36:    // Check
+       1*:   37:    EXPECT_EQ(result, 15);
+        1:   37-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   37-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:   37-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   37-block  3
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    %%%%%:   37-block  4
+call   12 never executed
+branch 13 never executed
+branch 14 never executed
+    %%%%%:   37-block  5
+call   15 never executed
+branch 16 never executed
+branch 17 never executed
+    %%%%%:   37-block  6
+call   18 never executed
+call   19 never executed
+        1:   37-block  7
+call   20 returned 1
+    $$$$$:   37-block  8
+    $$$$$:   37-block  9
+call   21 never executed
+    $$$$$:   37-block 10
+    $$$$$:   37-block 11
+call   22 never executed
+    $$$$$:   37-block 12
+    $$$$$:   37-block 13
+call   23 never executed
+        1:   38:}
+------------------
+_ZN48PuntajeTest_MayorQueDiezYNoDivisiblePorTres_TestC2Ev:
+function _ZN48PuntajeTest_MayorQueDiezYNoDivisiblePorTres_TestC2Ev called 1 returned 100% blocks executed 100%
+        1:   31:TEST(PuntajeTest, MayorQueDiezYNoDivisiblePorTres){
+        1:   31-block  0
+call    0 returned 1
+------------------

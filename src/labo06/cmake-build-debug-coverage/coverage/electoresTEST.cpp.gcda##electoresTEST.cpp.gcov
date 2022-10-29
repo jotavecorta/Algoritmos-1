@@ -1,0 +1,392 @@
+        -:    0:Source:/home/jotavecorta/proyectos/algoritmos_1/src/labo06/ej3/Test/electoresTEST.cpp
+        -:    0:Graph:/home/jotavecorta/proyectos/algoritmos_1/src/labo06/cmake-build-debug-coverage/CMakeFiles/LaboTesting.dir/ej3/Test/electoresTEST.cpp.gcno
+        -:    0:Data:/home/jotavecorta/proyectos/algoritmos_1/src/labo06/cmake-build-debug-coverage/CMakeFiles/LaboTesting.dir/ej3/Test/electoresTEST.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "../electores.h"
+        -:    2:#include "gtest/gtest.h"
+        -:    3:
+        -:    4:// Escribir tests aca:
+        2:    5:TEST(validarVotanteTest, FechaInvalida){
+        -:    6:    // Setup
+        1:    7:    int anio = -1;
+        1:    8:    int mes = 10;
+        1:    9:    int dia = 20;
+        -:   10:
+        -:   11:    // Excercise
+        1:   12:    int result = validarVotante(anio, mes, dia);
+        -:   13:
+        -:   14:    // Check
+       1*:   15:    EXPECT_EQ(result, NO_VOTA);
+        1:   16:}
+------------------
+_ZN37validarVotanteTest_FechaInvalida_Test8TestBodyEv:
+function _ZN37validarVotanteTest_FechaInvalida_Test8TestBodyEv called 1 returned 100% blocks executed 28%
+        1:    5:TEST(validarVotanteTest, FechaInvalida){
+        -:    6:    // Setup
+        1:    7:    int anio = -1;
+        1:    8:    int mes = 10;
+        1:    9:    int dia = 20;
+        -:   10:
+        -:   11:    // Excercise
+        1:   12:    int result = validarVotante(anio, mes, dia);
+        1:   12-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   13:
+        -:   14:    // Check
+       1*:   15:    EXPECT_EQ(result, NO_VOTA);
+        1:   15-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   15-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:   15-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   15-block  3
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    %%%%%:   15-block  4
+call   12 never executed
+branch 13 never executed
+branch 14 never executed
+    %%%%%:   15-block  5
+call   15 never executed
+branch 16 never executed
+branch 17 never executed
+    %%%%%:   15-block  6
+call   18 never executed
+call   19 never executed
+        1:   15-block  7
+call   20 returned 1
+    $$$$$:   15-block  8
+    $$$$$:   15-block  9
+call   21 never executed
+    $$$$$:   15-block 10
+    $$$$$:   15-block 11
+call   22 never executed
+    $$$$$:   15-block 12
+    $$$$$:   15-block 13
+call   23 never executed
+        1:   16:}
+------------------
+_ZN37validarVotanteTest_FechaInvalida_TestC2Ev:
+function _ZN37validarVotanteTest_FechaInvalida_TestC2Ev called 1 returned 100% blocks executed 100%
+        1:    5:TEST(validarVotanteTest, FechaInvalida){
+        1:    5-block  0
+call    0 returned 1
+------------------
+        -:   17:
+        2:   18:TEST(validarVotanteTest, MenoresNoVotantes){
+        -:   19:    // Setup
+        1:   20:    int anio = 2010;
+        1:   21:    int mes = 05;
+        1:   22:    int dia = 23;
+        -:   23:
+        -:   24:    // Excercise
+        1:   25:    int result = validarVotante(anio, mes, dia);
+        -:   26:
+        -:   27:    // Check
+       1*:   28:    EXPECT_EQ(result, NO_VOTA);
+        1:   29:}
+------------------
+_ZN41validarVotanteTest_MenoresNoVotantes_Test8TestBodyEv:
+function _ZN41validarVotanteTest_MenoresNoVotantes_Test8TestBodyEv called 1 returned 100% blocks executed 28%
+        1:   18:TEST(validarVotanteTest, MenoresNoVotantes){
+        -:   19:    // Setup
+        1:   20:    int anio = 2010;
+        1:   21:    int mes = 05;
+        1:   22:    int dia = 23;
+        -:   23:
+        -:   24:    // Excercise
+        1:   25:    int result = validarVotante(anio, mes, dia);
+        1:   25-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   26:
+        -:   27:    // Check
+       1*:   28:    EXPECT_EQ(result, NO_VOTA);
+        1:   28-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   28-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:   28-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   28-block  3
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    %%%%%:   28-block  4
+call   12 never executed
+branch 13 never executed
+branch 14 never executed
+    %%%%%:   28-block  5
+call   15 never executed
+branch 16 never executed
+branch 17 never executed
+    %%%%%:   28-block  6
+call   18 never executed
+call   19 never executed
+        1:   28-block  7
+call   20 returned 1
+    $$$$$:   28-block  8
+    $$$$$:   28-block  9
+call   21 never executed
+    $$$$$:   28-block 10
+    $$$$$:   28-block 11
+call   22 never executed
+    $$$$$:   28-block 12
+    $$$$$:   28-block 13
+call   23 never executed
+        1:   29:}
+------------------
+_ZN41validarVotanteTest_MenoresNoVotantes_TestC2Ev:
+function _ZN41validarVotanteTest_MenoresNoVotantes_TestC2Ev called 1 returned 100% blocks executed 100%
+        1:   18:TEST(validarVotanteTest, MenoresNoVotantes){
+        1:   18-block  0
+call    0 returned 1
+------------------
+        -:   30:
+        2:   31:TEST(validarVotanteTest, MenoresOpcional){
+        -:   32:    // Setup
+        1:   33:    int anio = 2005;
+        1:   34:    int mes = 03;
+        1:   35:    int dia = 22;
+        -:   36:
+        -:   37:    // Excercise
+        1:   38:    int result = validarVotante(anio, mes, dia);
+        -:   39:
+        -:   40:    // Check
+       1*:   41:    EXPECT_EQ(result, OPCIONAL_MENOR);
+        1:   42:}
+------------------
+_ZN39validarVotanteTest_MenoresOpcional_Test8TestBodyEv:
+function _ZN39validarVotanteTest_MenoresOpcional_Test8TestBodyEv called 1 returned 100% blocks executed 28%
+        1:   31:TEST(validarVotanteTest, MenoresOpcional){
+        -:   32:    // Setup
+        1:   33:    int anio = 2005;
+        1:   34:    int mes = 03;
+        1:   35:    int dia = 22;
+        -:   36:
+        -:   37:    // Excercise
+        1:   38:    int result = validarVotante(anio, mes, dia);
+        1:   38-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   39:
+        -:   40:    // Check
+       1*:   41:    EXPECT_EQ(result, OPCIONAL_MENOR);
+        1:   41-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   41-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:   41-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   41-block  3
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    %%%%%:   41-block  4
+call   12 never executed
+branch 13 never executed
+branch 14 never executed
+    %%%%%:   41-block  5
+call   15 never executed
+branch 16 never executed
+branch 17 never executed
+    %%%%%:   41-block  6
+call   18 never executed
+call   19 never executed
+        1:   41-block  7
+call   20 returned 1
+    $$$$$:   41-block  8
+    $$$$$:   41-block  9
+call   21 never executed
+    $$$$$:   41-block 10
+    $$$$$:   41-block 11
+call   22 never executed
+    $$$$$:   41-block 12
+    $$$$$:   41-block 13
+call   23 never executed
+        1:   42:}
+------------------
+_ZN39validarVotanteTest_MenoresOpcional_TestC2Ev:
+function _ZN39validarVotanteTest_MenoresOpcional_TestC2Ev called 1 returned 100% blocks executed 100%
+        1:   31:TEST(validarVotanteTest, MenoresOpcional){
+        1:   31-block  0
+call    0 returned 1
+------------------
+        -:   43:
+        2:   44:TEST(validarVotanteTest, Obligatorios){
+        -:   45:    // Setup
+        1:   46:    int anio = 2000;
+        1:   47:    int mes = 11;
+        1:   48:    int dia = 01;
+        -:   49:
+        -:   50:    // Excercise
+        1:   51:    int result = validarVotante(anio, mes, dia);
+        -:   52:
+        -:   53:    // Check
+       1*:   54:    EXPECT_EQ(result, OBLIGATORIO);
+        1:   55:}
+------------------
+_ZN36validarVotanteTest_Obligatorios_Test8TestBodyEv:
+function _ZN36validarVotanteTest_Obligatorios_Test8TestBodyEv called 1 returned 100% blocks executed 28%
+        1:   44:TEST(validarVotanteTest, Obligatorios){
+        -:   45:    // Setup
+        1:   46:    int anio = 2000;
+        1:   47:    int mes = 11;
+        1:   48:    int dia = 01;
+        -:   49:
+        -:   50:    // Excercise
+        1:   51:    int result = validarVotante(anio, mes, dia);
+        1:   51-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   52:
+        -:   53:    // Check
+       1*:   54:    EXPECT_EQ(result, OBLIGATORIO);
+        1:   54-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   54-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:   54-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   54-block  3
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    %%%%%:   54-block  4
+call   12 never executed
+branch 13 never executed
+branch 14 never executed
+    %%%%%:   54-block  5
+call   15 never executed
+branch 16 never executed
+branch 17 never executed
+    %%%%%:   54-block  6
+call   18 never executed
+call   19 never executed
+        1:   54-block  7
+call   20 returned 1
+    $$$$$:   54-block  8
+    $$$$$:   54-block  9
+call   21 never executed
+    $$$$$:   54-block 10
+    $$$$$:   54-block 11
+call   22 never executed
+    $$$$$:   54-block 12
+    $$$$$:   54-block 13
+call   23 never executed
+        1:   55:}
+------------------
+_ZN36validarVotanteTest_Obligatorios_TestC2Ev:
+function _ZN36validarVotanteTest_Obligatorios_TestC2Ev called 1 returned 100% blocks executed 100%
+        1:   44:TEST(validarVotanteTest, Obligatorios){
+        1:   44-block  0
+call    0 returned 1
+------------------
+        -:   56:
+        2:   57:TEST(validarVotanteTest, OpcionalMayor){
+        -:   58:    // Setup
+        1:   59:    int anio = 1950;
+        1:   60:    int mes = 07;
+        1:   61:    int dia = 22;
+        -:   62:
+        -:   63:    // Excercise
+        1:   64:    int result = validarVotante(anio, mes, dia);
+        -:   65:
+        -:   66:    // Check
+       1*:   67:    EXPECT_EQ(result, OPCIONAL_MAYOR);
+        1:   68:}
+------------------
+_ZN37validarVotanteTest_OpcionalMayor_Test8TestBodyEv:
+function _ZN37validarVotanteTest_OpcionalMayor_Test8TestBodyEv called 1 returned 100% blocks executed 28%
+        1:   57:TEST(validarVotanteTest, OpcionalMayor){
+        -:   58:    // Setup
+        1:   59:    int anio = 1950;
+        1:   60:    int mes = 07;
+        1:   61:    int dia = 22;
+        -:   62:
+        -:   63:    // Excercise
+        1:   64:    int result = validarVotante(anio, mes, dia);
+        1:   64-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   65:
+        -:   66:    // Check
+       1*:   67:    EXPECT_EQ(result, OPCIONAL_MAYOR);
+        1:   67-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   67-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:   67-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   67-block  3
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    %%%%%:   67-block  4
+call   12 never executed
+branch 13 never executed
+branch 14 never executed
+    %%%%%:   67-block  5
+call   15 never executed
+branch 16 never executed
+branch 17 never executed
+    %%%%%:   67-block  6
+call   18 never executed
+call   19 never executed
+        1:   67-block  7
+call   20 returned 1
+    $$$$$:   67-block  8
+    $$$$$:   67-block  9
+call   21 never executed
+    $$$$$:   67-block 10
+    $$$$$:   67-block 11
+call   22 never executed
+    $$$$$:   67-block 12
+    $$$$$:   67-block 13
+call   23 never executed
+        1:   68:}
+------------------
+_ZN37validarVotanteTest_OpcionalMayor_TestC2Ev:
+function _ZN37validarVotanteTest_OpcionalMayor_TestC2Ev called 1 returned 100% blocks executed 100%
+        1:   57:TEST(validarVotanteTest, OpcionalMayor){
+        1:   57-block  0
+call    0 returned 1
+------------------
