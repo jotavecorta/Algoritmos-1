@@ -96,7 +96,7 @@ TEST(minasAdyacentesInteriorTablero, ConMinasAdyacentes){
     int cant_minas_adyacentes = minasAdyacentes(T, posicion);
 
     // Check
-    int valor_esperado = 2;
+    int valor_esperado = 3;
     ASSERT_EQ(cant_minas_adyacentes, valor_esperado);
 }
 

@@ -15,7 +15,31 @@ using namespace std;
 /******++++**************************** EJERCICIO minasAdyacentes ***********+++***********************/
 
 int minasAdyacentes(tablero& t, pos p) {
-    // ...
+    int cant_minas_adyacentes = 0;
+
+    // Guardo el tamaño del tablero para verificar validez
+    int filas = t.size();
+    int columnas = t[0].size();
+
+    // Separo la posicion en coordenadas
+    int p_i = p.first;
+    int p_j = p.second;
+
+    // Itero sobre pocisiones adyacentes
+    for (int k = p_i - 1; k < p_i + 2; k++) {
+        for (int l = p_j - 1; l < p_j + 2; l++) {
+
+            // Reviso que la posición sea válida en el tablero
+            bool posicion_valida = (k>=0 && k < filas) && (l>=0 && l < columnas) && (k != p_i || l != p_j);
+
+            if (posicion_valida  && t[k][l]){
+                // Entra si es posición válida y hay mina en (k, l)
+                cant_minas_adyacentes++;
+
+            }
+        }
+    }
+    return cant_minas_adyacentes;
 }
 
 /******++++**************************** EJERCICIO plantarBanderita ***********+++***********************/
