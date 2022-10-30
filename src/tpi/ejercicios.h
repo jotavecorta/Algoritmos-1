@@ -7,7 +7,7 @@
 
 #include "definiciones.h"
 
-int minasAdyacentes(tablero& t, pos p);
+int minasAdyacentes(const tablero& t, pos p);
 void cambiarBanderita(tablero& t, jugadas& j, pos p, banderitas& b);
 bool perdio(tablero& t, jugadas& j);
 bool gano(tablero& t, jugadas& j);

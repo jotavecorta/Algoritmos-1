@@ -1,0 +1,128 @@
+        -:    0:Source:/home/jotavecorta/proyectos/algoritmos_1/src/tpi/ejercicios.cpp
+        -:    0:Graph:/home/jotavecorta/proyectos/algoritmos_1/src/tpi/cmake-build-debug/CMakeFiles/tpi.dir/ejercicios.gcno
+        -:    0:Data:/home/jotavecorta/proyectos/algoritmos_1/src/tpi/cmake-build-debug/CMakeFiles/tpi.dir/ejercicios.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Este archivo contiene las definiciones de las funciones que implementan los ejercicios
+        -:    3://
+        -:    4:
+        -:    5:#include <stdio.h>
+        -:    6:#include <iostream>
+        -:    7:
+        -:    8:
+        -:    9:#include "definiciones.h"
+        -:   10:#include "ejercicios.h"
+        -:   11:#include "auxiliares.h"
+        -:   12:
+        -:   13:using namespace std;
+        -:   14:
+        -:   15:/******++++**************************** EJERCICIO minasAdyacentes ***********+++***********************/
+        -:   16:
+function _Z15minasAdyacentesRSt6vectorIS_IbSaIbEESaIS1_EESt4pairIiiE called 9 returned 100% blocks executed 100%
+        9:   17:int minasAdyacentes(tablero& t, pos p) {
+        9:   18:    int cant_minas_adyacentes = 0;
+        -:   19:
+        -:   20:    // Guardo el tamaño del tablero para verificar validez
+        9:   21:    int filas = t.size();
+        9:   21-block  0
+call    0 returned 9
+        9:   22:    int columnas = t[0].size();
+call    0 returned 9
+call    1 returned 9
+        -:   23:
+        -:   24:    // Separo la posicion en coordenadas
+        9:   25:    int p_i = p.first;
+        9:   26:    int p_j = p.second;
+        -:   27:
+        -:   28:    // Itero sobre pocisiones adyacentes
+       36:   29:    for (int k = p_i - 1; k < p_i + 2; k++) {
+       36:   29-block  0
+branch  0 taken 27 (fallthrough)
+branch  1 taken 9
+       27:   29-block  1
+      108:   30:        for (int l = p_j - 1; l < p_j + 2; l++) {
+       27:   30-block  0
+      108:   30-block  1
+branch  0 taken 81 (fallthrough)
+branch  1 taken 27
+       81:   30-block  2
+        -:   31:
+        -:   32:            // Reviso que la posición sea válida en el tablero
+       81:   33:            bool posicion_valida = (k>=0 && k < filas) && (l>=0 && l < columnas) && (k != p_i || l != p_j);
+       81:   33-block  0
+branch  0 taken 75 (fallthrough)
+branch  1 taken 6
+       75:   33-block  1
+branch  2 taken 72 (fallthrough)
+branch  3 taken 3
+       72:   33-block  2
+branch  4 taken 67 (fallthrough)
+branch  5 taken 5
+       67:   33-block  3
+branch  6 taken 64 (fallthrough)
+branch  7 taken 3
+       64:   33-block  4
+branch  8 taken 24 (fallthrough)
+branch  9 taken 40
+       24:   33-block  5
+branch 10 taken 15 (fallthrough)
+branch 11 taken 9
+       55:   33-block  6
+       26:   33-block  7
+        -:   34:
+       81:   35:            if (posicion_valida  && t[k][l]){
+       81:   35-block  0
+branch  0 taken 55 (fallthrough)
+branch  1 taken 26
+       55:   35-block  1
+call    2 returned 55
+call    3 returned 55
+call    4 returned 55
+branch  5 taken 22 (fallthrough)
+branch  6 taken 33
+       22:   35-block  2
+       59:   35-block  3
+       81:   35-block  4
+branch  7 taken 22 (fallthrough)
+branch  8 taken 59
+        -:   36:                // Entra si es posición válida y hay mina en (k, l)
+       22:   37:                cant_minas_adyacentes++;
+       22:   37-block  0
+        -:   38:
+        -:   39:            }
+        -:   40:        }
+        -:   41:    }
+        9:   42:    return cant_minas_adyacentes;
+        9:   42-block  0
+        -:   43:}
+        -:   44:
+        -:   45:/******++++**************************** EJERCICIO plantarBanderita ***********+++***********************/
+        -:   46:
+function _Z16cambiarBanderitaRSt6vectorIS_IbSaIbEESaIS1_EERS_ISt4pairIS5_IiiEiESaIS7_EES6_RS_IS6_SaIS6_EE called 0 returned 0% blocks executed 0%
+    #####:   47:void cambiarBanderita(tablero& t, jugadas& j, pos p, banderitas& b) {
+        -:   48:    // ...
+    #####:   49:}
+        -:   50:
+        -:   51:/******++++**************************** EJERCICIO perdio ***********+++***********************/
+function _Z6perdioRSt6vectorIS_IbSaIbEESaIS1_EERS_ISt4pairIS5_IiiEiESaIS7_EE called 0 returned 0% blocks executed 0%
+    #####:   52:bool perdio(tablero& t, jugadas& j) {
+        -:   53:    // ...
+    #####:   54:}
+        -:   55:
+        -:   56:/******++++**************************** EJERCICIO gano ***********+++***********************/
+function _Z4ganoRSt6vectorIS_IbSaIbEESaIS1_EERS_ISt4pairIS5_IiiEiESaIS7_EE called 1 returned 100% blocks executed 100%
+        1:   57:bool gano(tablero& t, jugadas& j) {
+        -:   58:    // ...
+        1:   59:}
+        -:   60:
+        -:   61:/******++++**************************** EJERCICIO jugarPlus ***********+++***********************/
+function _Z9jugarPlusRSt6vectorIS_IbSaIbEESaIS1_EERS_ISt4pairIiiESaIS6_EES6_RS_IS5_IS6_iESaISA_EE called 0 returned 0% blocks executed 0%
+    #####:   62:void jugarPlus(tablero& t, banderitas& b, pos p, jugadas& j) {
+        -:   63:    // ...
+    #####:   64:}
+        -:   65:
+        -:   66:/******++++**************************** EJERCICIO sugerirAutomatico121 ***********+++***********************/
+function _Z20sugerirAutomatico121RSt6vectorIS_IbSaIbEESaIS1_EERS_ISt4pairIiiESaIS6_EERS_IS5_IS6_iESaISA_EERS6_ called 0 returned 0% blocks executed 0%
+    #####:   67:bool sugerirAutomatico121(tablero& t, banderitas& b, jugadas& j, pos& p) {
+        -:   68:    // ...
+    #####:   69:}

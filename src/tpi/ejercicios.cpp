@@ -4,6 +4,7 @@
 
 #include <stdio.h>
 #include <iostream>
+#include <algorithm>
 
 
 #include "definiciones.h"
@@ -14,7 +15,7 @@ using namespace std;
 
 /******++++**************************** EJERCICIO minasAdyacentes ***********+++***********************/
 
-int minasAdyacentes(tablero& t, pos p) {
+int minasAdyacentes(const tablero& t, pos p) {
     int cant_minas_adyacentes = 0;
 
     // Guardo el tamaño del tablero para verificar validez
@@ -45,7 +46,13 @@ int minasAdyacentes(tablero& t, pos p) {
 /******++++**************************** EJERCICIO plantarBanderita ***********+++***********************/
 
 void cambiarBanderita(tablero& t, jugadas& j, pos p, banderitas& b) {
-    // ...
+    // Primera version: No chequea absolutamente nada... MEJORAR
+    // Además dudo que nos dejen usar find, remove y erase. IMPLEMENTAR FUNCION AUXILIAR DE BUSQUEDA
+    if (find(b.begin(), b.end(), p) == b.end()){
+        b.push_back(p);
+    }else{
+        b.erase(remove(b.begin(), b.end(), p), b.end());
+    }
 }
 
 /******++++**************************** EJERCICIO perdio ***********+++***********************/
