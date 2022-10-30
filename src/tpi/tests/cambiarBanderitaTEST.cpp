@@ -31,3 +31,26 @@ TEST(cambiarBanteritaTest, SinBanderitaEnPosicion){
 
 }
 
+TEST(cambiarBanteritaTest, ConBanderitaEnPosicion){
+    // Setup
+    tablero T (5, vector<bool>(5, false));
+    T[0][4] = T[1][3] = T[2][3] = T[4][0] = T[3][1]= true;
+
+    jugada j_1 (pos (0,0), minasAdyacentes(T, pos (0, 0)));
+    jugada j_2 (pos (0,1), minasAdyacentes(T, pos (0, 1)));
+
+    jugadas J = {j_1, j_2};
+
+    banderitas b = {pos (0, 4), pos (3, 3)};
+
+    pos posicion_libre_de_minas (3, 3);
+
+    // Exercise
+    cambiarBanderita(T, J, posicion_libre_de_minas, b);
+
+    // Check
+    banderitas valor_esperado = {pos (0, 4)};
+    ASSERT_EQ(b, valor_esperado);
+
+}
+
