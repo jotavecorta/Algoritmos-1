@@ -57,7 +57,12 @@ void cambiarBanderita(tablero& t, jugadas& j, pos p, banderitas& b) {
 
 /******++++**************************** EJERCICIO perdio ***********+++***********************/
 bool perdio(tablero& t, jugadas& j) {
-    // ...
+    bool res = false;
+    for (int i = 0; i < j.size(); i++) {
+        pos p = j[i].first;
+        res = res || t[p.first][p.second];
+    }
+    return res;
 }
 
 /******++++**************************** EJERCICIO gano ***********+++***********************/
