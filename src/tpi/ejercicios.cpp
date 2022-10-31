@@ -67,7 +67,24 @@ bool perdio(tablero& t, jugadas& j) {
 
 /******++++**************************** EJERCICIO gano ***********+++***********************/
 bool gano(tablero& t, jugadas& j) {
-    // ...
+    bool res = true;
+
+    for (int i = 0; i < t.size(); i++) {
+        for (int k = 0; k < t[0].size(); ++k) {
+            // Posicion y jugada correspondiente al t_ij
+            pos p (i, k);
+            jugada jugada_p (p, minasAdyacentes(t, p));
+
+            // Armo un booleano que indique si no hay mina y esta en jugadas
+            bool jugada_sin_mina = !t[p.first][p.second] && (find(j.begin(), j.end(), jugada_p) != j.end());
+
+            // Actualizo el resultado
+            res = res && jugada_sin_mina;
+
+        }
+
+    }
+    return res;
 }
 
 /******++++**************************** EJERCICIO jugarPlus ***********+++***********************/
