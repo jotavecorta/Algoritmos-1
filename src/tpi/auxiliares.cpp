@@ -18,3 +18,13 @@ bool pertenece(vector<pos> b, pos p){
   }
   return i < b.size();
 }
+
+bool perteneceEnJugadas(jugada k, jugadas j){
+  bool pertenece = false;
+  for(int i = 0;i < j.size();i++){
+    if(j[i]==k){
+      pertenece = true;
+    }
+  }
+  return pertenece;
+}
