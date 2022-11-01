@@ -15,12 +15,8 @@ using namespace std;
 
 /******++++**************************** EJERCICIO minasAdyacentes ***********+++***********************/
 
-int minasAdyacentes(const tablero& t, pos p) {
+int minasAdyacentes(tablero& t, pos p) {
     int cant_minas_adyacentes = 0;
-
-    // Guardo el tamaño del tablero para verificar validez
-    int filas = t.size();
-    int columnas = t[0].size();
 
     // Separo la posicion en coordenadas
     int p_i = p.first;
@@ -31,7 +27,7 @@ int minasAdyacentes(const tablero& t, pos p) {
         for (int l = p_j - 1; l < p_j + 2; l++) {
 
             // Reviso que la posición sea válida en el tablero
-            bool posicion_valida = (k>=0 && k < filas) && (l>=0 && l < columnas) && (k != p_i || l != p_j);
+            bool posicion_valida = posicionValida(t, k, l) && (k != p_i || l != p_j);
 
             if (posicion_valida  && t[k][l]){
                 // Entra si es posición válida y hay mina en (k, l)
@@ -44,60 +40,106 @@ int minasAdyacentes(const tablero& t, pos p) {
 }
 
 /******++++**************************** EJERCICIO plantarBanderita ***********+++***********************/
-
+// O(1) tiempo constante
 void cambiarBanderita(tablero& t, jugadas& j, pos p, banderitas& b) {
-    // Primera version: No chequea absolutamente nada... MEJORAR
-    // Además dudo que nos dejen usar find, remove y erase. IMPLEMENTAR FUNCION AUXILIAR DE BUSQUEDA
-    if (find(b.begin(), b.end(), p) == b.end()){
-        b.push_back(p);
-    }else{
-        b.erase(remove(b.begin(), b.end(), p), b.end());
+    initJB(t, j, b);
+    int index = mapIndex(t.size(), p.first, p.second);
+
+    pos null_pos(-1, -1);
+    if (b[index] == null_pos){
+        b[index] = p;
+    } else {
+        b[index] = null_pos;
     }
 }
 
 /******++++**************************** EJERCICIO perdio ***********+++***********************/
 bool perdio(tablero& t, jugadas& j) {
-    bool res = false;
-    for (int i = 0; i < j.size(); i++) {
+    for(int i = 0; i < j.size(); i++) {
+        if (j[i].second == -1) {
+            // Posición no jugada aún
+            continue;
+        }
+
         pos p = j[i].first;
-        res = res || t[p.first][p.second];
+        if (t[p.first][p.second]) {
+            return true;
+        }
     }
-    return res;
+    return false;
 }
 
 /******++++**************************** EJERCICIO gano ***********+++***********************/
 bool gano(tablero& t, jugadas& j) {
-    bool res = true;
-
     for (int i = 0; i < t.size(); i++) {
         for (int k = 0; k < t[0].size(); ++k) {
-            // Posicion y jugada correspondiente al t_ij
-            pos p (i, k);
-            jugada jugada_p (p, minasAdyacentes(t, p));
+            // Nos indica si hay una mina en el casillero
+            bool hayMina = t[i][k];
+            bool yaLaJugo = posicionJugada(t, j, i, k);
 
-            // Armo un booleano que indique si no hay mina y esta en jugadas
-            bool jugada_sin_mina = !t[p.first][p.second] && (find(j.begin(), j.end(), jugada_p) != j.end());
+            // Si la posición se jugó y hay una mina, perdió
+            if (hayMina && yaLaJugo) {
+                return false;
+            }
 
-            // Actualizo el resultado
-            res = res && jugada_sin_mina;
-
+            // Si no hay una mina y la posición no se jugó, todavía no terminó el juego
+            if (!hayMina && !yaLaJugo) {
+                return false;
+            }
         }
-
     }
-    return res;
+    return true;
 }
 
 /******++++**************************** EJERCICIO jugarPlus ***********+++***********************/
+/*
+ * La complejidad algorítmica es O(m*n) + O(n) en total O(n(m+1)) lineal (despreciamos todas las constantes)
+ * La linealidad se obtiene al guardar paso a paso el estado del juego en la variable jugadas
+ */
+
 void jugarPlus(tablero& t, banderitas& b, pos p, jugadas& j) {
-    // ...
+    // Inicializamos las jugadas si no todavía no está inicializadas O(n*m) la primera vez
+    initJB(t, j, b);
+
+    // Si hay banderita no s puede jugar O(k)
+    if (hayBanderita(t, b, p)) {
+        return;
+    }
+
+    // Agregamos la jugada al array O(k)
+    jugar(t, j, p);
+
+    // Si hay una mina o tiene minas adyacentes no hay nada que hacer O(k)
+    if (t[p.first][p.second] || minasAdyacentesWithCache(t, j, p) > 0) {
+        return;
+    }
+
+    // Iteramos recursivamente sobre todas las posiciones adyacentes no jugadas O(n)
+    // Dado que guardamos el estado, sólo recorre cada nodo una vez
+    for (int i = 0; i < 9; ++i) {
+        int fila = (i / 3) - 1 + p.first;
+        int columna = i % 3 - 1 + p.second;
+
+        if (
+            fila == p.first && columna == p.second || // Es la misma posición, continuamos con la que sigue O(1)
+            !posicionValida(t, fila, columna) || // Si no es posición válida no la procesamos O(1)
+            posicionJugada(t, j , fila, columna) // Si ya se jugó tampoco la procesamos O(1)
+        ) {
+            continue;
+        }
+
+        pos next(fila, columna);
+        jugarPlus(t, b, next, j);
+    }
 }
 
 /******++++**************************** EJERCICIO sugerirAutomatico121 ***********+++***********************/
 bool sugerirAutomatico121(tablero& t, banderitas& b, jugadas& j, pos& p) {
-    // ...
+    /*
     bool hay = false;
     if(hayPosicionSugerible(j,b,t)){
         hay = true;
     }
     return hay;
+     */
 }
