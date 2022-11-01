@@ -28,3 +28,25 @@ bool perteneceEnJugadas(jugada k, jugadas j){
   }
   return pertenece;
 }
+
+bool es121Horizontal(pos p, jugadas j){
+  return perteneceEnJugadas(((p[0],p[1] - 1),1),j) and perteneceEnJugadas(((p[0],p[1]),2),j) and perteneceEnJugadas(((p[0],p[1] + 1),1),j);
+}
+
+bool es121Vertical(pos p, jugadas j){
+  return perteneceEnJugadas(((p[0] - 1,p[1]),1),j) and perteneceEnJugadas(((p[0],p[1]),2),j) and perteneceEnJugadas(((p[0] + 1,p[1]),1),j);
+}
+
+bool esAdyacenteA121(pos p, jugadas j){
+  return es121Horizontal((p[0] - 1,p[1]),j) or es121Horizontal((p[0] + 1,p[1]),j) or es121Vertical((p[0],p[1] - 1),j) or es121Vertical((p[0],p[1] + 1),j);
+}
+
+pos hayPosicionSugerible(jugadas j, banderitas b, tablero t){
+  pos posicionSugerida = (-1,-1);
+  for(int i = 0;i < j.size();i++){
+    if(esPosicionSinJugarYSinBanderita((j[i])[0],j,b,t) and esAdyacenteA121((j[i])[0],j)){
+      posicionSugerida = (j[i])[0];
+    }
+  }
+  return posicionSugerida;
+}
