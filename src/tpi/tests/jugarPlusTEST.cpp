@@ -106,14 +106,14 @@ TEST(jugarPlusTest, noDescubrePosicionesConBanderita){
     ASSERT_TRUE(!posicionJugada(t, j, 2, 0));
     ASSERT_TRUE(!posicionJugada(t, j, 2, 1));
     ASSERT_TRUE(!posicionJugada(t, j, 2, 2));
-    ASSERT_TRUE(!posicionJugada(t, j, 2, 3));
+    ASSERT_TRUE(posicionJugada(t, j, 2, 3));
     ASSERT_TRUE(posicionJugada(t, j, 2, 4));
 
     // Fila 4 Columnas 4 y 5 SI
     ASSERT_TRUE(!posicionJugada(t, j, 3, 0));
     ASSERT_TRUE(!posicionJugada(t, j, 3, 1));
     ASSERT_TRUE(!posicionJugada(t, j, 3, 2));
-    ASSERT_TRUE(posicionJugada(t, j, 3, 3));
+    ASSERT_TRUE(!posicionJugada(t, j, 3, 3));
     ASSERT_TRUE(posicionJugada(t, j, 3, 4));
 
     // Fila 5 Columnas 4 y 5 SI
