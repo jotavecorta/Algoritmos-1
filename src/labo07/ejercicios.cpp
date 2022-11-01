@@ -131,17 +131,130 @@ bool esPico(const vector<vector<int>> &m, int i, int j){
     return res;
 }
 
-bool esTriangular(vector<vector<int> > m){
-	//COMPLETAR
-	return true;
+bool esTriangular(const vector<vector<int>> &m){
+	return es_triangular_inferior(m) || es_triangular_superior(m);
 }
 
-bool hayAmenaza(vector<vector<int> > m){
-	//COMPLETAR
-	return true;
+bool es_triangular_inferior(const vector<vector<int>> &m){
+    bool res = true;
+    for (int i = 0; i < m.size(); ++i) {
+        for (int j = 0; j < i; ++j) {
+            res = res && (m[i][j]==0);
+        }
+    }
+    return res;
 }
 
-int diferenciaDiagonales(vector<vector<int> > m) {
-    //COMPLETAR
-    return 0;
+bool es_triangular_superior(const vector<vector<int>> &m){
+    bool res = true;
+    for (int j = 0; j < m[0].size(); ++j) {
+        for (int i = 0; i < j; ++i) {
+            res = res && (m[i][j]==0);
+        }
+    }
+    return res;
+}
+
+bool hayAmenaza(const vector<vector<int>> &m){
+    for (int i = 0; i < m.size(); ++i) {
+        for (int j = 0; j < m[0].size(); ++j) {
+            if (m[i][j] && amenazaHorizontal(m, i, j)){
+                return true;
+            }else if (m[i][j] && amenazaDiagonal(m, i, j)){
+                return true;
+            }
+        }
+    }
+	return false;
+}
+
+bool amenazaHorizontal(const vector<vector<int>> &m, int i, int j){
+    // Inicializo el resultado
+    bool res = false;
+
+    // Guardo el tamaño de la matriz de entrada
+    int rows = m.size();
+    int columns = m[0].size();
+
+    // Busco amenazas moviendome verticalmente
+    int k = 0;
+    while (k < rows && !res){
+        res = res || (k != i && m[k][j]);
+        k++;
+    }
+
+    // Busco amenazas moviendome horizontalmente
+    int l = 0;
+    while (l < columns && !res){ // No entra si hay amenazas verticales
+        res = res || (l != j && m[i][l]);
+        l++;
+    }
+
+    return res;
+}
+
+bool amenazaDiagonal(const vector<vector<int>> &m, int i, int j){
+    // Inicializo el resultado
+    bool res = false;
+
+    // Guardo el tamaño de la matriz de entrada
+    int rows = m.size();
+    int columns = m[0].size();
+
+    // Inicializo contadores
+    int k = 1;
+    int l = 1;
+
+    // Recorro la diagonal descendente que pasa por (i, j)
+    bool posicion_menor_valida = true;
+    bool posicion_mayor_valida = true;
+
+    while (posicion_menor_valida || posicion_mayor_valida) {
+
+        // Chequeo que los elemento (i - k, j - k)
+        posicion_menor_valida = (i - k >= 0) && (j - k >= 0);
+        posicion_mayor_valida = (i + k < rows) && (j + k < columns);
+
+        res = res || (posicion_menor_valida && m[i - k][j - k]) || (posicion_mayor_valida && m[i + k][j + k]);
+        k++;
+    }
+
+    // Recorro la diagonal ascendente que pasa por (i, j)
+    bool posicion_menor_valida_asc = true;
+    bool posicion_mayor_valida_asc = true;
+
+    while (posicion_menor_valida_asc || posicion_mayor_valida_asc) {
+
+        // Chequeo que los elemento (i - k, j - k)
+        posicion_menor_valida_asc = (i - k >= 0) && (j - k >= 0);
+        posicion_mayor_valida_asc = (i + k < rows) && (j + k < columns);
+
+        res = res || (posicion_menor_valida_asc && m[i - k][j - k]) || (posicion_mayor_valida_asc && m[i + k][j + k]);
+        l++;
+    }
+
+    return res;
+}
+
+
+int diferenciaDiagonales(const vector<vector<int>> &m) {
+    int res = abs(sumaDiagonalAscendente(m) - sumaDiagonalDescendente(m));
+    return res;
+}
+
+int sumaDiagonalDescendente(const vector<vector<int>> &m){
+    int suma = 0;
+    for (int i = 0; i < m.size(); ++i) {
+        suma += m[i][i];
+    }
+    return suma;
+}
+
+int sumaDiagonalAscendente(const vector<vector<int>> &m){
+    int suma = 0;
+    int length = m.size();
+    for (int i = 0; i < length; ++i) {
+        suma += m[i][length - 1 - i];
+    }
+    return suma;
 }
