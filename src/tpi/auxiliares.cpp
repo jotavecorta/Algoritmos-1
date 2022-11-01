@@ -41,11 +41,11 @@ bool esAdyacenteA121(pos p, jugadas j){
   return es121Horizontal((p[0] - 1,p[1]),j) or es121Horizontal((p[0] + 1,p[1]),j) or es121Vertical((p[0],p[1] - 1),j) or es121Vertical((p[0],p[1] + 1),j);
 }
 
-pos hayPosicionSugerible(jugadas j, banderitas b, tablero t){
-  pos posicionSugerida = (-1,-1);
+bool hayPosicionSugerible(jugadas j, banderitas b, tablero t){
+  bool posicionSugerida;
   for(int i = 0;i < j.size();i++){
     if(esPosicionSinJugarYSinBanderita((j[i])[0],j,b,t) and esAdyacenteA121((j[i])[0],j)){
-      posicionSugerida = (j[i])[0];
+      posicionSugerida = true;
     }
   }
   return posicionSugerida;
