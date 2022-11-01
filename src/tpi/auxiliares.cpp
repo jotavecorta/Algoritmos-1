@@ -11,3 +11,10 @@
 #include "auxiliares.h"
 
 using namespace std;
+bool pertenece(vector<pos> b, pos p){
+  int i=0;
+  while(i<b.size() and b[i]!= p){
+    i=i+1;
+  }
+  return i < b.size();
+}
