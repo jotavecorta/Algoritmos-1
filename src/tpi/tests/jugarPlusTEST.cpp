@@ -20,15 +20,15 @@ using namespace std;
 // └───┴───┴───┴───┴───┘
 
 
-tablero t = {
-        { cMINA,  cMINA,  cVACIA, cVACIA, cVACIA },
-        { cVACIA, cVACIA, cVACIA, cMINA,  cVACIA },
-        { cVACIA, cMINA,  cVACIA, cVACIA, cVACIA },
-        { cVACIA, cVACIA, cVACIA, cVACIA, cVACIA },
-        { cMINA,  cVACIA, cMINA,  cVACIA, cVACIA },
-};
-
 TEST(jugarPlusTest, siNoHayMinasDescubrePosicionesCorrectamente){
+    tablero t = {
+            { cMINA,  cMINA,  cVACIA, cVACIA, cVACIA },
+            { cVACIA, cVACIA, cVACIA, cMINA,  cVACIA },
+            { cVACIA, cMINA,  cVACIA, cVACIA, cVACIA },
+            { cVACIA, cVACIA, cVACIA, cVACIA, cVACIA },
+            { cMINA,  cVACIA, cMINA,  cVACIA, cVACIA },
+    };
+
     banderitas b;
     jugadas j;
 
@@ -72,6 +72,14 @@ TEST(jugarPlusTest, siNoHayMinasDescubrePosicionesCorrectamente){
 }
 
 TEST(jugarPlusTest, noDescubrePosicionesConBanderita){
+    tablero t = {
+            { cMINA,  cMINA,  cVACIA, cVACIA, cVACIA },
+            { cVACIA, cVACIA, cVACIA, cMINA,  cVACIA },
+            { cVACIA, cMINA,  cVACIA, cVACIA, cVACIA },
+            { cVACIA, cVACIA, cVACIA, cVACIA, cVACIA },
+            { cMINA,  cVACIA, cMINA,  cVACIA, cVACIA },
+    };
+
     banderitas b;
     jugadas j;
 
@@ -117,6 +125,14 @@ TEST(jugarPlusTest, noDescubrePosicionesConBanderita){
 }
 
 TEST(jugarPlusTest, noDescubrePosicionesSiHayMinasAdyacentes){
+    tablero t = {
+            { cMINA,  cMINA,  cVACIA, cVACIA, cVACIA },
+            { cVACIA, cVACIA, cVACIA, cMINA,  cVACIA },
+            { cVACIA, cMINA,  cVACIA, cVACIA, cVACIA },
+            { cVACIA, cVACIA, cVACIA, cVACIA, cVACIA },
+            { cMINA,  cVACIA, cMINA,  cVACIA, cVACIA },
+    };
+
     banderitas b;
     jugadas j;
 
@@ -160,6 +176,14 @@ TEST(jugarPlusTest, noDescubrePosicionesSiHayMinasAdyacentes){
 }
 
 TEST(jugarPlusTest, noDescubrePosicionesSiHayUnaMina){
+    tablero t = {
+            { cMINA,  cMINA,  cVACIA, cVACIA, cVACIA },
+            { cVACIA, cVACIA, cVACIA, cMINA,  cVACIA },
+            { cVACIA, cMINA,  cVACIA, cVACIA, cVACIA },
+            { cVACIA, cVACIA, cVACIA, cVACIA, cVACIA },
+            { cMINA,  cVACIA, cMINA,  cVACIA, cVACIA },
+    };
+
     banderitas b;
     jugadas j;
 

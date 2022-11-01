@@ -28,10 +28,10 @@ void initJB(tablero& t, jugadas& j, banderitas& b) {
     /*
      Jugadas tiene correspondencia 1 a 1 con los casilleros de la matriz
 
-     0 1 2 3
-     0 1 2 3
-     0 1 2 3
-     0 1 2 3
+     0  1  2  3
+     4  5  6  7
+     8  9  10 11
+     12 13 14 15
 
      0           1           2           3
      0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15
@@ -95,18 +95,16 @@ bool perteneceEnJugadas(jugada k, jugadas j) {
 }
 
 bool es121Horizontal(pos p, jugadas j){
-  // return perteneceEnJugadas(((p.first,p.second - 1),1),j) and perteneceEnJugadas(((p[0],p[1]),2),j) and perteneceEnJugadas(((p[0],p[1] + 1),1),j);
-  return true;
+    // indiceJugadas % m != 0 && indiceJugadas % m != (m - 1)
+    // return perteneceEnJugadas(((p.first,p.second - 1),1),j) and perteneceEnJugadas(((p[0],p[1]),2),j) and perteneceEnJugadas(((p[0],p[1] + 1),1),j);
 }
 
 bool es121Vertical(pos p, jugadas j){
-  // return perteneceEnJugadas(((p[0] - 1,p[1]),1),j) and perteneceEnJugadas(((p[0],p[1]),2),j) and perteneceEnJugadas(((p[0] + 1,p[1]),1),j);
-    return true;
+  return perteneceEnJugadas(((p[0] - 1,p[1]),1),j) and perteneceEnJugadas(((p[0],p[1]),2),j) and perteneceEnJugadas(((p[0] + 1,p[1]),1),j);
 }
 
 bool esAdyacenteA121(pos p, jugadas j){
-  // return es121Horizontal((p[0] - 1,p[1]),j) or es121Horizontal((p[0] + 1,p[1]),j) or es121Vertical((p[0],p[1] - 1),j) or es121Vertical((p[0],p[1] + 1),j);
-    return true;
+  return es121Horizontal((p[0] - 1,p[1]),j) or es121Horizontal((p[0] + 1,p[1]),j) or es121Vertical((p[0],p[1] - 1),j) or es121Vertical((p[0],p[1] + 1),j);
 }
 
 bool hayPosicionSugerible(jugadas j, banderitas b, tablero t){
