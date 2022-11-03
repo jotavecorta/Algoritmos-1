@@ -14,7 +14,7 @@
 using namespace std;
 
 /******++++**************************** EJERCICIO minasAdyacentes ***********+++***********************/
-
+// O(1) tiempo constante: Los ciclos recorren 9 posiciones SIEMPRE y todas las operaciones son O(1)
 int minasAdyacentes(tablero& t, pos p) {
     int cant_minas_adyacentes = 0;
 
@@ -40,32 +40,38 @@ int minasAdyacentes(tablero& t, pos p) {
 }
 
 /******++++**************************** EJERCICIO plantarBanderita ***********+++***********************/
-// O(1) tiempo constante
+// O(1) tiempo constante: No realizamos ningún ciclo en las instrucciones (todas O(1))
 void cambiarBanderita(tablero& t, jugadas& j, pos p, banderitas& b) {
+    // Inicializamos las jugadas y banderitas
     initJB(t, j, b);
+
+    // Pasamos de posiciones en el tablero a indices en el vector de banderitas
     int index = mapIndex(t.size(), p.first, p.second);
 
     pos null_pos(-1, -1);
-    if (b[index] == null_pos){
+    if (b[index] == null_pos){// No está marcada esa posicion
         b[index] = p;
-    } else {
+    } else {// Desmarca en caso de estar marcada
         b[index] = null_pos;
     }
 }
 
 /******++++**************************** EJERCICIO perdio ***********+++***********************/
+// Complejidad O(n): Tenemos un solo for y dentro todas sentencias O(1)
 bool perdio(tablero& t, jugadas& j) {
     for(int i = 0; i < j.size(); i++) {
-        if (j[i].second == -1) {
-            // Posición no jugada aún
+        // Primero miramos si la posición p_i es no jugada
+        if (j[i].second == -1) {// Si no se jugo pasamos a la siguiente
             continue;
         }
 
+        // Si esa posicion se jugó, miramos si había una mina
         pos p = j[i].first;
         if (t[p.first][p.second]) {
             return true;
         }
     }
+    // Si logramos salir del for es porque no había minas en jugadas
     return false;
 }
 
