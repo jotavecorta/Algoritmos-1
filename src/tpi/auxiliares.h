@@ -20,4 +20,4 @@ bool hayBanderita(tablero& t, banderitas& b, pos p);
 bool es121Horizontal(pos &p, jugadas &j,tablero &t);
 bool es121Vertical(pos &p, jugadas &j, tablero &t);
 bool esAdyacenteA121(pos &p, jugadas &j, tablero &t);
-bool hayPosicionSugerible(jugadas &j, banderitas &b, tablero &t);
+bool hayPosicionSugerible(jugadas &j, banderitas &b, tablero &t,pos &p);

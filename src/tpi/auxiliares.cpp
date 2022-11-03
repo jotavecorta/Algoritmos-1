@@ -18,6 +18,10 @@ bool posicionValida(tablero& t, int i, int j) {
 int mapIndex(int n, int i, int j) {
     return i*n + j;
 }
+pos inversaMapIndex(int i, int t){
+    return pos(i/t,i%t);
+}
+
 
 void initJB(tablero& t, jugadas& j, banderitas& b) {
     // Ya está inicializado
@@ -96,16 +100,19 @@ bool pertenece(vector<pos> b, pos p) {
   //return pertenece;
 //}
 
-(-1 -1 -1 -1 -1 -1 -1- 1)
 
 bool es121Horizontal(pos &p, jugadas &j, tablero &t){
     bool esHor121 = false;
     for(int i = 0;i<j.size()-2;i++){
-        if(j[i].second == 1 and (i+1) % t.size() != 0 and j[i+1].second == 2 and (i+2) % t.size() != 0 and j[i+2].second == 1){
+        bool esPosicionJugada = (j[i].second != -1);
+        bool condicion1 = j[i].second == 1;
+        bool condicion2 = (i+1) % t.size() != 0 and j[i+1].second == 2;
+        bool condicion3 = (i+2) % t.size() != 0 and j[i+2].second == 1;
+        if( esPosicionJugada and condicion1  and condicion2 and condicion3){
             esHor121 = true;
         }
     }
-    return esAdy121;
+    return esHor121;
 }
 bool es121Vertical(pos &p, jugadas &j,tablero &t){
     bool esVer121 = false;
@@ -118,14 +125,19 @@ bool es121Vertical(pos &p, jugadas &j,tablero &t){
 }
 
 bool esAdyacenteA121(pos &p, jugadas &j,tablero &t){
-    return es121Horizontal((p.first - 1,p.second),j,t) and es121Horizontal((p.first + 1,p.second),j,t) and es121Vertical((p.first, p.second - 1),j,t) and es121Vertical((p.first ,p.second + 1),j,t);
+    pos p1 (p.first -1,p.second);
+    pos p2 (p.first +1,p.second);
+    pos p3 (p.first ,p.second -1);
+    pos p4 (p.first,p.second+1);
+    return es121Horizontal(p1,j,t) or es121Horizontal(p2,j,t) or es121Vertical(p3,j,t) or es121Vertical(p4,j,t);
 }
 
-bool hayPosicionSugerible(jugadas &j, banderitas &b, tablero &t){
+bool hayPosicionSugerible(jugadas &j, banderitas &b, tablero &t, pos &p){
     bool posicionSugerida = true;
     for(int i = 0;i<j.size();i++){
         if(j[i].second == -1 and b[i] == pos(-1,-1) and esAdyacenteA121(j[i].first,j,t)){
             posicionSugerida = true;
+            p = inversaMapIndex(i,t.size());
         }
     }
     return posicionSugerida;
