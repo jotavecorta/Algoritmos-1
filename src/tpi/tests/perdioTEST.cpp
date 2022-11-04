@@ -33,7 +33,6 @@ TEST(perdioTest, ConMinaDescubierta){
 
     // Check
     ASSERT_TRUE(resultado_juego);
-
 }
 
 TEST(perdioTest, SinMinaDescubierta){
@@ -59,5 +58,4 @@ TEST(perdioTest, SinMinaDescubierta){
 
     // Check
     ASSERT_FALSE(resultado_juego);
-
 }

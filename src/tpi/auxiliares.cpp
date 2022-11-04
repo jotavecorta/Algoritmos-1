@@ -155,6 +155,7 @@ bool es121VerticalDerecha(int u,jugadas &j,tablero &t){
     }
     return esVer121;
 }
+
 bool es121VerticalIzquierda(int u,jugadas &j,tablero &t){
     bool esVer121 = false;
     for(int i = t.size()+1;i<t.size()*t.size() - t.size();i++){
@@ -185,13 +186,12 @@ bool esAdyacenteA121(int i,jugadas &j,tablero &t){
 }
 
 bool hayPosicionSugerible(jugadas &j, banderitas &b, tablero &t, pos &p){
-    bool posicionSugerida = false;
-    for(int i = 0;i<j.size();i++){
-        if(j[i].second == -1 and b[i] == pos(-1,-1) and esAdyacenteA121(i,j,t)){
-            posicionSugerida = true;
+    for(int i = 0; i < j.size(); i++){
+        if(j[i].second == -1 && !hayBanderita(t, b, b[i]) && esAdyacenteA121(i,j,t)){
             p = inversaMapIndex(i,t.size());
+            return true;
         }
     }
-    return posicionSugerida;
+    return false;
 }
 

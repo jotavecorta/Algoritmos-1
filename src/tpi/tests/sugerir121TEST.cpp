@@ -7,13 +7,15 @@
 
 using namespace std;
 
-TEST(Sugerir121TEST, hayhorizontalA121){
+TEST(Sugerir121TEST, hayhorizontal121NoDeterminable){
+    // En este caso con la cantidad de jugadas no es posible determinar si la posición a
+    // sugerir es la (0, 2) o la (2, 2) sin consultar dónde están las minas, por lo tanto no es sugerible
     tablero T = {
-            { cVACIA,  cVACIA,  cVACIA, cVACIA, cVACIA },
-            { cVACIA, cVACIA, cVACIA, cVACIA,  cVACIA },
-            { cVACIA, cMINA,  cVACIA, cMINA, cVACIA },
             { cVACIA, cVACIA, cVACIA, cVACIA, cVACIA },
-            { cVACIA,  cVACIA, cVACIA,  cVACIA, cVACIA },
+            { cVACIA, cVACIA, cVACIA, cVACIA, cVACIA },
+            { cVACIA, cMINA,  cVACIA, cMINA,  cVACIA },
+            { cVACIA, cVACIA, cVACIA, cVACIA, cVACIA },
+            { cVACIA, cVACIA, cVACIA, cVACIA, cVACIA },
     };
 
     vector<pos> posicionesAJugar = {
@@ -31,11 +33,35 @@ TEST(Sugerir121TEST, hayhorizontalA121){
         jugar(T, J, posicionesAJugar[i]);
     }
 
+    ASSERT_FALSE(sugerirAutomatico121(T,b,J,p));
+    ASSERT_EQ(p,pos(-1, -1));
+}
+
+TEST(Sugerir121TEST, hayhorizontal121){
+    tablero T = {
+            { cVACIA, cVACIA, cVACIA, cVACIA, cVACIA },
+            { cVACIA, cVACIA, cVACIA, cVACIA, cVACIA },
+            { cVACIA, cMINA,  cVACIA, cMINA,  cVACIA },
+            { cVACIA, cVACIA, cVACIA, cVACIA, cVACIA },
+            { cVACIA, cVACIA, cVACIA, cVACIA, cVACIA },
+    };
+
+    // Inicializo las jugadas y las banderitas. Coloco las posiciones a jugar
+    jugadas J;
+    banderitas b;
+    pos p (-1,-1);
+    initJB(T, J, b);
+
+    //  Coloco las posiciones a jugar
+    jugarPlus(T, b, pos(0, 2), J);
+
     ASSERT_TRUE(sugerirAutomatico121(T,b,J,p));
     ASSERT_EQ(p,pos(2,2));// cuando pongamos cortocircuito hay que compararlo con el (0,2)
 }
 
-TEST(Sugerir121TEST, hayhorizontalB121){
+TEST(Sugerir121TEST, hayhorizontal121EnBordeNoDeterministico){
+    // Igual que antes con la cantidad de jugadas no es posible determinar
+    // si tenemos que devolver el (0, 2) o el (2, 2)
     tablero T = {
             { cVACIA,  cMINA,  cVACIA, cMINA, cVACIA },
             { cVACIA, cVACIA, cVACIA, cVACIA,  cVACIA },
@@ -59,9 +85,32 @@ TEST(Sugerir121TEST, hayhorizontalB121){
         jugar(T, J, posicionesAJugar[i]);
     }
 
-    ASSERT_TRUE(sugerirAutomatico121(T,b,J,p));
-    ASSERT_EQ(p,pos(2,2));
+    ASSERT_FALSE(sugerirAutomatico121(T,b,J,p));
+    ASSERT_EQ(p, pos(-1,-1));
 }
+
+TEST(Sugerir121TEST, hayhorizontal121EnBorde){
+    tablero T = {
+            { cVACIA,  cMINA,  cVACIA, cMINA, cVACIA },
+            { cVACIA, cVACIA, cVACIA, cVACIA,  cVACIA },
+            { cVACIA, cVACIA,  cVACIA, cVACIA, cVACIA },
+            { cVACIA, cVACIA, cVACIA, cVACIA, cVACIA },
+            { cVACIA,  cVACIA, cVACIA,  cVACIA, cVACIA },
+    };
+
+    // Inicializo las jugadas y las banderitas. Coloco las posiciones a jugar
+    jugadas J;
+    banderitas b;
+    pos p (-1,-1);
+    initJB(T, J, b);
+
+    //  Coloco las posiciones a jugar
+    jugarPlus(T, b, pos(2, 2), J);
+
+    ASSERT_TRUE(sugerirAutomatico121(T,b,J,p));
+    ASSERT_EQ(p, pos(0, 2));
+}
+
 
 TEST(Sugerir121TEST, noHay121){
     tablero T = {
@@ -88,8 +137,11 @@ TEST(Sugerir121TEST, noHay121){
     }
 
     ASSERT_FALSE(sugerirAutomatico121(T,b,J,p));
+    ASSERT_EQ(p, pos(-1,-1));
 }
-TEST(Sugerir121TEST, hayverticalA121){
+
+TEST(Sugerir121TEST, hayvertical121EnBordeNoDeterministico){
+    // Igual que con los horizontales, no es deterministico. No podemos decidir entre el (3, 0) o el (3, 1)
     tablero T = {
             { cVACIA,  cVACIA,  cVACIA, cVACIA, cVACIA },
             { cVACIA, cVACIA, cVACIA, cVACIA,  cVACIA },
@@ -113,16 +165,41 @@ TEST(Sugerir121TEST, hayverticalA121){
         jugar(T, J, posicionesAJugar[i]);
     }
 
-    ASSERT_TRUE(sugerirAutomatico121(T,b,J,p));
-    ASSERT_EQ(p,pos(3,2));//si es cortocircuito me daria el (3,0)
+    ASSERT_FALSE(sugerirAutomatico121(T,b,J,p));
+    ASSERT_EQ(p,pos(-1,-1));
 }
-TEST(Sugerir121TEST, hayverticalB121){
+
+TEST(Sugerir121TEST, hayvertical121EnBorde){
+    // Igual que con los horizontales, no es deterministico. No podemos decidir entre el (3, 0) o el (3, 1)
     tablero T = {
             { cVACIA,  cVACIA,  cVACIA, cVACIA, cVACIA },
-            { cVACIA, cMINA, cVACIA, cVACIA,  cVACIA },
-            { cVACIA, cVACIA,  cVACIA, cVACIA, cVACIA },
-            { cVACIA, cMINA, cVACIA, cVACIA, cVACIA },
-            { cVACIA,  cVACIA, cVACIA,  cVACIA, cVACIA },
+            { cVACIA, cVACIA, cVACIA, cVACIA,  cVACIA },
+            { cMINA, cVACIA,  cVACIA, cVACIA, cVACIA },
+            { cVACIA, cVACIA, cVACIA, cVACIA, cVACIA },
+            { cMINA,  cVACIA, cVACIA,  cVACIA, cVACIA },
+    };
+
+    // Inicializo las jugadas y las banderitas. Coloco las posiciones a jugar
+    jugadas J;
+    banderitas b;
+    pos p (-1,-1);
+    initJB(T, J, b);
+
+    // Coloco las posiciones a jugar
+    jugarPlus(T, b, pos(2, 2), J);
+
+    ASSERT_TRUE(sugerirAutomatico121(T,b,J,p));
+    ASSERT_EQ(p, pos(3,0));
+}
+
+TEST(Sugerir121TEST, hayvertical121NoDeterministico){
+    // Idem a todos los no deterministicos
+    tablero T = {
+            { cVACIA, cVACIA, cVACIA, cVACIA, cVACIA },
+            { cVACIA, cMINA,  cVACIA, cVACIA, cVACIA },
+            { cVACIA, cVACIA, cVACIA, cVACIA, cVACIA },
+            { cVACIA, cMINA,  cVACIA, cVACIA, cVACIA },
+            { cVACIA, cVACIA, cVACIA, cVACIA, cVACIA },
     };
 
     vector<pos> posicionesAJugar = {
@@ -140,6 +217,28 @@ TEST(Sugerir121TEST, hayverticalB121){
         jugar(T, J, posicionesAJugar[i]);
     }
 
+    ASSERT_FALSE(sugerirAutomatico121(T,b,J,p));
+    ASSERT_EQ(p, pos(-1,-1));
+}
+
+TEST(Sugerir121TEST, hayvertical121){
+    tablero T = {
+            { cVACIA, cVACIA, cVACIA, cVACIA, cVACIA },
+            { cVACIA, cMINA,  cVACIA, cVACIA, cVACIA },
+            { cVACIA, cVACIA, cVACIA, cVACIA, cVACIA },
+            { cVACIA, cMINA,  cVACIA, cVACIA, cVACIA },
+            { cVACIA, cVACIA, cVACIA, cVACIA, cVACIA },
+    };
+
+    // Inicializo las jugadas y las banderitas. Coloco las posiciones a jugar
+    jugadas J;
+    banderitas b;
+    pos p (-1,-1);
+    initJB(T, J, b);
+
+    //  Coloco las posiciones a jugar
+    jugarPlus(T, b, pos(2, 3), J);
+
     ASSERT_TRUE(sugerirAutomatico121(T,b,J,p));
-    ASSERT_EQ(p,pos(2,3));
+    ASSERT_EQ(p,pos(2,1));
 }
