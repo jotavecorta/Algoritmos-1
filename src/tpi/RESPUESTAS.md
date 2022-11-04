@@ -8,5 +8,6 @@ vector de longitud $n**2$ a una matriz de $nxn$, i.e. las complejidades seguirí
 siendo O(n**2).
 
 En el caso de una implementación que modifique dinámicamente a los vectores
-de ``jugadas`` y ``banderitas``, se pasaría de complejidades ...
+de ``jugadas`` y ``banderitas``, se pasaría de complejidades más altas
+-n**2*log n o n**3-, por tener dos ciclos más las búsquedas en j, a n**2.
 
