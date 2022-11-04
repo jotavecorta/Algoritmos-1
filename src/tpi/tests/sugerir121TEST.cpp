@@ -1,5 +1,4 @@
 // Tests para la función sugerir121.
-// Ver el archovo README.md para ayuda
 
 #include "../ejercicios.h"
 #include "../auxiliares.h"
@@ -7,7 +6,7 @@
 
 using namespace std;
 
-TEST(Sugerir121TEST, hayhorizontal121NoDeterminable){
+TEST(Sugerir121TEST, hayHorizontal121NoDeterminable){
     // En este caso con la cantidad de jugadas no es posible determinar si la posición a
     // sugerir es la (0, 2) o la (2, 2) sin consultar dónde están las minas, por lo tanto no es sugerible
     tablero T = {
@@ -37,7 +36,7 @@ TEST(Sugerir121TEST, hayhorizontal121NoDeterminable){
     ASSERT_EQ(p,pos(-1, -1));
 }
 
-TEST(Sugerir121TEST, hayhorizontal121){
+TEST(Sugerir121TEST, hayHorizontal121){
     tablero T = {
             { cVACIA, cVACIA, cVACIA, cVACIA, cVACIA },
             { cVACIA, cVACIA, cVACIA, cVACIA, cVACIA },
@@ -59,7 +58,7 @@ TEST(Sugerir121TEST, hayhorizontal121){
     ASSERT_EQ(p, pos(2,2)); // cuando pongamos cortocircuito hay que compararlo con el (0,2)
 }
 
-TEST(Sugerir121TEST, hayhorizontal121EnBordeNoDeterministico){
+TEST(Sugerir121TEST, hayHorizontal121EnBordeNoDeterministico){
     // Igual que antes con la cantidad de jugadas no es posible determinar
     // si tenemos que devolver el (0, 2) o el (2, 2)
     tablero T = {
@@ -89,7 +88,7 @@ TEST(Sugerir121TEST, hayhorizontal121EnBordeNoDeterministico){
     ASSERT_EQ(p, pos(-1,-1));
 }
 
-TEST(Sugerir121TEST, hayhorizontal121EnBorde){
+TEST(Sugerir121TEST, hayHorizontal121EnBorde){
     // Igual que antes con la cantidad de jugadas no es posible determinar
     // si tenemos que devolver el (0, 2) o el (2, 2)
     tablero T = {
@@ -119,7 +118,7 @@ TEST(Sugerir121TEST, hayhorizontal121EnBorde){
     ASSERT_EQ(p, pos(3, 2));
 }
 
-TEST(Sugerir121TEST, hayhorizontal121EnCentro){
+TEST(Sugerir121TEST, hayHorizontal121EnCentro){
     tablero T = {
             { cVACIA,  cMINA,  cVACIA, cMINA, cVACIA },
             { cVACIA, cVACIA, cVACIA, cVACIA,  cVACIA },
@@ -170,7 +169,7 @@ TEST(Sugerir121TEST, noHay121){
     ASSERT_EQ(p, pos(-1,-1));
 }
 
-TEST(Sugerir121TEST, hayvertical121EnBorde){
+TEST(Sugerir121TEST, hayVertical121EnBorde){
     // Igual que con los horizontales, no es deterministico. No podemos decidir entre el (3, 0) o el (3, 1)
     tablero T = {
             { cVACIA,  cVACIA,  cVACIA, cVACIA, cVACIA },
@@ -199,7 +198,7 @@ TEST(Sugerir121TEST, hayvertical121EnBorde){
     ASSERT_EQ(p, pos(3,1));
 }
 
-TEST(Sugerir121TEST, hayvertical121EnCentroNoDeterministico){
+TEST(Sugerir121TEST, hayVertical121EnCentroNoDeterministico){
     // Igual que con los horizontales, no es deterministico. No podemos decidir entre el (3, 0) o el (3, 1)
     tablero T = {
             { cVACIA,  cVACIA,  cVACIA, cVACIA, cVACIA },
@@ -228,7 +227,7 @@ TEST(Sugerir121TEST, hayvertical121EnCentroNoDeterministico){
     ASSERT_EQ(p,pos(-1,-1));
 }
 
-TEST(Sugerir121TEST, hayvertical121EnCentro){
+TEST(Sugerir121TEST, hayVertical121EnCentro){
     tablero T = {
             { cVACIA,  cVACIA,  cVACIA, cVACIA, cVACIA },
             { cVACIA, cVACIA, cVACIA, cVACIA,  cVACIA },
