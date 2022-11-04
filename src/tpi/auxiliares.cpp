@@ -81,61 +81,113 @@ bool hayBanderita(tablero& t, banderitas& b, pos p) {
     return b[index].first != -1;
 }
 
-bool pertenece(vector<pos> b, pos p) {
-  int i=0;
-  while(i<b.size() and b[i]!= p){
-    i=i+1;
-  }
-  return i < b.size();
-}
 
-//bool perteneceEnJugadas(jugada k, jugadas j) {
-  //bool pertenece = false;
-  //int i = 0;
-  //while(i<j.size()){
-  //    if(k == ){
-  //        pertenece = true;
-  //    }
-  //}
-  //return pertenece;
-//}
-
-
-bool es121Horizontal(pos &p, jugadas &j, tablero &t){
+bool es121HorizontalArriba(int u,jugadas &j, tablero &t){
     bool esHor121 = false;
-    for(int i = 0;i<j.size()-2;i++){
-        bool esPosicionJugada = (j[i].second != -1);
-        bool condicion1 = j[i].second == 1;
-        bool condicion2 = (i+1) % t.size() != 0 and j[i+1].second == 2;
-        bool condicion3 = (i+2) % t.size() != 0 and j[i+2].second == 1;
-        if( esPosicionJugada and condicion1  and condicion2 and condicion3){
-            esHor121 = true;
+    for(int i = t.size()+1;i < t.size()*t.size()-1;i++){
+        bool enRango = false;
+        int a = 1;
+        while(a<t.size()){
+            enRango = a*t.size()+1<i and i<(a+1)*t.size()-1;
+            a = a+1;
+            if(enRango){
+                break;
+            }
+        }
+        if(enRango){
+            bool esPosicionNoJugada = (j[i].second == -1);
+            bool condicion1 = j[i - t.size() - 1].second == 1;
+            bool condicion2 = (i - t.size()) % t.size() != 0 and j[i - t.size()].second == 2;
+            bool condicion3 = (i - t.size() + 1) % t.size() != 0 and j[i - t.size() + 1].second == 1;
+            if( esPosicionNoJugada and condicion1  and condicion2 and condicion3 and i==u){
+                esHor121 = true;
+            }
         }
     }
     return esHor121;
 }
-bool es121Vertical(pos &p, jugadas &j,tablero &t){
+bool es121HorizontalAbajo(int u,jugadas &j, tablero &t){
+    bool esHor121 = false;
+    for(int i = 1;i <t.size()*t.size() - t.size() - 1;i++){
+        bool enRango = false;
+        int a = 0;
+        while(a<t.size()-1){
+            enRango = a*t.size()+1<i and i<(a+1)*t.size()-1;
+            a = a+1;
+            if(enRango){
+                break;
+            }
+        }
+        if(enRango){
+            bool esPosicionNoJugada = (j[i].second == -1);
+            bool condicion1 = j[i + t.size() - 1].second == 1;
+            bool condicion2 = (i) % t.size() != 0 and j[i + t.size()].second == 2;
+            bool condicion3 = (i + 1) % t.size() != 0 and j[i + t.size() + 1].second == 1;
+            if( esPosicionNoJugada and condicion1  and condicion2 and condicion3 and i==u){
+                esHor121 = true;
+            }
+        }
+    }
+    return esHor121;
+}
+
+bool es121VerticalDerecha(int u,jugadas &j,tablero &t){
     bool esVer121 = false;
-    for(int i = 0;i<j.size() - 2*t.size()-1;i++){
-        if(j[i].second == 1 and  j[i + t.size()].second == 2 and j[i+2*t.size()].second == 1){
-            esVer121 = true;
+    for(int i = t.size() +1;i<t.size()*t.size() - t.size() - 1;i++){
+        bool enRango = false;
+        int a = 1;
+        while(a<t.size()-1){
+            enRango = a*t.size()-1<i and i<(a+1)*t.size()-1;
+            a = a+1;
+            if(enRango){
+                break;
+            }
+        }
+        if(enRango){
+            bool esPosicionNoJugada = (j[i].second == -1);
+            bool condicion1 = j[i - t.size()+1].second == 1;
+            bool condicion2 = j[i+1].second == 2;
+            bool condicion3 = j[i + t.size()+1].second == 1;
+            if(esPosicionNoJugada and condicion1 and condicion2  and condicion3 and i==u){
+                esVer121 = true;
+            }
+        }
+    }
+    return esVer121;
+}
+bool es121VerticalIzquierda(int u,jugadas &j,tablero &t){
+    bool esVer121 = false;
+    for(int i = t.size()+1;i<t.size()*t.size() - t.size();i++){
+        bool enRango = false;
+        int a = 1;
+        while(a<t.size()-1){
+            enRango = a*t.size()+1<i and i<(a+1)*t.size();
+            a = a+1;
+            if(enRango){
+                break;
+            }
+        }
+        if(enRango){
+            bool esPosicionNoJugada = (j[i].second == -1);
+            bool condicion1 = j[i - t.size()-1].second == 1;
+            bool condicion2 = j[i-1].second == 2;
+            bool condicion3 = j[i + t.size()-1].second == 1;
+            if(esPosicionNoJugada and condicion1 and condicion2  and condicion3 and i==u){
+                esVer121 = true;
+            }
         }
     }
     return esVer121;
 }
 
-bool esAdyacenteA121(pos &p, jugadas &j,tablero &t){
-    pos p1 (p.first -1,p.second);
-    pos p2 (p.first +1,p.second);
-    pos p3 (p.first ,p.second -1);
-    pos p4 (p.first,p.second+1);
-    return es121Horizontal(p1,j,t) or es121Horizontal(p2,j,t) or es121Vertical(p3,j,t) or es121Vertical(p4,j,t);
+bool esAdyacenteA121(int i,jugadas &j,tablero &t){
+    return es121HorizontalArriba(i,j,t) or es121HorizontalAbajo(i,j,t) or es121VerticalDerecha(i, j,t) or es121VerticalIzquierda(i, j,t);
 }
 
 bool hayPosicionSugerible(jugadas &j, banderitas &b, tablero &t, pos &p){
-    bool posicionSugerida = true;
+    bool posicionSugerida = false;
     for(int i = 0;i<j.size();i++){
-        if(j[i].second == -1 and b[i] == pos(-1,-1) and esAdyacenteA121(j[i].first,j,t)){
+        if(j[i].second == -1 and b[i] == pos(-1,-1) and esAdyacenteA121(i,j,t)){
             posicionSugerida = true;
             p = inversaMapIndex(i,t.size());
         }
