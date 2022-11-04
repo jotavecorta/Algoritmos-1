@@ -4,8 +4,6 @@
 
 #include <stdio.h>
 #include <iostream>
-#include <algorithm>
-
 
 #include "definiciones.h"
 #include "ejercicios.h"
@@ -80,7 +78,8 @@ bool perdio(tablero& t, jugadas& j) {
 }
 
 /******++++**************************** EJERCICIO gano ***********+++***********************/
-// Esto es O(m*n) dado que recorremos todas las filas y columnas. Los accesos a la lista de jugadas son en tiempo constante despreciable
+// Esto es O(m*n) dado que recorremos todas las filas y columnas. Los accesos a la lista de
+// jugadas son en tiempo constante despreciable.
 bool gano(tablero& t, jugadas& j) {
     // O(n)
     for (int i = 0; i < t.size(); i++) {
