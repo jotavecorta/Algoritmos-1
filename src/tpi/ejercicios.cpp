@@ -147,45 +147,49 @@ void jugarPlus(tablero& t, banderitas& b, pos p, jugadas& j) {
 }
 
 /******++++**************************** EJERCICIO sugerirAutomatico121 ***********+++***********************/
-bool sugerirAutomatico121OLD(tablero& t, banderitas& b, jugadas& j, pos& p) {
-    bool hay = false;
-    if(hayPosicionSugerible(j,b,t,p)){
-        hay = true;
-    }
-    return hay;
-}
-
 // Dado que los accesos a todas las listas son en O(1) este procedimiento queda en O(m * n)
 bool sugerirAutomatico121(tablero& t, banderitas& b, jugadas& j, pos& p) {
     // Las jugadas en los bordes no nos interesan así que recorremos el cuadrado interior del tablero
 
-    // O(n - 2)
-    for (int i=1; i < t.size() - 1; i++) {
-        // O(m - 2)
-        for (int k=1; k < t[0].size() - 1; k++) {
+    // O(n)
+    int iMax = t.size() -1;
+    int kMax = t[0].size() - 1;
+    for (int i = 0; i < t.size(); i++) {
+        // O(m)
+        for (int k = 0; k < t[0].size(); k++) {
             // O(1)
             // Si la posición no se jugó o no tiene 2 minas adyacentes no nos interesa
             if (!posicionJugada(t, j, i, k) || minasAdyacentesWithCache(t, j, pos(i, k)) != 2) {
                 continue;
             }
 
+            // Si estamos en una esquina tampoco nos sirve
+            if (
+                (i == 0 && k == 0) ||       // Esquina superior izquierda
+                (i == 0 && k == kMax) ||    // Esquina superior derecha
+                (i == iMax && k == 0) ||    // Esquina inferior izquierda
+                (i == iMax && k == kMax)    // Esquina inferior derecha
+            ) {
+                continue;
+            }
+
             // Si la posición se jugó y tiene dos minas adyacentes, chequeamos si forma una columna 121 o  una fila 121
 
             // O(1)
-            // Columna 121
+            // Fila 121
             if (
-                posicionJugada(t, j, i, k - 1) && // Arriba
+                posicionJugada(t, j, i, k - 1) && // Izquierda
                 minasAdyacentesWithCache(t, j, pos(i, k - 1)) == 1 &&
-                posicionJugada(t, j, i, k + 1) && // Abajo
+                posicionJugada(t, j, i, k + 1) && // Derecha
                 minasAdyacentesWithCache(t, j, pos(i, k + 1)) == 1
             ) {
-                // Encontramos una columna 121
-                // Si la posición de la derecha está jugada, devolvemos la de la izquierda y viceversa
-                // Si ninguna de las posiciones de izquierda o derecha está jugada, no podemos determinar cuál de las dos es correcta
-                if (posicionJugada(t, j, i - 1, k)) {
+                // Encontramos una fila 121
+                // Si la posición de arriba está jugada, devolvemos la de abajo y viceversa
+                // Si ninguna de las posiciones de arriba o abajo está jugada, no podemos determinar cuál de las dos es correcta
+                if (!posicionValida(t, i - 1, k) || posicionJugada(t, j, i - 1, k)) {
                     p = pos(i + 1, k);
                     return true;
-                } else if (posicionJugada(t, j, i + 1, k)) {
+                } else if (!posicionValida(t, i - 1, k) || posicionJugada(t, j, i + 1, k)) {
                     p = pos(i - 1, k);
                     return true;
                 }
@@ -194,20 +198,20 @@ bool sugerirAutomatico121(tablero& t, banderitas& b, jugadas& j, pos& p) {
             }
 
             // O(1)
-            // Fila 121
+            // Columna 121
             if (
-                posicionJugada(t, j, i - 1, k) && // Izquierda
+                posicionJugada(t, j, i - 1, k) && // Arriba
                 minasAdyacentesWithCache(t, j, pos(i - 1, k)) == 1 &&
-                posicionJugada(t, j, i + 1, k) && // Derecha
+                posicionJugada(t, j, i + 1, k) && // Abajo
                 minasAdyacentesWithCache(t, j, pos(i + 1, k)) == 1
             ) {
-                // Encontramos una fila 121
-                // Si la posición de la arriba está jugada, devolvemos la de la abajo y viceversa
-                // Si ninguna de las posiciones de arriba o abajo está jugada, no podemos determinar cuál de las dos es correcta
-                if (posicionJugada(t, j, i, k - 1)) {
+                // Encontramos una columna 121
+                // Si la posición de la izquierda está jugada, devolvemos la de la derecha y viceversa
+                // Si ninguna de las posiciones de la izquierda o derecha está jugada, no podemos determinar cuál de las dos es correcta
+                if (!posicionValida(t, i, k - 1) || posicionJugada(t, j, i, k - 1)) {
                     p = pos(i, k + 1);
                     return true;
-                } else if (posicionJugada(t, j, i, k + 1)) {
+                } else if (!posicionValida(t, i, k + 1) || posicionJugada(t, j, i, k + 1)) {
                     p = pos(i, k - 1);
                     return true;
                 }
