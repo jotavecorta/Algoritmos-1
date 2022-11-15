@@ -111,22 +111,81 @@ vector<int> construir_vector(int size, string mode){
 
 
 
-int indicePico(vector<int> v){
-	return -1;
+int indicePico(vector<int> &v){
+	// Primero chequeo condiciones triviales
+    if (v.empty()){
+        return -1;
+    }else if (v.size()==1){
+        return 0;
+    }else{// Casos no triviales: recorro todo el vector
+        for (int i = 0; i < v.size(); ++i) {
+            if (i == 0 && (v[i] >= v[i+1])){//Borde izqiuerdo: si no entro en los anteriores v.size>1
+                return 0;
+            }else if (i == v.size()-1 && (v[i] >= v[i-1])){// Borde derecho
+                return v[i];
+            }else{// Interior del vector
+                if ((v[i] >= v[i-1]) && (v[i] >= v[i+1])){
+                    return i;
+                }else{
+                    return -1;
+                }
+            }
+        }
+    }
 }
 
-int puntoFijo(vector<int> v){
-	return -1;
+int puntoFijo(vector<int> &v){
+	if (v.size() == 0){// Caso trivial
+        return -1;
+    }else{// Resto de los casos: hago busqueda binaria
+        // Defino bordes de busqueda
+        int low = 0;
+        int high = v.size() - 1;
+
+        while (high > low + 1){
+            // Posicion media
+            int mid = (high + low) / 2;
+
+            // Si la posicion media cumple, listo
+            if (v[mid]==mid){
+                return mid;
+            }
+
+            // Sino, actualizo los bordes
+            if (v[mid] > mid){
+                low = mid;
+            }else{
+                high = mid;
+            }
+        }
+    }
+    // En caso de salir del loop sin encontrar
+    return -1;
 }
 
-int encontrarRotado(vector<int> v, int x){
-	return -1;
+int encontrarRotado(vector<int> &v, int x){
+//	vector<int> vector_ordenado = desrotar(v);
+//    return busquedaBinaria(vector_ordenado, x);
+
 }
 
-int menorMasGrande(vector<int> v, int x){
-	return -1;
+//vector<int> desrotar(vector<int> &v){
+//
+//}
+
+int menorMasGrande(vector<int> &v, int x) {
+    if (v.size() == 0) {// Caso trivial
+        return -1;
+    } else {
+        int indice_x = busquedaBinaria(v, x);
+        if (indice_x == v.size() || indice_x == -1){
+            return -1;
+        }else{
+            return indice_x + 1;
+        }
+    }
 }
 
-vector<int> masCercanoK(vector<int> v, int k,  int x){
+vector<int> masCercanoK(vector<int> &v, int k,  int x){
 	return {};
 }
