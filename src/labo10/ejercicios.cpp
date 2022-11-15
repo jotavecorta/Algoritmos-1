@@ -9,14 +9,17 @@
 using namespace std;
 
 int busquedaBinaria(vector<int> &v, int x){
-    bool encontro_x = false;
+    // Inicializo resultado como no encontro x
+    int res = -1;
 
-    // Casos Triviales
-    if (v.empty()) {// Vector vacío
-        ;// No hago nada
-    }else if (x >= v[v.size() - 1]) {// x fuera de rango por arriba
-        encontro_x = (x == v[v.size() - 1]);
-    }else {
+    // Separo en casos triviales y vasos de busqueda
+    if (v.empty()) {//Casos Triviales: Vector vacío o x fuera de rango
+        ; // No hago nada
+    }else if(v[0]==x){
+        res = 0;
+    }else if (x == v[v.size() - 1]) {// x es ultimo elemento
+        res = v.size() - 1;
+    }else if(v[0] <= v[v.size()-1]){// Orden ascentente
         // Inicializo los bordes de búsqueda
         int low = 0;
         int high = v.size() -1;
@@ -32,15 +35,30 @@ int busquedaBinaria(vector<int> &v, int x){
                 low = middle;
             }
         }
-        encontro_x = (v[low] == x);
+        if (v[low] == x){
+            res = low;
+        }
+    }else {// Orden Descendente
+        // Inicializo los bordes de búsqueda
+        int low = 0;
+        int high = v.size() -1;
+
+        while (high > low + 1 && v[high] != x){
+            // Tomo el elemento central del vector
+            int middle = (high + low)/2;
+
+            // Corro los bordes
+            if (v[middle] <= x){
+                high = middle;
+            }else{
+                low = middle;
+            }
+        }
+        if (v[high] == x){
+            res = high;
+        }
     }
-    if (!encontro_x){
-        return -1;
-    }else if (v[v.size()-1]==x){
-        return v.size() - 1;
-    }else{
-        return low;
-    }
+    return res;
 }
 
 int busquedaJumpSearch(vector<int> &v, int x){
@@ -65,7 +83,7 @@ int busquedaJumpSearch(vector<int> &v, int x){
     return -1;
 }
 
-int buscar(vector<int> v, int x){
+int buscar(vector<int> &v, int x){
     return busquedaBinaria(v, x);
     //return busquedaJumpSearch(v, x);
 }
@@ -118,25 +136,29 @@ int indicePico(vector<int> &v){
     }else if (v.size()==1){
         return 0;
     }else{// Casos no triviales: recorro todo el vector
-        for (int i = 0; i < v.size(); ++i) {
+        int res = -1;
+        int i = 0;
+        while ( i < v.size() && res == -1) {
             if (i == 0 && (v[i] >= v[i+1])){//Borde izqiuerdo: si no entro en los anteriores v.size>1
-                return 0;
+                res = 0;
             }else if (i == v.size()-1 && (v[i] >= v[i-1])){// Borde derecho
-                return v[i];
+                res = v[i];
             }else{// Interior del vector
                 if ((v[i] >= v[i-1]) && (v[i] >= v[i+1])){
-                    return i;
-                }else{
-                    return -1;
+                    res = i;
                 }
             }
+            i++;
         }
+        return res;
     }
 }
 
 int puntoFijo(vector<int> &v){
 	if (v.size() == 0){// Caso trivial
         return -1;
+    }else if(v[0] == 0){
+        return 0;
     }else{// Resto de los casos: hago busqueda binaria
         // Defino bordes de busqueda
         int low = 0;
@@ -153,19 +175,23 @@ int puntoFijo(vector<int> &v){
 
             // Sino, actualizo los bordes
             if (v[mid] > mid){
-                low = mid;
-            }else{
                 high = mid;
+            }else{
+                low = mid;
             }
         }
     }
-    // En caso de salir del loop sin encontrar
-    return -1;
+    if (v[v.size()-1] == v.size() -1){
+        return v.size() - 1;
+    }else{
+        return -1;
+    }
 }
 
 int encontrarRotado(vector<int> &v, int x){
 //	vector<int> vector_ordenado = desrotar(v);
 //    return busquedaBinaria(vector_ordenado, x);
+return -1;
 
 }
 
@@ -176,13 +202,21 @@ int encontrarRotado(vector<int> &v, int x){
 int menorMasGrande(vector<int> &v, int x) {
     if (v.size() == 0) {// Caso trivial
         return -1;
-    } else {
-        int indice_x = busquedaBinaria(v, x);
-        if (indice_x == v.size() || indice_x == -1){
-            return -1;
-        }else{
-            return indice_x + 1;
+    }else if(v.size() == 1){
+        return -1;
+    }else if (v[v.size() -1] < x){
+        return -1;
+    }else {
+        int i = 0;
+        while (v[i] <= x){
+            i++;
         }
+        if (i < v.size()){
+            return i;
+        }else{
+            return -1;
+        }
+
     }
 }
 
