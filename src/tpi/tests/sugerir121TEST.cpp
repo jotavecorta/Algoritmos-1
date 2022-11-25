@@ -32,7 +32,7 @@ using namespace std;
 //
 //    ASSERT_FALSE(sugerirAutomatico121(T, b, j, p));
 //    ASSERT_EQ(p, pos(-1, -1));
-}
+//}
 //
 //TEST(Sugerir121TEST, hayHorizontal121){
 //    tablero T = {

@@ -60,11 +60,6 @@ void cambiarBanderita(const tablero& t, const jugadas& j, pos p, banderitas& b) 
 bool perdio(const tablero& t, const jugadas& j) {
     // Chequeamos que haya minas en jugadas. En el peor caso recorremos todo j: O(|j|)
     for(int i = 0; i < j.size(); i++) {
-        // Primero miramos si la posición p_i es no jugada
-        if (j[i].second == -1) {// Si no se jugo pasamos a la siguiente
-            continue;
-        }
-
         // Si esa posicion se jugó, miramos si había una mina
         pos p = j[i].first;
         if (t[p.first][p.second]) {
@@ -144,15 +139,13 @@ void jugarPlus(const tablero& t, const banderitas& b, pos p, jugadas& j) {
 }
 
 ///******++++**************************** EJERCICIO sugerirAutomatico121 ***********+++***********************/
-// Dado que los accesos a todas las listas son en O(1) este procedimiento queda en O(m * n)
+
 //bool sugerirAutomatico121(const tablero& t, const banderitas& b, const jugadas& j, pos& p) {
 //    // Las jugadas en los bordes no nos interesan así que recorremos el cuadrado interior del tablero
 //
-//    // O(n)
 //    int iMax = t.size() - 1;
 //    int kMax = t[0].size() - 1;
 //    for (int i = 0; i < t.size(); i++) {
-//        // O(m)
 //        for (int k = 0; k < t[0].size(); k++) {
 //            // O(1)
 //            // Si la posición no se jugó o no tiene 2 minas adyacentes no nos interesa
@@ -170,9 +163,8 @@ void jugarPlus(const tablero& t, const banderitas& b, pos p, jugadas& j) {
 //                continue;
 //            }
 //
-//            // Si la posición se jugó y tiene dos minas adyacentes, chequeamos si forma una columna 121 o  una fila 121
+//            // Si la posición se jugó y tiene dos minas adyacentes: chequeamos si forma una columna 121 o  una fila 121
 //
-//            // O(1)
 //            // Fila 121
 //            if (
 //                posicionJugada(t, j, pos(i, k - 1)) && // Izquierda
@@ -183,6 +175,7 @@ void jugarPlus(const tablero& t, const banderitas& b, pos p, jugadas& j) {
 //                // Encontramos una fila 121
 //                // Si la posición de arriba está jugada, devolvemos la de abajo y viceversa
 //                // Si ninguna de las posiciones de arriba o abajo está jugada, no podemos determinar cuál de las dos es correcta
+//                HABRIA QUE DEVOLVER FALSE SI NO ES DETERMINABLE
 //                if (!posicionValida(t, i - 1, k) || posicionJugada(t, j, pos(i - 1, k))) {
 //                    p = pos(i + 1, k);
 //                    return true;
@@ -194,7 +187,6 @@ void jugarPlus(const tablero& t, const banderitas& b, pos p, jugadas& j) {
 //                continue;
 //            }
 //
-//            // O(1)
 //            // Columna 121
 //            if (
 //                posicionJugada(t, j, pos(i - 1, k)) && // Arriba
@@ -205,6 +197,7 @@ void jugarPlus(const tablero& t, const banderitas& b, pos p, jugadas& j) {
 //                // Encontramos una columna 121
 //                // Si la posición de la izquierda está jugada, devolvemos la de la derecha y viceversa
 //                // Si ninguna de las posiciones de la izquierda o derecha está jugada, no podemos determinar cuál de las dos es correcta
+//                 // LO MISMO, FALTA FALSE SI NO SE PUEDE DETERMINAR
 //                if (!posicionValida(t, i, k - 1) || posicionJugada(t, j, pos(i, k - 1))) {
 //                    p = pos(i, k + 1);
 //                    return true;
