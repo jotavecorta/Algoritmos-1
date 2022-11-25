@@ -13,7 +13,7 @@
 using namespace std;
 
 /*Chequea que la posicion (i, j) sea valida en el tablero t. O(1)*/
-bool posicionValida(tablero &t, int i, int j) {
+bool posicionValida(const tablero &t, int i, int j) {
     // Operaciones constantes: no hay ningun loop O(1)
     return (i>=0 && i < t.size()) && (j>=0 && j < t[0].size());
 }
@@ -63,18 +63,19 @@ bool posicionValida(tablero &t, int i, int j) {
 //    }
 //}
 
-///*Modifica el vector jugadas, agregando la posicion jugada -p- y sus minas
-// *adyacentes en lugar que corresponde segun la correspondencia con t.*/
-//void jugar(tablero& t, jugadas& j, pos p) {
-//    int index = mapIndex(t.size(), p.first, p.second);
-//    jugada ju(p, minasAdyacentes(t, p));
-//    j[index] = ju;
-//}
+/*Modifica el vector jugadas, agregando la posicion jugada -p- y sus minas
+ *adyacentes al final del vector de jugadas j. Está compuesta de operaciones
+ * O(1) -tanto minasAdyacentes como agregar un elemento al final de un vector-.*/
+void jugar(const tablero& t, jugadas& j, pos p) {
+    // Armo la jugada y la agrego a j
+    jugada jugada_actual(p, minasAdyacentes(t, p));
+    j.push_back(jugada_actual);
+}
 
 /*Chequea si la posición p ya fue jugada para el juego determinado
  *por el tabletro t y el vector de jugadas j, para ello implementa un
  *algoritmo de busqueda lineal. Complejidad lineal en j: O(|j|)*/
-bool posicionJugada(tablero& t, jugadas& j, pos p) {
+bool posicionJugada(const tablero& t, const jugadas& j, pos p) {
     bool res = false;
 
     // Si la posicion no es valida retorna false
@@ -98,7 +99,7 @@ bool posicionJugada(tablero& t, jugadas& j, pos p) {
  *devuelve el índice dentro del vector de banderitas, caso contrario devuelve -1.
  *Para ello implementa un algoritmo de busqueda lineal.
  *Complejidad lineal en b: O(|b|)*/
-int estaEnBanderitas(tablero &t, banderitas &b, pos p) {
+int estaEnBanderitas(const tablero &t, const banderitas &b, pos p) {
     // Operaciones constantes: O(1)
     int res = -1;
 

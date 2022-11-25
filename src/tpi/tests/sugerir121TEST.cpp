@@ -22,19 +22,17 @@ using namespace std;
 //    };
 //
 //    // Inicializo las jugadas y las banderitas. Coloco las posiciones a jugar
-//    jugadas J;
+//    jugadas j;
 //    banderitas b;
 //    pos p (-1,-1);
-//    initJB(T, J, b);
 //
-//    //  Coloco las posiciones a jugar
 //    for (int i = 0; i < posicionesAJugar.size(); ++i) {
-//        jugar(T, J, posicionesAJugar[i]);
+//        jugar(T, j, posicionesAJugar[i]);
 //    }
 //
-//    ASSERT_FALSE(sugerirAutomatico121(T,b,J,p));
-//    ASSERT_EQ(p,pos(-1, -1));
-//}
+//    ASSERT_FALSE(sugerirAutomatico121(T, b, j, p));
+//    ASSERT_EQ(p, pos(-1, -1));
+}
 //
 //TEST(Sugerir121TEST, hayHorizontal121){
 //    tablero T = {
@@ -49,7 +47,6 @@ using namespace std;
 //    jugadas J;
 //    banderitas b;
 //    pos p (-1,-1);
-//    initJB(T, J, b);
 //
 //    //  Coloco las posiciones a jugar
 //    jugarPlus(T, b, pos(0, 2), J);

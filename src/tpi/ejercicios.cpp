@@ -13,7 +13,7 @@ using namespace std;
 
 /******++++**************************** EJERCICIO minasAdyacentes ***********+++***********************/
 // O(1) tiempo constante: Los ciclos recorren 9 posiciones SIEMPRE y todas las operaciones son O(1)
-int minasAdyacentes(tablero& t, pos p) {
+int minasAdyacentes(const tablero& t, pos p) {
     int cant_minas_adyacentes = 0;
 
     // Separo la posicion en coordenadas
@@ -39,7 +39,7 @@ int minasAdyacentes(tablero& t, pos p) {
 
 /******++++**************************** EJERCICIO cambiararBanderita ***********+++***********************/
 // Complejidad Lineal en b: O(|b|) + O(1) = O(|b|)
-void cambiarBanderita(tablero& t, jugadas& j, pos p, banderitas& b) {
+void cambiarBanderita(const tablero& t, const jugadas& j, pos p, banderitas& b) {
     // Si la posicion esta jugada no se puede plantar.
     if (posicionJugada(t, j, p)) {// Busqueda lineal en j: O(|j|)
         return;
@@ -57,7 +57,7 @@ void cambiarBanderita(tablero& t, jugadas& j, pos p, banderitas& b) {
 
 /******++++**************************** EJERCICIO perdio ***********+++***********************/
 // Complejidad Lineal en j O(|j|): Tenemos un solo for y dentro todas sentencias O(1)
-bool perdio(tablero& t, jugadas& j) {
+bool perdio(const tablero& t, const jugadas& j) {
     // Chequeamos que haya minas en jugadas. En el peor caso recorremos todo j: O(|j|)
     for(int i = 0; i < j.size(); i++) {
         // Primero miramos si la posición p_i es no jugada
@@ -78,7 +78,7 @@ bool perdio(tablero& t, jugadas& j) {
 /******++++**************************** EJERCICIO gano ***********+++***********************/
 /* Complejidad O(|t|*|t|*|j|) dado que recorremos todas las filas y columnas de t (tablero cuadrado)
 *y para cada una realizamos una busqueda lineal en j */
-bool gano(tablero& t, jugadas& j) {
+bool gano(const tablero& t, const jugadas& j) {
     // Recorremos filas, para cada una columnas y buscamos en j: O(|t|*|t|*|j|)
     for (int i = 0; i < t.size(); i++) {
         // Recorremos columnas y para cada una buscamos en j: O(|t|*|j|)
@@ -103,61 +103,60 @@ bool gano(tablero& t, jugadas& j) {
 }
 
 /******++++**************************** EJERCICIO jugarPlus ***********+++***********************/
-/*
- * La complejidad algorítmica es O(m*n) + O(n) en total O(n(m+1)) lineal (despreciamos todas las constantes)
- * La linealidad se obtiene al guardar paso a paso el estado del juego en la variable jugadas
- */
+/* Complejidad O(|t|*|t|): la llamada recursiva hace que sea posible recorrer
+ * todo el tablero en el peor de los casos. */
+void jugarPlus(const tablero& t, const banderitas& b, pos p, jugadas& j) {
+    // Si hay banderita no se puede jugar: O(|b|)
+    if (estaEnBanderitas(t, b, p) != -1) {
+        return;
+    }
 
-//void jugarPlus(tablero& t, banderitas& b, pos p, jugadas& j) {
-//    // Inicializamos las jugadas si no todavía no está inicializadas O(n*m) la primera vez
-//    initJB(t, j, b);
-//
-//    // Si hay banderita no s puede jugar O(k)
-//    if (hayBanderita(t, b, p)) {
-//        return;
-//    }
-//
-//    // Agregamos la jugada al array O(k)
-//    jugar(t, j, p);
-//
-//    // Si hay una mina o tiene minas adyacentes no hay nada que hacer O(k)
-//    if (t[p.first][p.second] || minasAdyacentesWithCache(t, j, p) > 0) {
-//        return;
-//    }
-//
-//    // Iteramos recursivamente sobre todas las posiciones adyacentes no jugadas O(n)
-//    // Dado que guardamos el estado, sólo recorre cada nodo una vez
-//    for (int i = 0; i < 9; ++i) {
-//        int fila = (i / 3) - 1 + p.first;
-//        int columna = i % 3 - 1 + p.second;
-//
-//        if (
-//            fila == p.first && columna == p.second || // Es la misma posición, continuamos con la que sigue O(1)
-//            !posicionValida(t, fila, columna, 0) || // Si no es posición válida no la procesamos O(1)
-//            posicionJugada(t, j , fila, columna) // Si ya se jugó tampoco la procesamos O(1)
-//        ) {
-//            continue;
-//        }
-//
-//        pos next(fila, columna);
-//        jugarPlus(t, b, next, j);
-//    }
-//}
-//
+    // Agregamos la jugada al array O(1)
+    jugar(t, j, p);
+
+    // Si hay una mina o tiene minas adyacentes no hay nada que hacer O(1)
+    if (t[p.first][p.second] || minasAdyacentes(t, p) > 0) {
+        return;
+    }
+
+    // Iteramos recursivamente sobre todas las posiciones adyacentes no jugadas,
+    // como la cantidad de posiciones es constante esta operacion es de igual orden
+    // que la suma de sus operaciones internas: O(|t|*|t|) + O(|j|) + O(1) = O(|t|*|t|)
+    // ya que la cantidad de jugadas es igual o menor que las posiciones del tablero.
+    for (int i = 0; i < 9; ++i) {
+        int fila = (i / 3) - 1 + p.first;
+        int columna = i % 3 - 1 + p.second;
+
+        if (
+            fila == p.first && columna == p.second || // Es la misma posición, continuamos con la que sigue O(1)
+            !posicionValida(t, fila, columna) || // Si no es posición válida no la procesamos O(1)
+            posicionJugada(t, j , pos(fila, columna)) // Verificamos si ya se jugó, lineal en j O(|j|)
+        ) {
+            continue;
+        }
+
+        // Acá llamamos recursivamente a jugarPlus: en el peor caso se debería descubrir todo
+        //el tablero -imaginemos un tablero sin minas-, por lo que esta operación llamada sobre
+        // si misma debería ser de orden O(|t|*|t|)
+        pos siguiente_posicion(fila, columna);
+        jugarPlus(t, b, siguiente_posicion, j);
+    }
+}
+
 ///******++++**************************** EJERCICIO sugerirAutomatico121 ***********+++***********************/
-//// Dado que los accesos a todas las listas son en O(1) este procedimiento queda en O(m * n)
-//bool sugerirAutomatico121(tablero& t, banderitas& b, jugadas& j, pos& p) {
+// Dado que los accesos a todas las listas son en O(1) este procedimiento queda en O(m * n)
+//bool sugerirAutomatico121(const tablero& t, const banderitas& b, const jugadas& j, pos& p) {
 //    // Las jugadas en los bordes no nos interesan así que recorremos el cuadrado interior del tablero
 //
 //    // O(n)
-//    int iMax = t.size() -1;
+//    int iMax = t.size() - 1;
 //    int kMax = t[0].size() - 1;
 //    for (int i = 0; i < t.size(); i++) {
 //        // O(m)
 //        for (int k = 0; k < t[0].size(); k++) {
 //            // O(1)
 //            // Si la posición no se jugó o no tiene 2 minas adyacentes no nos interesa
-//            if (!posicionJugada(t, j, i, k) || minasAdyacentesWithCache(t, j, pos(i, k)) != 2) {
+//            if (!posicionJugada(t, j, pos(i, k)) || minasAdyacentes(t, pos(i, k)) != 2) {
 //                continue;
 //            }
 //
@@ -176,18 +175,18 @@ bool gano(tablero& t, jugadas& j) {
 //            // O(1)
 //            // Fila 121
 //            if (
-//                posicionJugada(t, j, i, k - 1) && // Izquierda
-//                minasAdyacentesWithCache(t, j, pos(i, k - 1)) == 1 &&
-//                posicionJugada(t, j, i, k + 1) && // Derecha
-//                minasAdyacentesWithCache(t, j, pos(i, k + 1)) == 1
+//                posicionJugada(t, j, pos(i, k - 1)) && // Izquierda
+//                minasAdyacentes(t, pos(i, k - 1)) == 1 &&
+//                posicionJugada(t, j, pos(i, k + 1)) && // Derecha
+//                minasAdyacentes(t, pos(i, k + 1)) == 1
 //            ) {
 //                // Encontramos una fila 121
 //                // Si la posición de arriba está jugada, devolvemos la de abajo y viceversa
 //                // Si ninguna de las posiciones de arriba o abajo está jugada, no podemos determinar cuál de las dos es correcta
-//                if (!posicionValida(t, i - 1, k, 0) || posicionJugada(t, j, i - 1, k)) {
+//                if (!posicionValida(t, i - 1, k) || posicionJugada(t, j, pos(i - 1, k))) {
 //                    p = pos(i + 1, k);
 //                    return true;
-//                } else if (!posicionValida(t, i - 1, k, 0) || posicionJugada(t, j, i + 1, k)) {
+//                } else if (!posicionValida(t, i - 1, k) || posicionJugada(t, j, pos(i + 1, k))) {
 //                    p = pos(i - 1, k);
 //                    return true;
 //                }
@@ -198,18 +197,18 @@ bool gano(tablero& t, jugadas& j) {
 //            // O(1)
 //            // Columna 121
 //            if (
-//                posicionJugada(t, j, i - 1, k) && // Arriba
-//                minasAdyacentesWithCache(t, j, pos(i - 1, k)) == 1 &&
-//                posicionJugada(t, j, i + 1, k) && // Abajo
-//                minasAdyacentesWithCache(t, j, pos(i + 1, k)) == 1
+//                posicionJugada(t, j, pos(i - 1, k)) && // Arriba
+//                minasAdyacentes(t, pos(i - 1, k)) == 1 &&
+//                posicionJugada(t, j, pos(i + 1, k)) && // Abajo
+//                minasAdyacentes(t, pos(i + 1, k)) == 1
 //            ) {
 //                // Encontramos una columna 121
 //                // Si la posición de la izquierda está jugada, devolvemos la de la derecha y viceversa
 //                // Si ninguna de las posiciones de la izquierda o derecha está jugada, no podemos determinar cuál de las dos es correcta
-//                if (!posicionValida(t, i, k - 1, 0) || posicionJugada(t, j, i, k - 1)) {
+//                if (!posicionValida(t, i, k - 1) || posicionJugada(t, j, pos(i, k - 1))) {
 //                    p = pos(i, k + 1);
 //                    return true;
-//                } else if (!posicionValida(t, i, k + 1, 0) || posicionJugada(t, j, i, k + 1)) {
+//                } else if (!posicionValida(t, i, k + 1) || posicionJugada(t, j, pos(i, k + 1))) {
 //                    p = pos(i, k - 1);
 //                    return true;
 //                }

@@ -7,9 +7,9 @@
 
 #include "definiciones.h"
 
-int minasAdyacentes(tablero& t, pos p);
-void cambiarBanderita(tablero& t, jugadas& j, pos p, banderitas& b);
-bool perdio(tablero& t, jugadas& j);
-bool gano(tablero& t, jugadas& j);
-void jugarPlus(tablero& t, banderitas& b, pos p, jugadas& j);
-bool sugerirAutomatico121(tablero& t, banderitas& b, jugadas& j, pos& p);
+int minasAdyacentes(const tablero& t, pos p);
+void cambiarBanderita(const tablero& t, const jugadas& j, pos p, banderitas& b);
+bool perdio(const tablero& t, const jugadas& j);
+bool gano(const tablero& t, const jugadas& j);
+void jugarPlus(const tablero& t, const banderitas& b, pos p, jugadas& j);
+bool sugerirAutomatico121(const tablero& t, const banderitas& b, const jugadas& j, pos& p);

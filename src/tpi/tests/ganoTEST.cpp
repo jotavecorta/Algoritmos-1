@@ -40,8 +40,7 @@ TEST(ganoTEST, todaviaNoGano){
     // Inicializo las jugadas: Coloco las posiciones a jugar
     jugadas j;
     for (int i = 0; i < posicionesAJugar.size(); ++i) {
-        jugada jugada_actual (posicionesAJugar[i], minasAdyacentes(T, posicionesAJugar[i]));
-        j.push_back(jugada_actual);
+        jugar(T, j, posicionesAJugar[i]);
     }
 
     ASSERT_FALSE(gano(T, j));
@@ -67,8 +66,7 @@ TEST(ganoTEST, yaGano){
     // Inicializo las jugadas: Coloco las posiciones a jugar
     jugadas j;
     for (int i = 0; i < posicionesAJugar.size(); ++i) {
-        jugada jugada_actual (posicionesAJugar[i], minasAdyacentes(T, posicionesAJugar[i]));
-        j.push_back(jugada_actual);
+        jugar(T, j, posicionesAJugar[i]);
     }
 
     ASSERT_TRUE(gano(T, j));
@@ -94,8 +92,7 @@ TEST(ganoTEST, yaPerdio){
     // Inicializo las jugadas: Coloco las posiciones a jugar
     jugadas j;
     for (int i = 0; i < posicionesAJugar.size(); ++i) {
-        jugada jugada_actual (posicionesAJugar[i], minasAdyacentes(T, posicionesAJugar[i]));
-        j.push_back(jugada_actual);
+        jugar(T, j, posicionesAJugar[i]);
     }
 
     ASSERT_FALSE(gano(T, j));
