@@ -191,3 +191,95 @@ TEST(hayAmenazaTest, AmenazaVertical){
     // Check
     EXPECT_TRUE(res);
 }
+
+// TaTeTi TestSuite
+TEST(juegoTerminadoTest, TableroLleno){
+    // SetUp
+    tablero t = {{CRUZ, CRUZ, CIRCULO},
+                 {CIRCULO, CIRCULO, CRUZ},
+                 {CRUZ, CRUZ, CIRCULO}};
+
+    // Excercise
+    bool res = juegoTaTeTiTerminado(t);
+
+    // Check
+    EXPECT_TRUE(res);
+}
+
+TEST(juegoTerminadoTest, TableroEnJuego){
+    // SetUp
+    tablero t = {{CRUZ, CIRCULO, VACIA},
+                 {VACIA, VACIA, VACIA},
+                 {CRUZ, VACIA, VACIA}};
+
+    // Excercise
+    bool res = juegoTaTeTiTerminado(t);
+
+    // Check
+    EXPECT_FALSE(res);
+}
+
+TEST(juegoTerminadoTest, LineaDiagonalAscendente){
+    // SetUp
+    tablero t = {{CRUZ, CIRCULO, CRUZ},
+                 {CIRCULO, CRUZ, VACIA},
+                 {CRUZ, VACIA, CIRCULO}};
+
+    // Excercise
+    bool res = juegoTaTeTiTerminado(t);
+
+    // Check
+    EXPECT_TRUE(res);
+}
+
+TEST(juegoTerminadoTest, LineaDiagonalDescendente){
+    // SetUp
+    tablero t = {{CIRCULO, CRUZ, CRUZ},
+                 {CRUZ, CIRCULO, CIRCULO},
+                 {CRUZ, VACIA, CIRCULO}};
+
+    // Excercise
+    bool res = juegoTaTeTiTerminado(t);
+
+    // Check
+    EXPECT_TRUE(res);
+}
+
+TEST(juegoTerminadoTest, LineaHorizontal){
+    // SetUp
+    tablero t = {{CRUZ, CRUZ, CRUZ},
+                 {VACIA, CIRCULO, CIRCULO},
+                 {VACIA, VACIA, CIRCULO}};
+
+    // Excercise
+    bool res = juegoTaTeTiTerminado(t);
+
+    // Check
+    EXPECT_TRUE(res);
+}
+
+TEST(juegoTerminadoTest, LineaVertical){
+    // SetUp
+    tablero t = {{CRUZ, CIRCULO, VACIA},
+                 {VACIA, CIRCULO, VACIA},
+                 {VACIA, CIRCULO, CRUZ}};
+
+    // Excercise
+    bool res = juegoTaTeTiTerminado(t);
+
+    // Check
+    EXPECT_TRUE(res);
+}
+
+TEST(juegoTerminadoTest, TableroVacio){
+    // SetUp
+    tablero t = {{VACIA, VACIA, VACIA},
+                 {VACIA, VACIA, VACIA},
+                 {VACIA, VACIA, VACIA}};
+
+    // Excercise
+    bool res = juegoTaTeTiTerminado(t);
+
+    // Check
+    EXPECT_FALSE(res);
+}

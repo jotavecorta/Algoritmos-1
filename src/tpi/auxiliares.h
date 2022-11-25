@@ -10,9 +10,10 @@
 #include "definiciones.h"
 
 int mapIndex(int n, int i, int j);
-bool posicionValida(tablero& t, int i, int j);
+bool posicionValida(tablero &t, int i, int j);
 void initJB(tablero& t, jugadas& j, banderitas& b);
 void jugar(tablero& t, jugadas& j, pos p);
-bool posicionJugada(tablero& t, jugadas& j, int i, int k);
+bool posicionJugada(tablero& t, jugadas& j, pos p);
+int estaEnBanderitas(tablero &t, banderitas &b, pos p);
 int minasAdyacentesWithCache(tablero& t, jugadas& j, pos p);
 bool hayBanderita(tablero& t, banderitas& b, pos p);

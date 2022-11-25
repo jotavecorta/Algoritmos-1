@@ -92,7 +92,12 @@ string darVueltaK(string s, int k){
 }
 
 string abueloLaino(string s){
-    string res;
+    string res = "S";
+    for (int i = 0; i < s.size(); ++i) {
+        if (s[i] == 'i'){
+            res = "N";
+        }
+    }
     return res;
 }
 

@@ -10,28 +10,30 @@ using namespace std;
 
 TEST(cambiarBanteritaTest, SinBanderitaEnPosicion){
     //// Setup
-    tablero T (5, vector<bool>(5, false));
-    T[0][4] = T[1][3] = T[2][3] = T[4][0] = T[3][1]= true;
+    // Estado actual del juego
+    tablero T = {
+            { cVACIA,  cVACIA,  cVACIA, cVACIA, cMINA },
+            { cVACIA, cVACIA, cVACIA, cMINA,  cVACIA },
+            { cVACIA, cVACIA,  cVACIA, cMINA, cVACIA },
+            { cVACIA, cMINA, cVACIA, cVACIA, cVACIA },
+            { cMINA,  cVACIA, cMINA,  cVACIA, cVACIA },
+    };
 
-    // Armo dos vectores con el estado del juego antes de agregar la nueva banderita
-    vector<pos> banderitasAColocar = {pos (0, 4), pos (1, 2), pos (1, 3)};
+    banderitas b = {pos (0, 4), pos (1, 2), pos (1, 3)};
 
-    // Inicializo las jugadas y las banderitas. Coloco las posiciones a jugar
-    jugadas J;
-    banderitas b;
-    initJB(T, J, b);
+    jugadas j = {jugada (pos (0,0), minasAdyacentes(T, pos (0,0))),
+                 jugada (pos (2,1), minasAdyacentes(T, pos (2,1)))};
 
-    // Exercise. Coloco las banderitas
-    for (int i = 0; i < banderitasAColocar.size(); ++i) {
-        cambiarBanderita(T, J, banderitasAColocar[i], b);
-    }
+    // Banderita a agregar
+    pos banderita_nueva (4, 0);
 
-    // Check
-    banderitas valor_esperado = {pos (-1, -1), pos (-1, -1), pos (-1, -1), pos (-1, -1), pos (0, 4),
-                                 pos (-1, -1), pos (-1, -1), pos (1, 2), pos (1, 3), pos (-1, -1),
-                                 pos (-1, -1), pos (-1, -1), pos (-1, -1), pos (-1, -1), pos (-1, -1),
-                                 pos (-1, -1), pos (-1, -1), pos (-1, -1), pos (-1, -1), pos (-1, -1),
-                                 pos (-1, -1), pos (-1, -1), pos (-1, -1), pos (-1, -1), pos (-1, -1)};
+
+    //// Excersice
+    cambiarBanderita(T, j, banderita_nueva, b);
+
+
+    //// Check
+    banderitas valor_esperado = {pos (0, 4), pos (1, 2), pos (1, 3), banderita_nueva};
 
     ASSERT_EQ(b, valor_esperado);
 
@@ -39,58 +41,87 @@ TEST(cambiarBanteritaTest, SinBanderitaEnPosicion){
 
 TEST(cambiarBanteritaTest, ConBanderitaEnPosicion){
     //// Setup
-    tablero T (5, vector<bool>(5, false));
-    T[0][4] = T[1][3] = T[2][3] = T[4][0] = T[3][1]= true;
+    // Estado actual del juego
+    tablero T = {
+            { cVACIA,  cVACIA,  cVACIA, cVACIA, cMINA },
+            { cVACIA, cVACIA, cVACIA, cMINA,  cVACIA },
+            { cVACIA, cVACIA,  cVACIA, cMINA, cVACIA },
+            { cVACIA, cMINA, cVACIA, cVACIA, cVACIA },
+            { cMINA,  cVACIA, cMINA,  cVACIA, cVACIA },
+    };
 
-    // Armo dos vectores con el estado del juego antes de agregar la nueva banderita
-    vector<pos> banderitasAColocar = {pos (0, 4), pos (1, 2)};
+    banderitas b = {pos (0, 4), pos (1, 2), pos (1, 3)};
 
-    // Inicializo las jugadas y las banderitas. Coloco las posiciones a jugar
-    jugadas J;
-    banderitas b;
-    initJB(T, J, b);
+    jugadas j = {jugada (pos (0,0), minasAdyacentes(T, pos (0,0))),
+                 jugada (pos (2,1), minasAdyacentes(T, pos (2,1)))};
 
-    //  Coloco las posiciones a jugar y las banderas
-    for (int i = 0; i < banderitasAColocar.size(); ++i) {
-        cambiarBanderita(T, J, banderitasAColocar[i], b);
-    }
+    // Banderita a agregar
+    pos banderita_existente (1, 2);
 
-    // Exercise. Removemos una posición que ya está
-    cambiarBanderita(T, J, pos (1, 2), b);
 
-    // Check
-    banderitas valor_esperado = {pos (-1, -1), pos (-1, -1), pos (-1, -1), pos (-1, -1), pos (0, 4),
-                                 pos (-1, -1), pos (-1, -1), pos (-1, -1), pos (-1, -1), pos (-1, -1),
-                                 pos (-1, -1), pos (-1, -1), pos (-1, -1), pos (-1, -1), pos (-1, -1),
-                                 pos (-1, -1), pos (-1, -1), pos (-1, -1), pos (-1, -1), pos (-1, -1),
-                                 pos (-1, -1), pos (-1, -1), pos (-1, -1), pos (-1, -1), pos (-1, -1)};
+    //// Excersice
+    cambiarBanderita(T, j, banderita_existente, b);
 
+
+    //// Check
+    banderitas valor_esperado = {pos (0, 4), pos (1, 3)};
     ASSERT_EQ(b, valor_esperado);
 }
 
 
 TEST(cambiarBanteritaTest, posicionYaJugada){
     //// Setup
-    tablero T (5, vector<bool>(5, false));
-    T[0][4] = T[1][3] = T[2][3] = T[4][0] = T[3][1]= true;
+    // Estado actual del juego
+    tablero T = {
+            { cVACIA,  cVACIA,  cVACIA, cVACIA, cMINA },
+            { cVACIA, cVACIA, cVACIA, cMINA,  cVACIA },
+            { cVACIA, cVACIA,  cVACIA, cMINA, cVACIA },
+            { cVACIA, cMINA, cVACIA, cVACIA, cVACIA },
+            { cMINA,  cVACIA, cMINA,  cVACIA, cVACIA },
+    };
 
-    // Inicializo las jugadas y las banderitas. Coloco las posiciones a jugar
-    jugadas J;
-    banderitas b;
-    initJB(T, J, b);
+    banderitas b = {pos (0, 4), pos (1, 2), pos (1, 3)};
 
-    jugar(T, J, pos(1, 2));
+    jugadas j = {jugada (pos (0,0), minasAdyacentes(T, pos (0,0))),
+                 jugada (pos (2,1), minasAdyacentes(T, pos (2,1)))};
 
-    // Exercise. Removemos una posición que ya está
-    cambiarBanderita(T, J, pos (1, 2), b);
+    // Banderita a agregar
+    pos banderita_jugada (0, 0);
 
-    // Check
-    banderitas valor_esperado = {pos (-1, -1), pos (-1, -1), pos (-1, -1), pos (-1, -1), pos (-1, -1),
-                                 pos (-1, -1), pos (-1, -1), pos (-1, -1), pos (-1, -1), pos (-1, -1),
-                                 pos (-1, -1), pos (-1, -1), pos (-1, -1), pos (-1, -1), pos (-1, -1),
-                                 pos (-1, -1), pos (-1, -1), pos (-1, -1), pos (-1, -1), pos (-1, -1),
-                                 pos (-1, -1), pos (-1, -1), pos (-1, -1), pos (-1, -1), pos (-1, -1)};
 
-    ASSERT_EQ(b, valor_esperado);
+    //// Excersice
+    cambiarBanderita(T, j, banderita_jugada, b);
+
+
+    //// Check
+    banderitas valor_esperado = {pos (0, 4), pos (1, 2), pos (1, 3)};
+}
+
+TEST(cambiarBanteritaTest, posicionInvalida){
+    //// Setup
+    // Estado actual del juego
+    tablero T = {
+            { cVACIA,  cVACIA,  cVACIA, cVACIA, cMINA },
+            { cVACIA, cVACIA, cVACIA, cMINA,  cVACIA },
+            { cVACIA, cVACIA,  cVACIA, cMINA, cVACIA },
+            { cVACIA, cMINA, cVACIA, cVACIA, cVACIA },
+            { cMINA,  cVACIA, cMINA,  cVACIA, cVACIA },
+    };
+
+    banderitas b = {pos (0, 4), pos (1, 2), pos (1, 3)};
+
+    jugadas j = {jugada (pos (0,0), minasAdyacentes(T, pos (0,0))),
+                 jugada (pos (2,1), minasAdyacentes(T, pos (2,1)))};
+
+    // Banderita a agregar
+    pos banderita_jugada (-1, 0);
+
+
+    //// Excersice
+    cambiarBanderita(T, j, banderita_jugada, b);
+
+
+    //// Check
+    banderitas valor_esperado = {pos (0, 4), pos (1, 2), pos (1, 3)};
 }
 

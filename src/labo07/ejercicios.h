@@ -7,6 +7,13 @@
 
 using namespace std;
 
+// Definiciones TaTeTi
+typedef vector<vector<int>> tablero;
+
+#define VACIA          0
+#define CIRCULO        1
+#define CRUZ           2
+
 vector<vector<int>> productoVectorial(const vector<int>& u, const vector<int>& v);
 void trasponer(vector<vector<int> > &m);
 vector<vector<int>> multiplicar(const vector<vector<int>> &m1, const vector<vector<int>> &m2);
@@ -23,3 +30,6 @@ bool amenazaDiagonal(const vector<vector<int>> &m, int i, int j);
 int diferenciaDiagonales(const vector<vector<int>> &m);
 int sumaDiagonalAscendente(const vector<vector<int>> &m);
 int sumaDiagonalDescendente(const vector<vector<int>> &m);
+bool busquedaLineal(tablero &t, int x);
+bool juegoTaTeTiTerminado(tablero &t);
+bool tresEnLinea(tablero &t);

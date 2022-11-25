@@ -37,17 +37,14 @@ TEST(ganoTEST, todaviaNoGano){
             pos(4, 1), pos(4, 3), pos(4, 4),
     };
 
-    // Inicializo las jugadas y las banderitas. Coloco las posiciones a jugar
-    jugadas J;
-    banderitas b;
-    initJB(T, J, b);
-
-    //  Coloco las posiciones a jugar
+    // Inicializo las jugadas: Coloco las posiciones a jugar
+    jugadas j;
     for (int i = 0; i < posicionesAJugar.size(); ++i) {
-        jugar(T, J, posicionesAJugar[i]);
+        jugada jugada_actual (posicionesAJugar[i], minasAdyacentes(T, posicionesAJugar[i]));
+        j.push_back(jugada_actual);
     }
 
-    ASSERT_FALSE(gano(T, J));
+    ASSERT_FALSE(gano(T, j));
 }
 
 TEST(ganoTEST, yaGano){
@@ -67,17 +64,14 @@ TEST(ganoTEST, yaGano){
             pos(4, 1), pos(4, 3), pos(4, 4),
     };
 
-    // Inicializo las jugadas y las banderitas. Coloco las posiciones a jugar
-    jugadas J;
-    banderitas b;
-    initJB(T, J, b);
-
-    //  Coloco las posiciones a jugar
+    // Inicializo las jugadas: Coloco las posiciones a jugar
+    jugadas j;
     for (int i = 0; i < posicionesAJugar.size(); ++i) {
-        jugar(T, J, posicionesAJugar[i]);
+        jugada jugada_actual (posicionesAJugar[i], minasAdyacentes(T, posicionesAJugar[i]));
+        j.push_back(jugada_actual);
     }
 
-    ASSERT_TRUE(gano(T, J));
+    ASSERT_TRUE(gano(T, j));
 }
 
 TEST(ganoTEST, yaPerdio){
@@ -97,15 +91,12 @@ TEST(ganoTEST, yaPerdio){
             pos(4, 1), pos(4, 3), pos(4, 4),
     };
 
-    // Inicializo las jugadas y las banderitas. Coloco las posiciones a jugar
-    jugadas J;
-    banderitas b;
-    initJB(T, J, b);
-
-    //  Coloco las posiciones a jugar
+    // Inicializo las jugadas: Coloco las posiciones a jugar
+    jugadas j;
     for (int i = 0; i < posicionesAJugar.size(); ++i) {
-        jugar(T, J, posicionesAJugar[i]);
+        jugada jugada_actual (posicionesAJugar[i], minasAdyacentes(T, posicionesAJugar[i]));
+        j.push_back(jugada_actual);
     }
 
-    ASSERT_FALSE(gano(T, J));
+    ASSERT_FALSE(gano(T, j));
 }

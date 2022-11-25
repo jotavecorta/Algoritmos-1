@@ -9,8 +9,8 @@ include_directories(lib/googletest-master/googletest/include)
 
 set(SOURCE_FILES main.cpp
         ejercicios.cpp
-        cases.cpp
-#[[        Test/ejerciciosTEST.cpp]])
+#        cases.cpp
+        Test/ejerciciosTEST.cpp)
 
 add_executable(Labo07 ${SOURCE_FILES})
 

@@ -258,3 +258,41 @@ int sumaDiagonalAscendente(const vector<vector<int>> &m){
     }
     return suma;
 }
+
+bool juegoTaTeTiTerminado(tablero &t){
+    return (!busquedaLineal(t, 0)) || tresEnLinea(t);
+}
+
+bool tresEnLinea(tablero &t){
+    bool res = false;
+    // Lineas horizonatales
+    for (int i = 0; i < t.size() && !res; ++i) {
+        res = res || (t[i][0] != VACIA && (t[i][0]==t[i][1] && t[i][1]==t[i][2]));
+    }
+
+    // Lineas verticales
+    for (int j = 0; j < t[0].size() && !res; ++j) {
+        res = res || (t[0][j] != VACIA && (t[0][j]==t[1][j] && t[1][j]==t[2][j]));
+    }
+
+    // Diagonales
+    if (!res){
+        bool diagonalDescentente = (t[0][0] != VACIA && (t[0][0]==t[1][1] && t[1][1]==t[2][2]));
+        bool diagonalAscendente = (t[2][0] != VACIA && (t[2][0]==t[1][1] && t[1][1]==t[0][2]));
+        res = res || (diagonalAscendente || diagonalDescentente);
+    }
+
+    return res;
+}
+
+bool busquedaLineal(tablero &t, int x){
+    bool res = false;
+
+    for (int i = 0; i < t.size() && !res; ++i) {
+        for (int j = 0; j < t[0].size() && !res; ++j) {
+            res = res || t[i][j] == VACIA;
+        }
+    }
+
+    return res;
+}
