@@ -74,9 +74,9 @@ bool perdio(const tablero& t, const jugadas& j) {
 /* Complejidad O(|t|*|t|*|j|) dado que recorremos todas las filas y columnas de t (tablero cuadrado)
 *y para cada una realizamos una busqueda lineal en j */
 bool gano(const tablero& t, const jugadas& j) {
-    // Recorremos filas, para cada una columnas y buscamos en j: O(|t|*|t|*|j|)
+    // Recorremos filas de t, para cada una columnas y buscamos en j: O(|t|*|t|*|j|)
     for (int i = 0; i < t.size(); i++) {
-        // Recorremos columnas y para cada una buscamos en j: O(|t|*|j|)
+        // Recorremos columnas de t y para cada una buscamos en j: O(|t|*|j|)
         for (int k = 0; k < t[0].size(); ++k) {
 
             // Nos indica si hay una mina en el casillero
@@ -139,75 +139,79 @@ void jugarPlus(const tablero& t, const banderitas& b, pos p, jugadas& j) {
 }
 
 ///******++++**************************** EJERCICIO sugerirAutomatico121 ***********+++***********************/
+// La complejidad total es O(|t|*|t|*|j|), ya que recorremos filas y columnas de t y para cada elemento buscamos en j.
+bool sugerirAutomatico121(const tablero& t, const banderitas& b, const jugadas& j, pos& p) {
+    // Las jugadas en los bordes no nos interesan así que recorremos el cuadrado interior del tablero
+    // EN REALIDAD RECORREMOS TODO EL TABLERO, NO?
+    // Operaiciones O(1)
+    int iMax = t.size() - 1;
+    int kMax = t[0].size() - 1;
 
-//bool sugerirAutomatico121(const tablero& t, const banderitas& b, const jugadas& j, pos& p) {
-//    // Las jugadas en los bordes no nos interesan así que recorremos el cuadrado interior del tablero
-//
-//    int iMax = t.size() - 1;
-//    int kMax = t[0].size() - 1;
-//    for (int i = 0; i < t.size(); i++) {
-//        for (int k = 0; k < t[0].size(); k++) {
-//            // O(1)
-//            // Si la posición no se jugó o no tiene 2 minas adyacentes no nos interesa
-//            if (!posicionJugada(t, j, pos(i, k)) || minasAdyacentes(t, pos(i, k)) != 2) {
-//                continue;
-//            }
-//
-//            // Si estamos en una esquina tampoco nos sirve
-//            if (
-//                (i == 0 && k == 0) ||       // Esquina superior izquierda
-//                (i == 0 && k == kMax) ||    // Esquina superior derecha
-//                (i == iMax && k == 0) ||    // Esquina inferior izquierda
-//                (i == iMax && k == kMax)    // Esquina inferior derecha
-//            ) {
-//                continue;
-//            }
-//
-//            // Si la posición se jugó y tiene dos minas adyacentes: chequeamos si forma una columna 121 o  una fila 121
-//
-//            // Fila 121
-//            if (
-//                posicionJugada(t, j, pos(i, k - 1)) && // Izquierda
-//                minasAdyacentes(t, pos(i, k - 1)) == 1 &&
-//                posicionJugada(t, j, pos(i, k + 1)) && // Derecha
-//                minasAdyacentes(t, pos(i, k + 1)) == 1
-//            ) {
-//                // Encontramos una fila 121
-//                // Si la posición de arriba está jugada, devolvemos la de abajo y viceversa
-//                // Si ninguna de las posiciones de arriba o abajo está jugada, no podemos determinar cuál de las dos es correcta
-//                HABRIA QUE DEVOLVER FALSE SI NO ES DETERMINABLE
-//                if (!posicionValida(t, i - 1, k) || posicionJugada(t, j, pos(i - 1, k))) {
-//                    p = pos(i + 1, k);
-//                    return true;
-//                } else if (!posicionValida(t, i - 1, k) || posicionJugada(t, j, pos(i + 1, k))) {
-//                    p = pos(i - 1, k);
-//                    return true;
-//                }
-//
-//                continue;
-//            }
-//
-//            // Columna 121
-//            if (
-//                posicionJugada(t, j, pos(i - 1, k)) && // Arriba
-//                minasAdyacentes(t, pos(i - 1, k)) == 1 &&
-//                posicionJugada(t, j, pos(i + 1, k)) && // Abajo
-//                minasAdyacentes(t, pos(i + 1, k)) == 1
-//            ) {
-//                // Encontramos una columna 121
-//                // Si la posición de la izquierda está jugada, devolvemos la de la derecha y viceversa
-//                // Si ninguna de las posiciones de la izquierda o derecha está jugada, no podemos determinar cuál de las dos es correcta
-//                 // LO MISMO, FALTA FALSE SI NO SE PUEDE DETERMINAR
-//                if (!posicionValida(t, i, k - 1) || posicionJugada(t, j, pos(i, k - 1))) {
-//                    p = pos(i, k + 1);
-//                    return true;
-//                } else if (!posicionValida(t, i, k + 1) || posicionJugada(t, j, pos(i, k + 1))) {
-//                    p = pos(i, k - 1);
-//                    return true;
-//                }
-//
-//                continue;
-//            }
-//        }
-//    }
-//}
+    // Recorremos filas de t, para cada una columnas y buscamos en j: O(|t|*|t|*|j|)
+    for (int i = 0; i < t.size(); i++) { // Cada loop en t agrega un |t|
+        for (int k = 0; k < t[0].size(); k++) {
+
+            // Si la posición no se jugó o no tiene 2 minas adyacentes no nos interesa.
+            if (!posicionJugada(t, j, pos(i, k)) || minasAdyacentes(t, pos(i, k)) != 2) {// Buscamos en j: O(|j|)
+                continue;
+            }
+
+            // Si estamos en una esquina tampoco nos sirve. Operaciones O(1)
+            if (
+                (i == 0 && k == 0) ||       // Esquina superior izquierda
+                (i == 0 && k == kMax) ||    // Esquina superior derecha
+                (i == iMax && k == 0) ||    // Esquina inferior izquierda
+                (i == iMax && k == kMax)    // Esquina inferior derecha
+            ) {
+                continue;
+            }
+
+            // Si la posición se jugó y tiene dos minas adyacentes: chequeamos si forma una columna 121 o  una fila 121
+
+            // Fila 121. Complejidad: O(|j|) + O(|j|) + O(1) = O(|j|)
+            //                   (if exterior) + (if interior)
+            if (// O(|j|) + O(1)
+                posicionJugada(t, j, pos(i, k - 1)) && // Izquierda
+                minasAdyacentes(t, pos(i, k - 1)) == 1 &&
+                posicionJugada(t, j, pos(i, k + 1)) && // Derecha
+                minasAdyacentes(t, pos(i, k + 1)) == 1
+            ) {
+                // Encontramos una fila 121
+                // Si la posición de arriba está jugada, devolvemos la de abajo y viceversa
+                // Si ninguna de las posiciones de arriba o abajo está jugada, no podemos determinar cuál de las dos es correcta
+                // HAY QUE AGREGAR QUE SI HAY BANDERITA DEVUELVA FALSE: estaEnBanderitas(t, b, pos(i - 1, k)) != -1 POR EJ.
+                if (!posicionValida(t, i - 1, k) || posicionJugada(t, j, pos(i - 1, k))) {// O(|j|) + O(1)
+                    p = pos(i + 1, k);
+                    return true;
+                } else if (!posicionValida(t, i - 1, k) || posicionJugada(t, j, pos(i + 1, k))) {// O(|j|) + O(1)
+                    p = pos(i - 1, k);
+                    return true;
+                }
+
+                continue;
+            }
+
+            // Columna 121. Complejidad O(|j|) + O(|j|) + O(1) = O(|j|)
+            if (// O(|j|) + O(1)
+                posicionJugada(t, j, pos(i - 1, k)) && // Arriba
+                minasAdyacentes(t, pos(i - 1, k)) == 1 &&
+                posicionJugada(t, j, pos(i + 1, k)) && // Abajo
+                minasAdyacentes(t, pos(i + 1, k)) == 1
+            ) {
+                // Encontramos una columna 121
+                // Si la posición de la izquierda está jugada, devolvemos la de la derecha y viceversa
+                // Si ninguna de las posiciones de la izquierda o derecha está jugada, no podemos determinar cuál de las dos es correcta
+                // HAY QUE AGREGAR QUE SI HAY BANDERITA DEVUELVA FALSE
+                if (!posicionValida(t, i, k - 1) || posicionJugada(t, j, pos(i, k - 1))) {// O(|j|) + O(1)
+                    p = pos(i, k + 1);
+                    return true;
+                } else if (!posicionValida(t, i, k + 1) || posicionJugada(t, j, pos(i, k + 1))) {// O(|j|) + O(1)
+                    p = pos(i, k - 1);
+                    return true;
+                }
+
+                continue;
+            }
+        }
+    }
+}

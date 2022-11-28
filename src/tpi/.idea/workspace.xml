@@ -21,7 +21,13 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b855e1f8-cae3-4a23-b40c-33dfc6ed46a2" name="Changes" comment="Modifiqué RESPUESTAS.md." />
+    <list default="true" id="b855e1f8-cae3-4a23-b40c-33dfc6ed46a2" name="Changes" comment="Modifiqué perdió: no hacía falta verificar en j si estaba la jugada">
+      <change beforePath="$PROJECT_DIR$/../labo07/lib/googletest-master.rar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejercicios.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ejercicios.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/sugerir121TEST.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/sugerir121TEST.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tpi" beforeDir="false" afterPath="$PROJECT_DIR$/tpi" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,21 +54,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "last_opened_file_path": "//wsl$/Ubuntu/home/jotavecorta/proyectos/algoritmos_1/src/labo10",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "coverage"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;//wsl$/Ubuntu/home/jotavecorta/proyectos/algoritmos_1/src/labo10&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;coverage&quot;,
+    &quot;structure.view.defaults.are.configured&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Google Test.tpi">
     <configuration name="All Tests" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" nameIsGenerated="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Sugerir121TEST.hayHorizontal121NoDeterminable" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="tpi" TARGET_NAME="tpi" RUN_TARGET_PROJECT_NAME="tpi" RUN_TARGET_NAME="tpi" TEST_CLASS="Sugerir121TEST" TEST_METHOD="hayHorizontal121NoDeterminable" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
         <option name="BeforeTestRunTask" enabled="true" />
@@ -72,11 +85,6 @@
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
         <option name="BeforeTestRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="gmock" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="tpi" TARGET_NAME="gmock" CONFIG_NAME="Debug">
@@ -106,7 +114,13 @@
       <item itemvalue="CMake Application.gtest_main" />
       <item itemvalue="Google Test.All Tests" />
       <item itemvalue="Google Test.tpi" />
+      <item itemvalue="Google Test.Sugerir121TEST.hayHorizontal121NoDeterminable" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Google Test.Sugerir121TEST.hayHorizontal121NoDeterminable" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -129,6 +143,10 @@
       <workItem from="1667582679116" duration="21000" />
       <workItem from="1667593205393" duration="135000" />
       <workItem from="1668435107152" duration="643000" />
+      <workItem from="1669307931531" duration="140000" />
+      <workItem from="1669308108250" duration="705000" />
+      <workItem from="1669375800198" duration="23573000" />
+      <workItem from="1669655631499" duration="4815000" />
     </task>
     <task id="LOCAL-00001" summary="Agregué el testcase ConBanderitaEnPosicion.">
       <created>1667160042551</created>
@@ -151,7 +169,28 @@
       <option name="project" value="LOCAL" />
       <updated>1667582564052</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Modifiqué cambiarBanderita, perdió y ganó según requisitos del profesor. Modifiqué sus respectivos tests.">
+      <created>1669399769382</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1669399769382</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Modifiqué jugarPlus y sus tests.">
+      <created>1669408503585</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1669408503585</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Modifiqué perdió: no hacía falta verificar en j si estaba la jugada">
+      <created>1669410357000</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1669410357000</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,9 +211,12 @@
     <MESSAGE value="Agregué el testcase ConBanderitaEnPosicion." />
     <MESSAGE value="Modifiqué RESPUESTAS.md. Falta explicar que pasaría en el caso del acceso dinámico a j y b" />
     <MESSAGE value="Modifiqué RESPUESTAS.md." />
-    <option name="LAST_COMMIT_MESSAGE" value="Modifiqué RESPUESTAS.md." />
+    <MESSAGE value="Modifiqué cambiarBanderita, perdió y ganó según requisitos del profesor. Modifiqué sus respectivos tests." />
+    <MESSAGE value="Modifiqué jugarPlus y sus tests." />
+    <MESSAGE value="Modifiqué perdió: no hacía falta verificar en j si estaba la jugada" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modifiqué perdió: no hacía falta verificar en j si estaba la jugada" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="\\wsl$\Ubuntu\home\jotavecorta\proyectos\algoritmos_1\src\tpi\cmake-build-debug" NAME="tpi Coverage Results" MODIFIED="1667593290476" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="gcov/llvm" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="\\wsl$\Ubuntu\home\jotavecorta\proyectos\algoritmos_1\src\tpi\cmake-build-debug" NAME="tpi Coverage Results" MODIFIED="1669659718394" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="gcov/llvm" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
