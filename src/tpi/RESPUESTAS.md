@@ -1,5 +1,4 @@
-﻿% Contesten aquí la pregunta sobre complejidad
-### 2.4 Sobre la estructura de ``jugadas``:
+﻿### 2.4 Sobre la estructura de ``jugadas``:
 
 En nuestra implementación actual, la complejidad de ``jugarPlus`` es $O(|t|\cdot|t|)$,
 mientras que la de ``sugerirAutomatico121`` es $O(|t|\cdot|t|\cdot|j|)$, donde $|t|$ y $|j|$

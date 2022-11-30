@@ -98,8 +98,8 @@ bool gano(const tablero& t, const jugadas& j) {
 }
 
 /******++++**************************** EJERCICIO jugarPlus ***********+++***********************/
-/* Complejidad O(|t|*|t|): la llamada recursiva hace que sea posible recorrer
- * todo el tablero en el peor de los casos. */
+/* Complejidad O(|t|*|t|) + O(|j|) + O(|b|) + O(1) = O(|t|*|t|): la llamada recursiva hace que sea
+ * posible recorrer todo el tablero en el peor de los casos. */
 void jugarPlus(const tablero& t, const banderitas& b, pos p, jugadas& j) {
     // Si hay banderita no se puede jugar: O(|b|)
     if (estaEnBanderitas(t, b, p) != -1) {

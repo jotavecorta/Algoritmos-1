@@ -1,5 +1,6 @@
 #ifndef ANAGRAMAS_H_
 #define ANAGRAMAS_H_
+#include <string>
 using namespace std;
 
 void ordenarString(string &palabra);
