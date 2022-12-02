@@ -1,7 +1,3 @@
-//
-// Este archivo contiene las definiciones de las funciones que implementan los ejercicios
-//
-
 #include <stdio.h>
 #include <iostream>
 
@@ -16,7 +12,7 @@ using namespace std;
 int minasAdyacentes(const tablero& t, pos p) {
     int cant_minas_adyacentes = 0;
 
-    // Separo la posicion en coordenadas
+    // Separo la posicion en coordenadas. O(1)
     int p_i = p.first;
     int p_j = p.second;
 
@@ -38,25 +34,28 @@ int minasAdyacentes(const tablero& t, pos p) {
 }
 
 /******++++**************************** EJERCICIO cambiararBanderita ***********+++***********************/
-// Complejidad Lineal en b: O(|b|) + O(1) = O(|b|)
+/* Complejidad Lineal en b y en j: O(|b|) + O(|b|) + O(|j|) + O(1). Para dejar todas las complejidades
+ en función de un solo parámetro, recordamos que |b| <= |t|*|t| y |j| <= |t|*|t|, por lo tanto en
+ cada respectivo peor caso podemos reemplazar O(|b|) y O(|j|) por O(|t|*|t|), por lo que la complejidad
+ de cambiarBanderita resulta O(|t|*|t|) + O(|t|*|t|) + O(|t|*|t|) + O(1) = O(|t|*|t|).*/
 void cambiarBanderita(const tablero& t, const jugadas& j, pos p, banderitas& b) {
     // Si la posicion esta jugada no se puede plantar.
-    if (posicionJugada(t, j, p)) {// Busqueda lineal en j: O(|j|)
+    if (posicionJugada(t, j, p)) {// Busqueda lineal en jugadas j: O(|j|)
         return;
     }
 
-    // Hace una busqueda lineal sobre banderitas O(|b|)
+    // Hace una busqueda lineal sobre banderitas b: O(|b|)
     int indice_banderitas = estaEnBanderitas(t, b, p);
 
-    if (indice_banderitas != -1){// Remueve banderita O (1)
+    if (indice_banderitas != -1){// Remueve banderita O(|b|) por la operación erase()
         b.erase(b.begin() + indice_banderitas);
-    }else{// Agrega banderita O(1)
+    }else{// Agrega banderita: consideramos a la función push_back como O(1) (aunque puede en algunos casos ser orden lineal)
         b.push_back(p);
     }
 }
 
 /******++++**************************** EJERCICIO perdio ***********+++***********************/
-// Complejidad Lineal en j O(|j|): Tenemos un solo for y dentro todas sentencias O(1)
+// Complejidad Lineal en j: O(|j|) = O(|t|*|t|): Tenemos un solo for en j y dentro todas sentencias O(1)
 bool perdio(const tablero& t, const jugadas& j) {
     // Chequeamos que haya minas en jugadas. En el peor caso recorremos todo j: O(|j|)
     for(int i = 0; i < j.size(); i++) {
@@ -71,10 +70,10 @@ bool perdio(const tablero& t, const jugadas& j) {
 }
 
 /******++++**************************** EJERCICIO gano ***********+++***********************/
-/* Complejidad O(|t|*|t|*|j|) dado que recorremos todas las filas y columnas de t (tablero cuadrado)
-*y para cada una realizamos una busqueda lineal en j */
+/* Complejidad O(|t|*|t|*|j|) = O(|t|*|t|*|t|*|t|) = O(|t|^4), dado que recorremos todas las filas
+ y columnas de t (tablero cuadrado), y para cada una realizamos una busqueda lineal en j.*/
 bool gano(const tablero& t, const jugadas& j) {
-    // Recorremos filas de t, para cada una columnas y buscamos en j: O(|t|*|t|*|j|)
+    // Recorremos filas de t, para cada una columnas y buscamos en j: O(|t|*|t|*|j|) = O(|t|^4).
     for (int i = 0; i < t.size(); i++) {
         // Recorremos columnas de t y para cada una buscamos en j: O(|t|*|j|)
         for (int k = 0; k < t[0].size(); ++k) {
@@ -98,10 +97,11 @@ bool gano(const tablero& t, const jugadas& j) {
 }
 
 /******++++**************************** EJERCICIO jugarPlus ***********+++***********************/
-/* Complejidad O(|t|*|t|) + O(|j|) + O(|b|) + O(1) = O(|t|*|t|): la llamada recursiva hace que sea
- * posible recorrer todo el tablero en el peor de los casos. */
+/* Complejidad O(|t|*|t|*|j|) + O(|j|) + O(|b|) + O(1) = O(|t|^4): la llamada recursiva hace que sea
+ * posible recorrer todo el tablero en el peor de los , y para cada punto se realiza una búsqueda
+ * lineal en el vector de jugadas j. */
 void jugarPlus(const tablero& t, const banderitas& b, pos p, jugadas& j) {
-    // Si hay banderita no se puede jugar: O(|b|)
+    // Si hay banderita no se puede jugar: O(|b|) REVISAR LA PRE SI ES NECESARIO
     if (estaEnBanderitas(t, b, p) != -1) {
         return;
     }
@@ -116,7 +116,7 @@ void jugarPlus(const tablero& t, const banderitas& b, pos p, jugadas& j) {
 
     // Iteramos recursivamente sobre todas las posiciones adyacentes no jugadas,
     // como la cantidad de posiciones es constante esta operacion es de igual orden
-    // que la suma de sus operaciones internas: O(|t|*|t|) + O(|j|) + O(1) = O(|t|*|t|)
+    // que la suma de sus operaciones internas: O(|t|*|t|*|j|) + O(|j|) + O(1) = O(|t|^4)
     // ya que la cantidad de jugadas es igual o menor que las posiciones del tablero.
     for (int i = 0; i < 9; ++i) {
         int fila = (i / 3) - 1 + p.first;
@@ -139,7 +139,7 @@ void jugarPlus(const tablero& t, const banderitas& b, pos p, jugadas& j) {
 }
 
 ///******++++**************************** EJERCICIO sugerirAutomatico121 ***********+++***********************/
-// La complejidad total es O(|t|*|t|*|j|), ya que recorremos filas y columnas de t y para cada elemento buscamos en j.
+// La complejidad total es O(|t|*|t|*|j|) = O(|t|^4), ya que recorremos filas y columnas de t y para cada elemento buscamos en j.
 bool sugerirAutomatico121(const tablero& t, const banderitas& b, const jugadas& j, pos& p) {
     // Las jugadas en los bordes no nos interesan así que recorremos el cuadrado interior del tablero
     // EN REALIDAD RECORREMOS TODO EL TABLERO, NO?

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
+}</component>
+  <component name="CMakeReloadState">
+    <option name="reloaded" value="true" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated>
+      <config projectName="tpi" targetName="gmock" />
+      <config projectName="tpi" targetName="gtest" />
+      <config projectName="tpi" targetName="tpi" />
+      <config projectName="tpi" targetName="gtest_main" />
+      <config projectName="tpi" targetName="gmock_main" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b855e1f8-cae3-4a23-b40c-33dfc6ed46a2" name="Changes" comment="Comenté la complejidad de sugerir121 y le agregué dos tests.">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tpi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../labo07/lib/googletest-master.rar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ejercicios.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ejercicios.cpp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="OCResolveContextSettings">
+    <option name="configuration" value="0-Debug-tpi" />
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2022" />
+    <option name="minorVersion" value="2.4" />
+  </component>
+  <component name="ProjectId" id="2GopzuroAdnKETZSk8RgzBbvMvx" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;//wsl$/Ubuntu/home/jotavecorta/proyectos/algoritmos_1/src/tpi&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;coverage&quot;,
+    &quot;structure.view.defaults.are.configured&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Google Test.tpi">
+    <configuration name="All Tests" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" nameIsGenerated="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Sugerir121TEST.hayHorizontal121NoDeterminable" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="tpi" TARGET_NAME="tpi" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="tpi" RUN_TARGET_NAME="tpi" TEST_CLASS="Sugerir121TEST" TEST_METHOD="hayHorizontal121NoDeterminable" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="tpi" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="tpi" TARGET_NAME="tpi" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="tpi" RUN_TARGET_NAME="tpi" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="gmock" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="tpi" TARGET_NAME="gmock" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="gmock_main" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="tpi" TARGET_NAME="gmock_main" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="gtest" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="tpi" TARGET_NAME="gtest" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="gtest_main" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="tpi" TARGET_NAME="gtest_main" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="CMake Application.gmock" />
+      <item itemvalue="CMake Application.gmock_main" />
+      <item itemvalue="CMake Application.gtest" />
+      <item itemvalue="CMake Application.gtest_main" />
+      <item itemvalue="Google Test.All Tests" />
+      <item itemvalue="Google Test.tpi" />
+      <item itemvalue="Google Test.Sugerir121TEST.hayHorizontal121NoDeterminable" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Google Test.Sugerir121TEST.hayHorizontal121NoDeterminable" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b855e1f8-cae3-4a23-b40c-33dfc6ed46a2" name="Changes" comment="" />
+      <created>1667065056751</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1667065056751</updated>
+      <workItem from="1667065058041" duration="4338000" />
+      <workItem from="1667074772301" duration="452000" />
+      <workItem from="1667151390699" duration="6561000" />
+      <workItem from="1667237580168" duration="2447000" />
+      <workItem from="1667307897886" duration="1233000" />
+      <workItem from="1667334178686" duration="1092000" />
+      <workItem from="1667403455768" duration="4525000" />
+      <workItem from="1667493212644" duration="3977000" />
+      <workItem from="1667568419993" duration="4754000" />
+      <workItem from="1667580830693" duration="1653000" />
+      <workItem from="1667582679116" duration="21000" />
+      <workItem from="1667593205393" duration="135000" />
+      <workItem from="1668435107152" duration="643000" />
+      <workItem from="1669307931531" duration="140000" />
+      <workItem from="1669308108250" duration="705000" />
+      <workItem from="1669375800198" duration="23573000" />
+      <workItem from="1669655631499" duration="6043000" />
+      <workItem from="1669722439188" duration="4589000" />
+      <workItem from="1669807140141" duration="25000" />
+      <workItem from="1669896027473" duration="90000" />
+      <workItem from="1669896144794" duration="136000" />
+      <workItem from="1669896297120" duration="72000" />
+      <workItem from="1669896398092" duration="646000" />
+      <workItem from="1669897080367" duration="268000" />
+      <workItem from="1669897362376" duration="275000" />
+      <workItem from="1669897647339" duration="313000" />
+      <workItem from="1670007916602" duration="4881000" />
+    </task>
+    <task id="LOCAL-00001" summary="Agregué el testcase ConBanderitaEnPosicion.">
+      <created>1667160042551</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1667160042551</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Modifiqué RESPUESTAS.md. Falta explicar que pasaría en el caso del acceso dinámico a j y b">
+      <created>1667572019012</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1667572019012</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Modifiqué RESPUESTAS.md.">
+      <created>1667582564052</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1667582564052</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Modifiqué cambiarBanderita, perdió y ganó según requisitos del profesor. Modifiqué sus respectivos tests.">
+      <created>1669399769382</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1669399769382</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Modifiqué jugarPlus y sus tests.">
+      <created>1669408503585</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1669408503585</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Modifiqué perdió: no hacía falta verificar en j si estaba la jugada">
+      <created>1669410357000</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1669410357000</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Agregué el testcase ConBanderitaEnPosicion." />
+    <MESSAGE value="Modifiqué RESPUESTAS.md. Falta explicar que pasaría en el caso del acceso dinámico a j y b" />
+    <MESSAGE value="Modifiqué RESPUESTAS.md." />
+    <MESSAGE value="Modifiqué cambiarBanderita, perdió y ganó según requisitos del profesor. Modifiqué sus respectivos tests." />
+    <MESSAGE value="Modifiqué jugarPlus y sus tests." />
+    <MESSAGE value="Modifiqué perdió: no hacía falta verificar en j si estaba la jugada" />
+    <MESSAGE value="Comenté la complejidad de sugerir121 y le agregué dos tests." />
+    <option name="LAST_COMMIT_MESSAGE" value="Comenté la complejidad de sugerir121 y le agregué dos tests." />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="\\wsl$\Ubuntu\home\jotavecorta\proyectos\algoritmos_1\src\tpi\cmake-build-debug" NAME="tpi Coverage Results" MODIFIED="1669661212134" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="gcov/llvm" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>
