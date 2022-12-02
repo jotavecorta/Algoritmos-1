@@ -34,15 +34,11 @@ int minasAdyacentes(const tablero& t, pos p) {
 }
 
 /******++++**************************** EJERCICIO cambiararBanderita ***********+++***********************/
-/* Complejidad Lineal en b y en j: O(|b|) + O(|b|) + O(|j|) + O(1). Para dejar todas las complejidades
- en función de un solo parámetro, recordamos que |b| <= |t|*|t| y |j| <= |t|*|t|, por lo tanto en
- cada respectivo peor caso podemos reemplazar O(|b|) y O(|j|) por O(|t|*|t|), por lo que la complejidad
- de cambiarBanderita resulta O(|t|*|t|) + O(|t|*|t|) + O(|t|*|t|) + O(1) = O(|t|*|t|).*/
+/* Complejidad Lineal en b y en j: O(|b|) + O(|b|) + O(1). Para dejar todas las complejidades
+ en función de un solo parámetro, recordamos que |b| <= |t|*|t|, por lo tanto en
+ el peor caso podemos reemplazar O(|b|) por O(|t|*|t|), por lo que la complejidad
+ de cambiarBanderita resulta O(|t|*|t|) + O(|t|*|t|) + O(1) = O(|t|*|t|).*/
 void cambiarBanderita(const tablero& t, const jugadas& j, pos p, banderitas& b) {
-    // Si la posicion esta jugada no se puede plantar.
-    if (posicionJugada(t, j, p)) {// Busqueda lineal en jugadas j: O(|j|)
-        return;
-    }
 
     // Hace una busqueda lineal sobre banderitas b: O(|b|)
     int indice_banderitas = estaEnBanderitas(t, b, p);
@@ -101,7 +97,7 @@ bool gano(const tablero& t, const jugadas& j) {
  * posible recorrer todo el tablero en el peor de los , y para cada punto se realiza una búsqueda
  * lineal en el vector de jugadas j. */
 void jugarPlus(const tablero& t, const banderitas& b, pos p, jugadas& j) {
-    // Si hay banderita no se puede jugar: O(|b|) REVISAR LA PRE SI ES NECESARIO
+    // Si hay banderita no se puede jugar: O(|b|) (se agrega por el llamado recursivo)
     if (estaEnBanderitas(t, b, p) != -1) {
         return;
     }
@@ -141,8 +137,6 @@ void jugarPlus(const tablero& t, const banderitas& b, pos p, jugadas& j) {
 ///******++++**************************** EJERCICIO sugerirAutomatico121 ***********+++***********************/
 // La complejidad total es O(|t|*|t|*|j|) = O(|t|^4), ya que recorremos filas y columnas de t y para cada elemento buscamos en j.
 bool sugerirAutomatico121(const tablero& t, const banderitas& b, const jugadas& j, pos& p) {
-    // Las jugadas en los bordes no nos interesan así que recorremos el cuadrado interior del tablero
-    // EN REALIDAD RECORREMOS TODO EL TABLERO, NO?
     // Operaiciones O(1)
     int iMax = t.size() - 1;
     int kMax = t[0].size() - 1;

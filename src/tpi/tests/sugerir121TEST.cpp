@@ -83,10 +83,11 @@ TEST(Sugerir121TEST, hayHorizontal121EnBordeNoDeterministico){
     ASSERT_FALSE(sugerirAutomatico121(T,b,J,p));
     ASSERT_EQ(p, pos(0,3));
 }
+
 // REVISAR ESTE TEST QUE NO PASA, Y SUS COMENTARIOS
 TEST(Sugerir121TEST, hayHorizontal121EnBorde){
     // Igual que antes con la cantidad de jugadas no es posible determinar
-    // si tenemos que devolver el (0, 2) o el (2, 2)
+    // si tenemos que devolver el
     tablero T = {
             { cVACIA,  cVACIA,  cVACIA, cVACIA, cVACIA },
             { cVACIA, cVACIA, cVACIA, cVACIA,  cVACIA },
@@ -319,7 +320,13 @@ TEST(Sugerir121TEST, hay121PeroEnEsquina){
     };
 
     // Inicializo las jugadas y las banderitas.
+    vector<pos> posicionesAJugar = {pos(0, 0)};
+
     jugadas J;
+    for (int i = 0; i < posicionesAJugar.size(); ++i) {
+        jugar(T, J, posicionesAJugar[i]);
+    }
+
     banderitas b;
     pos p (-1, -1);
 

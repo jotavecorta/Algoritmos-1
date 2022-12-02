@@ -21,11 +21,12 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b855e1f8-cae3-4a23-b40c-33dfc6ed46a2" name="Changes" comment="Comenté la complejidad de sugerir121 y le agregué dos tests.">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tpi" afterDir="false" />
+    <list default="true" id="b855e1f8-cae3-4a23-b40c-33dfc6ed46a2" name="Changes" comment="Correjí algunas complejidades">
       <change beforePath="$PROJECT_DIR$/../labo07/lib/googletest-master.rar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ejercicios.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ejercicios.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/sugerir121TEST.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/sugerir121TEST.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tpi" beforeDir="false" afterPath="$PROJECT_DIR$/tpi" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +164,7 @@
       <workItem from="1669897080367" duration="268000" />
       <workItem from="1669897362376" duration="275000" />
       <workItem from="1669897647339" duration="313000" />
-      <workItem from="1670007916602" duration="4881000" />
+      <workItem from="1670007916602" duration="8800000" />
     </task>
     <task id="LOCAL-00001" summary="Agregué el testcase ConBanderitaEnPosicion.">
       <created>1667160042551</created>
@@ -207,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669410357000</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Correjí algunas complejidades">
+      <created>1670018168973</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1670018168973</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,9 +240,10 @@
     <MESSAGE value="Modifiqué jugarPlus y sus tests." />
     <MESSAGE value="Modifiqué perdió: no hacía falta verificar en j si estaba la jugada" />
     <MESSAGE value="Comenté la complejidad de sugerir121 y le agregué dos tests." />
-    <option name="LAST_COMMIT_MESSAGE" value="Comenté la complejidad de sugerir121 y le agregué dos tests." />
+    <MESSAGE value="Correjí algunas complejidades" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correjí algunas complejidades" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="\\wsl$\Ubuntu\home\jotavecorta\proyectos\algoritmos_1\src\tpi\cmake-build-debug" NAME="tpi Coverage Results" MODIFIED="1669661212134" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="gcov/llvm" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="\\wsl$\Ubuntu\home\jotavecorta\proyectos\algoritmos_1\src\tpi\cmake-build-debug" NAME="tpi Coverage Results" MODIFIED="1670023629498" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="gcov/llvm" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
