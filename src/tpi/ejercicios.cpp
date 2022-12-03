@@ -164,6 +164,7 @@ bool sugerirAutomatico121(const tablero& t, const banderitas& b, const jugadas& 
 
             // Fila 121. Complejidad: O(2|j|) + O(2|j|) + O(2|b|) + O(1) = O(|j|)
             //                   (if exterior) + (if interior)
+            // |b| <= |t|² y |j| <= |t|² -> En el peor caso |b| = |j| = |t|² -> O(|b|) + O(|j|) = O(|j|) + O(|j|) = O(2|j|) = O(|j|)
             if (// O(|j|) + O(1)
                 posicionJugada(t, j, pos(i, k - 1)) && // Izquierda
                 minasAdyacentes(t, pos(i, k - 1)) == 1 &&
@@ -185,6 +186,7 @@ bool sugerirAutomatico121(const tablero& t, const banderitas& b, const jugadas& 
             }
 
             // Columna 121. Complejidad O(2|j|) + O(2|j|) + O(2|b|) + O(1) = O(|j|)
+            // |b| <= |t|² y |j| <= |t|² -> En el peor caso |b| = |j| = |t|² -> O(|b|) + O(|j|) = O(|j|) + O(|j|) = O(2|j|) = O(|j|)
             if (// O(|j|) + O(1)
                 posicionJugada(t, j, pos(i - 1, k)) && // Arriba
                 minasAdyacentes(t, pos(i - 1, k)) == 1 &&

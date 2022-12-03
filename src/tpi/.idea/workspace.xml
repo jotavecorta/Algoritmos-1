@@ -25,11 +25,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b855e1f8-cae3-4a23-b40c-33dfc6ed46a2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auxiliares.h" beforeDir="false" afterPath="$PROJECT_DIR$/auxiliares.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ejercicios.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ejercicios.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/sugerir121TEST.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/sugerir121TEST.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tpi" beforeDir="false" afterPath="$PROJECT_DIR$/tpi" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -273,19 +269,8 @@
     <MESSAGE value="Correjí algunas complejidades" />
     <option name="LAST_COMMIT_MESSAGE" value="Correjí algunas complejidades" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/tests/sugerir121TEST.cpp</url>
-          <line>305</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="../../../projects/Algoritmos-1/src/tpi/cmake-build-debug" NAME="Sugerir121TEST.hay121PeroTieneBanderita Coverage Results" MODIFIED="1670074844326" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="gcov/llvm" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="../../../projects/Algoritmos-1/src/tpi/cmake-build-debug" NAME="tpi Coverage Results" MODIFIED="1670075939501" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="gcov/llvm" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="../../../projects/Algoritmos-1/src/tpi/cmake-build-debug" NAME="tpi Coverage Results" MODIFIED="1667564291418" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="gcov/llvm" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="wsl$/Ubuntu/home/jotavecorta/proyectos/algoritmos_1/src/tpi/cmake-build-debug" NAME="tpi Coverage Results" MODIFIED="1670023629498" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="gcov/llvm" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
