@@ -86,8 +86,6 @@ TEST(Sugerir121TEST, hayHorizontal121EnBordeNoDeterministico){
 
 // REVISAR ESTE TEST QUE NO PASA, Y SUS COMENTARIOS
 TEST(Sugerir121TEST, hayHorizontal121EnBorde){
-    // Igual que antes con la cantidad de jugadas no es posible determinar
-    // si tenemos que devolver el
     tablero T = {
             { cVACIA,  cVACIA,  cVACIA, cVACIA, cVACIA },
             { cVACIA, cVACIA, cVACIA, cVACIA,  cVACIA },
@@ -163,7 +161,6 @@ TEST(Sugerir121TEST, noHay121){
 }
 
 TEST(Sugerir121TEST, hayVertical121EnBorde){
-    // Igual que con los horizontales, no es deterministico. No podemos decidir entre el (3, 0) o el (3, 1)
     tablero T = {
             { cVACIA,  cVACIA,  cVACIA, cVACIA, cVACIA },
             { cVACIA, cVACIA, cVACIA, cVACIA,  cVACIA },

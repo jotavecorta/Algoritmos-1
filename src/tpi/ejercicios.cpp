@@ -162,7 +162,7 @@ bool sugerirAutomatico121(const tablero& t, const banderitas& b, const jugadas& 
 
             // Si la posición se jugó y tiene dos minas adyacentes: chequeamos si forma una columna 121 o  una fila 121
 
-            // Fila 121. Complejidad: O(|j|) + O(|j|) + O(1) = O(|j|)
+            // Fila 121. Complejidad: O(2|j|) + O(2|j|) + O(2|b|) + O(1) = O(|j|)
             //                   (if exterior) + (if interior)
             if (// O(|j|) + O(1)
                 posicionJugada(t, j, pos(i, k - 1)) && // Izquierda
@@ -173,11 +173,10 @@ bool sugerirAutomatico121(const tablero& t, const banderitas& b, const jugadas& 
                 // Encontramos una fila 121
                 // Si la posición de arriba está jugada, devolvemos la de abajo y viceversa
                 // Si ninguna de las posiciones de arriba o abajo está jugada, no podemos determinar cuál de las dos es correcta
-                // HAY QUE AGREGAR QUE SI HAY BANDERITA DEVUELVA FALSE: estaEnBanderitas(t, b, pos(i - 1, k)) != -1 POR EJ.
-                if (!posicionValida(t, i - 1, k) || posicionJugada(t, j, pos(i - 1, k))) {// O(|j|) + O(1)
+                if ((!posicionValida(t, i - 1, k) || posicionJugada(t, j, pos(i - 1, k))) && estaEnBanderitas(t, b , pos(i + 1, k)) == -1) {// O(|j|) + O(1)
                     p = pos(i + 1, k);
                     return true;
-                } else if (!posicionValida(t, i - 1, k) || posicionJugada(t, j, pos(i + 1, k))) {// O(|j|) + O(1)
+                } else if (!posicionValida(t, i + 1, k) || posicionJugada(t, j, pos(i + 1, k)) && estaEnBanderitas(t, b , pos(i - 1, k)) == -1) {// O(|j|) + O(1)
                     p = pos(i - 1, k);
                     return true;
                 }
@@ -185,7 +184,7 @@ bool sugerirAutomatico121(const tablero& t, const banderitas& b, const jugadas& 
                 continue;
             }
 
-            // Columna 121. Complejidad O(|j|) + O(|j|) + O(1) = O(|j|)
+            // Columna 121. Complejidad O(2|j|) + O(2|j|) + O(2|b|) + O(1) = O(|j|)
             if (// O(|j|) + O(1)
                 posicionJugada(t, j, pos(i - 1, k)) && // Arriba
                 minasAdyacentes(t, pos(i - 1, k)) == 1 &&
@@ -195,11 +194,10 @@ bool sugerirAutomatico121(const tablero& t, const banderitas& b, const jugadas& 
                 // Encontramos una columna 121
                 // Si la posición de la izquierda está jugada, devolvemos la de la derecha y viceversa
                 // Si ninguna de las posiciones de la izquierda o derecha está jugada, no podemos determinar cuál de las dos es correcta
-                // HAY QUE AGREGAR QUE SI HAY BANDERITA DEVUELVA FALSE
-                if (!posicionValida(t, i, k - 1) || posicionJugada(t, j, pos(i, k - 1))) {// O(|j|) + O(1)
+                if ((!posicionValida(t, i, k - 1) || posicionJugada(t, j, pos(i, k - 1))) && estaEnBanderitas(t, b , pos(i, k + 1)) == -1) {// O(|j|) + O(1)
                     p = pos(i, k + 1);
                     return true;
-                } else if (!posicionValida(t, i, k + 1) || posicionJugada(t, j, pos(i, k + 1))) {// O(|j|) + O(1)
+                } else if ((!posicionValida(t, i, k + 1) || posicionJugada(t, j, pos(i, k + 1))) && estaEnBanderitas(t, b , pos(i, k - 1)) == -1) {// O(|j|) + O(1)
                     p = pos(i, k - 1);
                     return true;
                 }
@@ -208,4 +206,6 @@ bool sugerirAutomatico121(const tablero& t, const banderitas& b, const jugadas& 
             }
         }
     }
+
+    return false;
 }
