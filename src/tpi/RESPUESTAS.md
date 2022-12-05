@@ -15,9 +15,9 @@ $O(|t|^2 \cdot \left(|j| + |b|\right)) = O(|t|^2 \cdot 2 |t|^2) = O(|t|^4)$.
 Pasar a una implementación donde ``j`` es una matriz cuyos puntos corresponden a una
 posición del tablero (en una relación 1 a 1), y contienen el número de minas adyacentes
 a dicha posición, simplificaría las búsquedas sobre ``j``. Para saber si una posición ``(p, q)`` 
-se jugó, simplemente se accede a ``j[p][q]`` y se comprueba si es distinto de -1. 
-Esta operación se realiza en tiempo constante, i.e. es de complejidad O(1), por lo que ambos
-``jugarPlus`` y ``sugerirAutomatico121`` tendrían una mejora en la performance. Sin embargo, 
+se jugó, simplemente se accede a ``j[p][q]`` y se comprueba si es distinto de $-1$. 
+Esta operación se realiza en tiempo constante, i.e. es de complejidad $O(1)$, por lo que ambos
+``jugarPlus`` y ``sugerirAutomatico121`` tendrían una mejora en su performance. Sin embargo, 
 no hay una mejora en la complejidad del algoritmo porque ambos siguen dependiendo de una búsqueda 
 lineal sobre el vector de banderitas que, al igual que jugadas, en el peor de los casos $|b|$ es $|t|^2$:
 $O(|t|^2 \cdot |b|) = O(|t|^2 \cdot |t|^2) = O(|t|^4)$.
