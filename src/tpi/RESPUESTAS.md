@@ -14,8 +14,10 @@ posición del tablero (en una relación 1 a 1), y contienen el número de minas 
 a dicha posición, simplificaría las búsquedas sobre ``j``. Para saber si una posición ``(p, q)`` 
 se jugó, simplemente se accede a ``j[p][q]`` y se comprueba si es distinto de -1. 
 Esta operación se realiza en tiempo constante, i.e. es de complejidad O(1), por lo que ambos
-``jugarPlus`` y ``sugerirAutomatico121`` pasarían de una complejidad $O(|t|\cdot|t|\cdot|j|)$ a $O(|t|\cdot|t|\cdot 1) = O(|t|\cdot|t|)$.
-Recordemos que en el peor de los casos $|j|$ es $|t|²$ menos cantidad total minas, que puede aproximarse mucho
-a |t|, por lo que pasaríamos de algo muy parecido a $|t|^4$, a $|t|^2$.
+``jugarPlus`` y ``sugerirAutomatico121`` tendrían una mejora en la performance. No hay una mejora
+en la complejidad del algoritmo porque ambos siguen dependiendo de una búsqueda lineal sobre
+el vector de banderitas que, al igual que jugadas, en el peor de los casos $|b|$ es $|t|²$.
+Si hicieramos lo mismo con banderitas que con jugadas ahí si podríamos hablar de una mejora 
+en la complejidad de $O(|t|\cdot|t|\cdot|j|)$ a $O(|t|\cdot|t|\cdot 1) = O(|t|\cdot|t|)$.
 
 
