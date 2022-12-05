@@ -21,7 +21,7 @@ Esta operación se realiza en tiempo constante, i.e. es de complejidad $O(1)$, p
 no hay una mejora en la complejidad del algoritmo porque ambos siguen dependiendo de una búsqueda 
 lineal sobre el vector de banderitas que, al igual que jugadas, en el peor de los casos $|b|$ es $|t|^2$:
 $O(|t|^2 \cdot |b|) = O(|t|^2 \cdot |t|^2) = O(|t|^4)$.
-Si hicieramos lo mismo con banderitas que con jugadas ahí si podríamos hablar de una mejora 
+Si hicieramos con banderitas lo mismo que con jugadas, ahí si podríamos hablar de una mejora 
 en la complejidad:
 $O(|t|^2 \cdot \left(|j| + |b|\right)) = O(|t|^2 \cdot 2 \cdot 1) = O(|t|^2)$.
 
