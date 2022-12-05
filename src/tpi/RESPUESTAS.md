@@ -1,7 +1,7 @@
 ﻿### 2.4 Sobre la estructura de ``jugadas``:
 
 En nuestra implementación actual, la complejidad de ``jugarPlus`` es $O(|t|\cdot|t|\cdot|j|)$,
-al igual que la de ``sugerirAutomatico121``, donde $|t|$ y $|j|$
+al igual que la de ``sugerirAutomatico121``, donde $|j|$ y $|t|$
 representan el largo del vector de jugadas ``j`` y el largo de uno de los lados del tablero ``t``,
 respectivamente. En el caso de ``jugarPlus`` esto se debe a que posee una llamada recursiva, 
 que le permite en el peor de los casos recorrer todo el tablero y además una búsqueda lineal 
