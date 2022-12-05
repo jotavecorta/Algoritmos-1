@@ -5,7 +5,7 @@ al igual que la de ``sugerirAutomatico121``, donde $|t|$ y $|j|$
 representan el largo del vector de jugadas ``j`` y el largo de uno de los lados del tablero ``t``,
 respectivamente. En el caso de ``jugarPlus`` esto se debe a que posee una llamada recursiva, 
 que le permite en el peor de los casos recorrer todo el tablero y además una búsqueda lineal 
-en jugadas que es O(|j|), y una comprobación en banderitas, por cada posición de la misma. 
+en jugadas que es $O(|j|)$, y una comprobación en banderitas, por cada posición de la misma. 
 En cambio ``sugerirAutomatico121`` recorre todo el tablero con dos loops, y para cada posición también 
 hace una búsqueda lineal en el vector de jugadas ``j`` (recordemos que j no posee ningún orden particular)
 y una comprobación en banderitas. Vale aclarar que la comprobación en banderitas resulta en un término
